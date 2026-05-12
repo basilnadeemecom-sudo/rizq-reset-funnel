@@ -2241,9 +2241,18 @@ fbq('track', 'PageView');
     return m ? decodeURIComponent(m[1]) : undefined;
   }
 
+  // Meta's standard event names — anything else is dispatched as a custom event.
+  const META_STANDARD_EVENTS = new Set([
+    'PageView','ViewContent','Search','AddToCart','AddToWishlist',
+    'InitiateCheckout','AddPaymentInfo','Purchase','Lead','CompleteRegistration',
+    'Contact','CustomizeProduct','Donate','FindLocation','Schedule',
+    'StartTrial','SubmitApplication','Subscribe',
+  ]);
+
   function fbTrack(eventName, customData) {
     customData = customData || {};
     const eventId = 'rr_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+    const isStandard = META_STANDARD_EVENTS.has(eventName);
 
     // Always attach archetype if known
     const params = Object.assign({}, customData);
@@ -2253,9 +2262,11 @@ fbq('track', 'PageView');
       }
     } catch (_) {}
 
-    // Browser-side pixel
+    // Browser-side pixel — use 'track' for Meta's standard events, 'trackCustom' otherwise.
     if (window.fbq) {
-      try { fbq('track', eventName, params, { eventID: eventId }); } catch (_) {}
+      try {
+        fbq(isStandard ? 'track' : 'trackCustom', eventName, params, { eventID: eventId });
+      } catch (_) {}
     }
 
     // Server-side CAPI relay (Netlify Function)
@@ -2314,18 +2325,22 @@ fbq('track', 'PageView');
     if (name === 'offer') renderOffer();
     if (name === 'success') renderReceipt();
 
-    // Meta Pixel + CAPI funnel events
+    // Meta Pixel + CAPI funnel events.
+    // Note: no standard 'Lead' or 'CompleteRegistration' here — those are reserved
+    // for moments where the user actually submits PII (email/phone). Quiz milestones
+    // are tracked as custom events so we can still build Custom Audiences from them
+    // without misrepresenting intent to Meta's ML.
     switch (name) {
       case 'archetype':
         fbTrack('ViewContent', { content_name: 'Archetype Selection', content_category: 'Quiz' });
         break;
       case 'quiz':
         if (state.qIndex === 0) {
-          fbTrack('Lead', { content_name: 'Quiz Started', content_category: 'Quiz' });
+          fbTrack('QuizStarted', { content_name: 'Quiz Started', content_category: 'Quiz' });
         }
         break;
       case 'results':
-        fbTrack('CompleteRegistration', {
+        fbTrack('QuizCompleted', {
           content_name: 'Roadmap Viewed',
           content_category: 'Quiz Results',
         });
