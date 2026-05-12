@@ -4,6 +4,15 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>The Rizq Reset — Discover Your Muslim Money Archetype</title>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1028694942816111');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1028694942816111&ev=PageView&noscript=1" alt=""/></noscript>
+<!-- End Meta Pixel Code -->
 <style>
   /* ---------- Base ---------- */
   *, *::before, *::after { box-sizing: border-box; }
@@ -2219,6 +2228,54 @@
     }
   };
 
+  /* ================== Meta Pixel + Conversions API helper ================== */
+  // Fires the browser Pixel and posts the same event to /.netlify/functions/capi
+  // for server-side delivery, sharing an event_id for Meta-side deduplication.
+  const META_PIXEL_ID = '1028694942816111';
+
+  function fbpGetCookie(name) {
+    const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return m ? decodeURIComponent(m[1]) : undefined;
+  }
+
+  function fbTrack(eventName, customData) {
+    customData = customData || {};
+    const eventId = 'rr_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+
+    // Always attach archetype if known
+    const params = Object.assign({}, customData);
+    try {
+      if (typeof state !== 'undefined' && state && state.archetype && !params.archetype) {
+        params.archetype = state.archetype;
+      }
+    } catch (_) {}
+
+    // Browser-side pixel
+    if (window.fbq) {
+      try { fbq('track', eventName, params, { eventID: eventId }); } catch (_) {}
+    }
+
+    // Server-side CAPI relay (Netlify Function)
+    try {
+      const body = JSON.stringify({
+        event_name: eventName,
+        event_id: eventId,
+        event_source_url: window.location.href,
+        custom_data: params,
+        user_data: {
+          fbp: fbpGetCookie('_fbp'),
+          fbc: fbpGetCookie('_fbc'),
+        },
+      });
+      fetch('/.netlify/functions/capi', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: body,
+        keepalive: true,
+      }).catch(function () {});
+    } catch (_) {}
+  }
+
   /* ================== State ================== */
   const state = {
     archetype: null,
@@ -2253,6 +2310,41 @@
     if (name === 'results') renderResults();
     if (name === 'offer') renderOffer();
     if (name === 'success') renderReceipt();
+
+    // Meta Pixel + CAPI funnel events
+    switch (name) {
+      case 'archetype':
+        fbTrack('ViewContent', { content_name: 'Archetype Selection', content_category: 'Quiz' });
+        break;
+      case 'quiz':
+        if (state.qIndex === 0) {
+          fbTrack('Lead', { content_name: 'Quiz Started', content_category: 'Quiz' });
+        }
+        break;
+      case 'results':
+        fbTrack('CompleteRegistration', {
+          content_name: 'Roadmap Viewed',
+          content_category: 'Quiz Results',
+        });
+        break;
+      case 'offer':
+        fbTrack('ViewContent', {
+          content_name: 'Rizq Reset Blueprint Sales Page',
+          content_ids: ['rizq-reset-blueprint'],
+          content_type: 'product',
+          value: 47,
+          currency: 'USD',
+        });
+        break;
+      case 'checkout':
+        fbTrack('InitiateCheckout', {
+          content_ids: ['rizq-reset-blueprint'],
+          value: state.totals.blueprint + (state.purchases.bump ? state.totals.bump : 0),
+          currency: 'USD',
+          num_items: 1 + (state.purchases.bump ? 1 : 0),
+        });
+        break;
+    }
   }
 
   function updateProgress(name) {
@@ -2614,17 +2706,62 @@
     const total = state.totals.blueprint + (state.purchases.bump ? state.totals.bump : 0);
     document.getElementById('orderTotal').textContent = '$' + total;
     document.getElementById('bumpSumRow').style.display = state.purchases.bump ? 'flex' : 'none';
+    if (state.purchases.bump) {
+      fbTrack('AddToCart', {
+        content_ids: ['halal-budget-toolkit'],
+        content_name: 'Halal Budget Toolkit',
+        content_type: 'product',
+        value: state.totals.bump,
+        currency: 'USD',
+        num_items: 1,
+      });
+    }
   }
 
   function completeOrder() {
     state.purchases.blueprint = true;
+    const total = state.totals.blueprint + (state.purchases.bump ? state.totals.bump : 0);
+    const contentIds = ['rizq-reset-blueprint'];
+    if (state.purchases.bump) contentIds.push('halal-budget-toolkit');
+    fbTrack('Purchase', {
+      content_ids: contentIds,
+      content_name: 'Rizq Reset Blueprint' + (state.purchases.bump ? ' + Halal Budget Toolkit' : ''),
+      content_type: 'product',
+      value: total,
+      currency: 'USD',
+      num_items: contentIds.length,
+      order_stage: 'front_end',
+    });
     goto('upsell1');
   }
 
   /* ================== Upsells ================== */
   function acceptUpsell(n) {
-    if (n === 1) { state.purchases.tracker = true; goto('upsell2'); }
-    else if (n === 2) { state.purchases.coach = true; goto('success'); }
+    if (n === 1) {
+      state.purchases.tracker = true;
+      fbTrack('Purchase', {
+        content_ids: ['rizq-tracker'],
+        content_name: 'Rizq Tracker Web App',
+        content_type: 'product',
+        value: state.totals.tracker,
+        currency: 'USD',
+        num_items: 1,
+        order_stage: 'upsell_1',
+      });
+      goto('upsell2');
+    } else if (n === 2) {
+      state.purchases.coach = true;
+      fbTrack('Purchase', {
+        content_ids: ['ai-coach'],
+        content_name: 'AI Muslim Money Coach',
+        content_type: 'product',
+        value: state.totals.coach,
+        currency: 'USD',
+        num_items: 1,
+        order_stage: 'upsell_2',
+      });
+      goto('success');
+    }
   }
   function declineUpsell(n) {
     if (n === 1) goto('upsell2');

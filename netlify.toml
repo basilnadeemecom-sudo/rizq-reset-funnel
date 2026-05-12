@@ -1,0 +1,11 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# The Meta Conversions API access token is read by netlify/functions/capi.js
+# from process.env.META_CAPI_TOKEN. Set it via:
+#   Netlify dashboard → Site configuration → Environment variables
+# (or via the Netlify API). Never commit the token to the repo.
