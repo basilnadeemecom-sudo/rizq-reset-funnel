@@ -1,0 +1,2656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>The Rizq Reset — Discover Your Muslim Money Archetype</title>
+<style>
+  /* ---------- Base ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  :root {
+    --emerald-deep: #0B3D2E;
+    --emerald: #116B4F;
+    --emerald-soft: #1F8A5B;
+    --gold: #D4AF37;
+    --gold-soft: rgba(212, 175, 55, 0.18);
+    --gold-glow: rgba(212, 175, 55, 0.35);
+    --cream: #F8F3E7;
+    --off-white: #FFFCF4;
+    --charcoal: #1E2522;
+    --grey: #6B7280;
+    --border: #E7DDC8;
+    --amber: #C98A1A;
+    --red: #B94A48;
+    --shadow-sm: 0 2px 8px rgba(11, 61, 46, 0.06);
+    --shadow-md: 0 8px 28px rgba(11, 61, 46, 0.09);
+    --shadow-lg: 0 18px 50px rgba(11, 61, 46, 0.14);
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 22px;
+    --radius-xl: 28px;
+    --font: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  body {
+    font-family: var(--font);
+    color: var(--charcoal);
+    background:
+      radial-gradient(1200px 800px at 90% -10%, rgba(212,175,55,0.07), transparent 60%),
+      radial-gradient(900px 700px at -10% 110%, rgba(17,107,79,0.10), transparent 60%),
+      linear-gradient(180deg, #FFFCF4 0%, #F8F3E7 100%);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+
+  /* Decorative geometric background (very subtle) */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(17,107,79,0.05) 0 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, rgba(212,175,55,0.05) 0 1px, transparent 1px);
+    background-size: 36px 36px, 36px 36px;
+    background-position: 0 0, 18px 18px;
+    opacity: 0.6;
+    z-index: 0;
+  }
+
+  /* ---------- Layout shell ---------- */
+  .app-shell {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 24px 18px 80px;
+  }
+
+  @media (min-width: 900px) {
+    .app-shell {
+      max-width: 980px;
+      padding: 36px 28px 90px;
+    }
+  }
+
+  .frame {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    position: relative;
+  }
+  .frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(600px 200px at 50% -10%, rgba(212,175,55,0.10), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ---------- Top brand bar ---------- */
+  .brandbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(255,252,244,1), rgba(248,243,231,0.65));
+    position: relative;
+    z-index: 2;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; letter-spacing: -0.01em;
+    color: var(--emerald-deep);
+    font-size: 16px;
+  }
+  .logo-mark {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--emerald-deep), var(--emerald));
+    display: grid; place-items: center;
+    box-shadow: 0 0 0 3px rgba(212,175,55,0.18), inset 0 -4px 12px rgba(0,0,0,0.18);
+    position: relative;
+  }
+  .logo-mark::after {
+    content: "";
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    box-shadow: 4px 0 0 var(--gold);
+    background: transparent;
+    margin-left: -4px;
+  }
+  .logo small {
+    display: block;
+    font-weight: 500; font-size: 10px;
+    color: var(--grey); letter-spacing: 0.14em; text-transform: uppercase;
+    margin-top: -2px;
+  }
+  .brandbar .badge {
+    font-size: 11px;
+    color: var(--emerald);
+    background: rgba(17,107,79,0.08);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+    border: 1px solid rgba(17,107,79,0.18);
+    white-space: nowrap;
+  }
+  @media (max-width: 480px) {
+    .brandbar .badge { display: none; }
+  }
+
+  /* ---------- Screens ---------- */
+  .screen { display: none; padding: 26px 22px 30px; animation: fadeUp .35s ease both; position: relative; z-index: 1;}
+  .screen.active { display: block; }
+  @media (min-width: 900px) {
+    .screen { padding: 40px 56px 56px; }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  h1, h2, h3 { color: var(--charcoal); letter-spacing: -0.02em; margin: 0; }
+  h1 { font-size: 30px; line-height: 1.15; font-weight: 700; }
+  h2 { font-size: 22px; line-height: 1.25; font-weight: 700; }
+  h3 { font-size: 16px; line-height: 1.3; font-weight: 600; }
+  p  { margin: 0; color: var(--charcoal); }
+  .muted { color: var(--grey); }
+  .center { text-align: center; }
+
+  @media (min-width: 900px) {
+    h1 { font-size: 40px; }
+    h2 { font-size: 26px; }
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    appearance: none; border: 0; cursor: pointer;
+    font-family: var(--font); font-weight: 600; font-size: 16px;
+    padding: 16px 22px; border-radius: 16px;
+    width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    transition: transform .15s ease, box-shadow .15s ease, background .2s;
+    line-height: 1;
+  }
+  .btn-primary {
+    background: linear-gradient(180deg, var(--emerald) 0%, #0E5C44 100%);
+    color: var(--off-white);
+    box-shadow: 0 8px 24px rgba(17,107,79,0.28), inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 30px rgba(17,107,79,0.32); }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-gold {
+    background: linear-gradient(180deg, #E2BF45, #C09425);
+    color: #2B1F00;
+    box-shadow: 0 8px 22px rgba(212,175,55,0.35);
+  }
+  .btn-ghost {
+    background: transparent; color: var(--emerald);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover { background: rgba(17,107,79,0.05); }
+
+  .btn-link {
+    background: transparent; color: var(--grey);
+    border: 0; padding: 14px 10px; font-weight: 500; font-size: 14px;
+    width: auto; display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  }
+  .btn-link:hover { color: var(--charcoal); }
+
+  .btn + .btn { margin-top: 10px; }
+
+  /* ---------- Progress ---------- */
+  .progress-wrap {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 22px 0;
+    position: relative; z-index: 2;
+  }
+  .progress-bar {
+    flex: 1; height: 6px; background: rgba(17,107,79,0.10);
+    border-radius: 999px; overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; background: linear-gradient(90deg, var(--emerald), var(--emerald-soft));
+    width: 0%; transition: width .4s ease;
+    border-radius: 999px;
+    box-shadow: 0 0 12px rgba(31,138,91,0.4);
+  }
+  .progress-label {
+    font-size: 12px; color: var(--grey); font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase;
+    min-width: 78px; text-align: right;
+  }
+
+  /* ---------- Hero / Landing ---------- */
+  .hero {
+    text-align: center;
+    padding-top: 6px;
+  }
+  .hero .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(17,107,79,0.07);
+    color: var(--emerald);
+    border: 1px solid rgba(17,107,79,0.15);
+    padding: 8px 14px; border-radius: 999px;
+    font-size: 12px; font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero .eyebrow .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--gold); box-shadow: 0 0 0 4px rgba(212,175,55,0.2);
+  }
+  .hero h1 { margin-bottom: 14px; }
+  .hero p.sub { color: var(--grey); font-size: 16px; max-width: 520px; margin: 0 auto 24px; }
+
+  .hero-bullets {
+    list-style: none; padding: 0; margin: 0 auto 26px;
+    display: grid; gap: 10px;
+    max-width: 460px;
+    text-align: left;
+  }
+  .hero-bullets li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14.5px; color: var(--charcoal);
+  }
+  .hero-bullets li .tick {
+    flex: 0 0 22px; height: 22px; border-radius: 50%;
+    background: rgba(31,138,91,0.12);
+    color: var(--emerald-soft);
+    display: grid; place-items: center;
+    font-size: 12px; font-weight: 800;
+  }
+
+  /* Roadmap preview card */
+  .roadmap-preview {
+    background: linear-gradient(160deg, var(--emerald-deep), var(--emerald));
+    border-radius: var(--radius-xl);
+    padding: 22px;
+    color: var(--off-white);
+    box-shadow: var(--shadow-lg);
+    position: relative; overflow: hidden;
+    margin-top: 8px;
+  }
+  .roadmap-preview::before {
+    content: ""; position: absolute; inset: -1px;
+    background:
+      radial-gradient(140px 60px at 80% 0%, rgba(212,175,55,0.25), transparent 70%),
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 14px);
+    pointer-events: none;
+  }
+  .roadmap-preview .rp-head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .roadmap-preview .rp-head .tag {
+    background: rgba(212,175,55,0.18);
+    color: var(--gold);
+    border: 1px solid rgba(212,175,55,0.4);
+    padding: 5px 10px; border-radius: 999px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .roadmap-preview h3 { color: var(--off-white); font-size: 18px; margin-bottom: 4px; }
+  .roadmap-preview .rp-sub { font-size: 13px; color: rgba(255,252,244,0.7); margin-bottom: 16px; position: relative; }
+  .rp-weeks {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 8px; position: relative;
+  }
+  .rp-week {
+    background: rgba(255,252,244,0.06);
+    border: 1px solid rgba(212,175,55,0.18);
+    border-radius: 12px;
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .rp-week .num {
+    font-size: 10px; color: var(--gold); font-weight: 700; letter-spacing: 0.1em;
+  }
+  .rp-week .lbl {
+    font-size: 12px; color: var(--off-white); margin-top: 2px; font-weight: 600;
+  }
+
+  .trust-row {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 8px; margin-top: 22px;
+  }
+  .trust-row .pill {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    color: var(--charcoal);
+    border-radius: 12px; padding: 10px 12px;
+    font-size: 12px; font-weight: 600;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .trust-row .pill .ic {
+    width: 22px; height: 22px; border-radius: 6px;
+    background: rgba(17,107,79,0.08); color: var(--emerald);
+    display: grid; place-items: center; font-size: 12px;
+  }
+  @media (min-width: 600px) {
+    .trust-row { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .cta-block { margin-top: 22px; }
+
+  .micro-note {
+    text-align: center; font-size: 12px; color: var(--grey); margin-top: 10px;
+  }
+
+  /* ---------- Archetype Selection ---------- */
+  .arche-grid {
+    display: grid; gap: 14px; margin-top: 6px;
+  }
+  @media (min-width: 800px) {
+    .arche-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .arche-card {
+    background: var(--off-white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    cursor: pointer;
+    transition: all .2s ease;
+    position: relative;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .arche-card:hover { border-color: rgba(17,107,79,0.4); transform: translateY(-1px); }
+  .arche-card.selected {
+    border-color: var(--emerald);
+    box-shadow: 0 0 0 3px var(--gold-soft), 0 12px 30px rgba(11,61,46,0.10);
+  }
+  .arche-card.selected::after {
+    content: "✓";
+    position: absolute; top: 14px; right: 14px;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--emerald); color: var(--off-white);
+    display: grid; place-items: center;
+    font-size: 14px; font-weight: 700;
+    box-shadow: 0 0 0 4px rgba(212,175,55,0.25);
+  }
+
+  .arche-head {
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .arche-icon {
+    width: 42px; height: 42px; flex: 0 0 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(17,107,79,0.12), rgba(212,175,55,0.18));
+    color: var(--emerald);
+    display: grid; place-items: center; font-size: 20px;
+    border: 1px solid rgba(17,107,79,0.15);
+  }
+  .arche-name { font-weight: 700; font-size: 16px; }
+  .arche-desc { font-size: 13.5px; color: var(--grey); line-height: 1.5; }
+
+  .arche-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .arche-tags span {
+    font-size: 11.5px;
+    background: rgba(17,107,79,0.06);
+    color: var(--emerald);
+    padding: 5px 9px; border-radius: 999px;
+    border: 1px solid rgba(17,107,79,0.13);
+    font-weight: 500;
+  }
+
+  .arche-card .choose {
+    margin-top: auto;
+    padding: 12px 14px;
+    font-size: 14px;
+    border-radius: 12px;
+    background: rgba(17,107,79,0.07);
+    color: var(--emerald);
+    border: 1px solid rgba(17,107,79,0.18);
+    font-weight: 600;
+    text-align: center;
+  }
+  .arche-card.selected .choose {
+    background: var(--emerald); color: var(--off-white);
+    border-color: var(--emerald);
+  }
+
+  /* ---------- Quiz questions ---------- */
+  .q-screen .q-num {
+    color: var(--grey); font-size: 12px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 6px;
+  }
+  .q-screen h2 { margin-bottom: 18px; }
+
+  .q-options {
+    display: grid; gap: 10px;
+  }
+  .q-option {
+    text-align: left;
+    background: var(--off-white);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    font-size: 15px; color: var(--charcoal); font-weight: 500;
+    cursor: pointer;
+    transition: all .15s ease;
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    width: 100%;
+    font-family: var(--font);
+  }
+  .q-option:hover {
+    border-color: rgba(17,107,79,0.4);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+  .q-option.selected {
+    border-color: var(--emerald);
+    background: rgba(17,107,79,0.05);
+    box-shadow: 0 0 0 3px var(--gold-soft);
+  }
+  .q-option .check {
+    width: 22px; height: 22px; border-radius: 50%;
+    border: 1.5px solid var(--border);
+    display: grid; place-items: center; flex: 0 0 22px;
+    color: transparent; font-size: 13px; font-weight: 700;
+  }
+  .q-option.selected .check {
+    background: var(--emerald); border-color: var(--emerald); color: var(--off-white);
+  }
+
+  .q-actions {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  /* ---------- Loading ---------- */
+  .loading-screen { text-align: center; padding-top: 40px; padding-bottom: 40px; }
+  .loading-orbit {
+    width: 120px; height: 120px;
+    margin: 6px auto 24px;
+    position: relative;
+    display: grid; place-items: center;
+  }
+  .loading-orbit .ring {
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(17,107,79,0.12);
+  }
+  .loading-orbit .ring.spin {
+    border-top-color: var(--emerald);
+    border-right-color: var(--gold);
+    animation: spin 1.4s linear infinite;
+  }
+  .loading-orbit .core {
+    width: 50px; height: 50px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--emerald-deep), var(--emerald));
+    box-shadow: 0 0 0 4px rgba(212,175,55,0.18), inset 0 -6px 14px rgba(0,0,0,0.25);
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .load-msg { color: var(--grey); font-size: 14px; margin: 14px 0 22px; min-height: 22px; }
+  .load-bar {
+    height: 8px; background: rgba(17,107,79,0.10); border-radius: 999px; overflow: hidden;
+    max-width: 360px; margin: 0 auto;
+  }
+  .load-bar div {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--emerald), var(--gold));
+    border-radius: 999px;
+    box-shadow: 0 0 12px rgba(212,175,55,0.4);
+    transition: width .25s linear;
+  }
+
+  /* ---------- Results ---------- */
+  .result-hero {
+    background: linear-gradient(160deg, var(--emerald-deep) 0%, var(--emerald) 100%);
+    color: var(--off-white);
+    border-radius: var(--radius-xl);
+    padding: 26px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    position: relative; overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .result-hero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(220px 120px at 80% 100%, rgba(212,175,55,0.22), transparent 70%),
+      radial-gradient(circle at 50% 0%, rgba(212,175,55,0.10), transparent 70%);
+    pointer-events: none;
+  }
+  .result-hero .label {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 6px;
+    position: relative;
+  }
+  .result-hero h1 { color: var(--off-white); font-size: 28px; position: relative; }
+  .result-hero .diag {
+    margin-top: 14px; color: rgba(255,252,244,0.85); font-size: 14.5px; line-height: 1.6;
+    position: relative;
+  }
+
+  .result-section { margin-bottom: 22px; }
+  .result-section .head {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 12px;
+  }
+  .result-section .head .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gold); box-shadow: 0 0 0 4px rgba(212,175,55,0.2);
+  }
+  .result-section .head h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--emerald-deep); }
+
+  .bottleneck {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 16px 18px;
+    font-size: 14.5px;
+    color: var(--charcoal);
+  }
+
+  .weeks {
+    display: grid; gap: 10px;
+  }
+  .week-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--emerald);
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .week-card .wk-num {
+    flex: 0 0 36px; height: 36px; border-radius: 10px;
+    background: rgba(17,107,79,0.08); color: var(--emerald);
+    display: grid; place-items: center; font-weight: 700; font-size: 13px;
+    border: 1px solid rgba(17,107,79,0.15);
+  }
+  .week-card h4 { margin: 0; font-size: 15px; color: var(--charcoal); }
+  .week-card p { font-size: 13.5px; color: var(--grey); margin-top: 4px; }
+
+  .reco-card {
+    background: linear-gradient(180deg, var(--off-white), var(--cream));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    display: flex; gap: 14px; align-items: center;
+    margin-top: 6px;
+  }
+  .reco-card .icon-square {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--emerald-deep), var(--emerald));
+    color: var(--gold);
+    display: grid; place-items: center; font-size: 22px;
+    box-shadow: 0 6px 18px rgba(17,107,79,0.25);
+    flex: 0 0 48px;
+  }
+  .reco-card .meta { font-size: 12px; color: var(--grey); }
+  .reco-card h4 { margin: 0; font-size: 16px; }
+
+  /* ---------- Offer ---------- */
+  .offer-hero {
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  .offer-hero .price-row {
+    display: inline-flex; align-items: baseline; gap: 8px;
+    margin-top: 12px;
+  }
+  .price-row .strike { color: var(--grey); text-decoration: line-through; font-size: 16px; }
+  .price-row .now { color: var(--emerald-deep); font-size: 38px; font-weight: 700; letter-spacing: -0.03em; }
+  .price-row .per { color: var(--grey); font-size: 13px; }
+
+  .stack-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 18px;
+  }
+  .stack-card h3 {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 12px; font-size: 15px;
+  }
+  .stack-card h3::before {
+    content: ""; width: 6px; height: 18px; border-radius: 3px;
+    background: linear-gradient(180deg, var(--gold), var(--emerald));
+  }
+  .stack-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .stack-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: var(--charcoal);
+    padding-bottom: 10px; border-bottom: 1px dashed var(--border);
+  }
+  .stack-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+  .stack-list .tick {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--emerald); color: var(--off-white);
+    display: grid; place-items: center; font-size: 11px; flex: 0 0 20px; font-weight: 700;
+  }
+  .stack-list .val {
+    margin-left: auto; color: var(--grey); font-size: 13px; font-weight: 600;
+  }
+
+  .stack-total {
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--border);
+    margin-top: 12px; padding-top: 12px;
+    font-weight: 700;
+  }
+  .stack-total .label { font-size: 13px; color: var(--grey); }
+  .stack-total .strike { text-decoration: line-through; color: var(--grey); font-weight: 500; }
+  .stack-total .final { color: var(--emerald-deep); font-size: 20px; }
+
+  .ethics-note {
+    margin-top: 16px;
+    background: rgba(17,107,79,0.05);
+    border: 1px solid rgba(17,107,79,0.18);
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 13px; color: var(--charcoal);
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .ethics-note .ic { color: var(--emerald); }
+
+  /* ---------- Checkout ---------- */
+  .checkout-grid {
+    display: grid; gap: 18px;
+  }
+  @media (min-width: 900px) {
+    .checkout-grid { grid-template-columns: 1.1fr 1fr; }
+  }
+  .summary-card {
+    background: linear-gradient(180deg, var(--off-white), var(--cream));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+  }
+  .sum-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0; border-bottom: 1px dashed var(--border);
+    font-size: 14px;
+  }
+  .sum-row:last-child { border-bottom: 0; }
+  .sum-row .name { font-weight: 600; color: var(--charcoal); }
+  .sum-row .price { color: var(--emerald-deep); font-weight: 700; }
+
+  .bump-card {
+    margin-top: 12px;
+    background: var(--off-white);
+    border: 1.5px dashed var(--gold);
+    border-radius: 16px;
+    padding: 16px;
+    position: relative;
+  }
+  .bump-card .bump-flag {
+    position: absolute; top: -10px; left: 14px;
+    background: var(--gold); color: #2B1F00;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    padding: 4px 10px; border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .bump-card label {
+    display: flex; gap: 12px; align-items: flex-start; cursor: pointer;
+  }
+  .bump-card input[type="checkbox"] {
+    width: 20px; height: 20px; accent-color: var(--emerald);
+    margin-top: 2px; flex: 0 0 20px;
+  }
+  .bump-card .b-title { font-weight: 700; font-size: 15px; color: var(--charcoal); }
+  .bump-card .b-desc { font-size: 13px; color: var(--grey); margin-top: 4px; }
+  .bump-card .b-price { color: var(--emerald-deep); font-weight: 700; margin-left: 6px; }
+  .bump-includes {
+    margin-top: 10px; padding-left: 32px;
+    display: grid; gap: 4px; font-size: 12.5px; color: var(--grey);
+  }
+  .bump-includes li::before { content: "·"; margin-right: 6px; color: var(--gold); font-weight: 700; }
+  .bump-includes li { list-style: none; }
+
+  .total-bar {
+    margin-top: 14px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 16px;
+    background: var(--emerald-deep);
+    color: var(--off-white);
+    border-radius: 14px;
+  }
+  .total-bar .lbl { font-size: 13px; color: rgba(255,252,244,0.7); }
+  .total-bar .amt { font-size: 22px; font-weight: 700; color: var(--off-white); }
+
+  /* Payment form */
+  .form-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+  }
+  .form-card h3 { margin-bottom: 14px; }
+  .field { margin-bottom: 12px; }
+  .field label { display: block; font-size: 12px; font-weight: 600; color: var(--grey); margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .field input {
+    width: 100%; padding: 14px 14px;
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--cream); font-family: var(--font); font-size: 15px; color: var(--charcoal);
+    outline: none; transition: border .15s, box-shadow .15s;
+  }
+  .field input:focus { border-color: var(--emerald); box-shadow: 0 0 0 3px rgba(17,107,79,0.12); }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .reassure {
+    display: grid; gap: 8px; grid-template-columns: 1fr 1fr;
+    margin-top: 14px;
+  }
+  .reassure span {
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(17,107,79,0.06);
+    color: var(--emerald);
+    padding: 8px 10px; border-radius: 10px;
+    font-size: 12px; font-weight: 600;
+    border: 1px solid rgba(17,107,79,0.13);
+  }
+
+  /* ---------- Upsell dashboard mockup ---------- */
+  .ups-hero { text-align: center; margin-bottom: 18px; }
+  .ups-hero .pillrow {
+    display: inline-flex; gap: 8px; margin-top: 12px;
+  }
+  .ups-hero .pillrow span {
+    background: rgba(212,175,55,0.16); color: #7a5a08;
+    border: 1px solid rgba(212,175,55,0.35);
+    padding: 6px 10px; border-radius: 999px;
+    font-size: 12px; font-weight: 700;
+  }
+
+  .dash-mock {
+    background: var(--emerald-deep);
+    border-radius: var(--radius-xl);
+    padding: 16px;
+    box-shadow: var(--shadow-lg);
+    color: var(--off-white);
+    margin-bottom: 18px;
+    position: relative; overflow: hidden;
+  }
+  .dash-mock::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(220px 120px at 100% 0%, rgba(212,175,55,0.18), transparent 70%);
+    pointer-events: none;
+  }
+  .dash-top {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .dash-top .dt-title {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .dash-top .dt-title .dot-row { display: flex; gap: 4px; }
+  .dash-top .dt-title .dot-row i {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,252,244,0.18);
+  }
+  .dash-top .dt-title i:nth-child(1) { background: #ff5f57; }
+  .dash-top .dt-title i:nth-child(2) { background: #febc2e; }
+  .dash-top .dt-title i:nth-child(3) { background: #28c840; }
+  .dash-top .dt-title span { font-size: 12px; opacity: 0.8; }
+  .dash-top .dt-user {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; opacity: 0.9;
+  }
+  .dash-top .avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--emerald));
+    display: grid; place-items: center; font-size: 12px; font-weight: 700; color: var(--off-white);
+  }
+
+  .dash-grid {
+    display: grid; gap: 10px; grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
+  .dash-card {
+    background: var(--off-white); color: var(--charcoal);
+    border-radius: 14px; padding: 14px;
+    border: 1px solid rgba(212,175,55,0.18);
+  }
+  .dash-card .lbl {
+    font-size: 11px; color: var(--grey);
+    text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;
+  }
+  .dash-card .val {
+    font-size: 20px; font-weight: 700; color: var(--emerald-deep);
+    margin-top: 4px;
+  }
+  .dash-card .val.small { font-size: 16px; }
+  .dash-card .meta { font-size: 11px; color: var(--grey); margin-top: 4px; }
+
+  .mini-bar { height: 6px; background: rgba(17,107,79,0.10); border-radius: 999px; overflow: hidden; margin-top: 8px; }
+  .mini-bar div { height: 100%; background: linear-gradient(90deg, var(--emerald), var(--emerald-soft)); border-radius: 999px; }
+
+  .barakah-card {
+    grid-column: span 2;
+    background: linear-gradient(120deg, #FFFCF4, #F8F3E7);
+    color: var(--charcoal);
+    border: 1px solid rgba(212,175,55,0.4);
+    border-radius: 14px;
+    padding: 14px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .barakah-card .b-left .lbl { font-size: 11px; color: var(--grey); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
+  .barakah-card .b-left .score { font-size: 28px; font-weight: 700; color: var(--emerald-deep); }
+  .barakah-card .b-left .delta { font-size: 12px; color: var(--emerald-soft); font-weight: 600; }
+  .ring-score {
+    --p: 82;
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: conic-gradient(var(--emerald) calc(var(--p) * 1%), rgba(17,107,79,0.10) 0);
+    display: grid; place-items: center;
+    position: relative;
+  }
+  .ring-score::after {
+    content: ""; position: absolute; inset: 6px;
+    background: var(--off-white); border-radius: 50%;
+  }
+  .ring-score span {
+    position: relative; z-index: 1; font-weight: 700; color: var(--emerald-deep); font-size: 14px;
+  }
+
+  .feat-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin: 18px 0 8px;
+  }
+  .feat-grid .feat {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 13px; color: var(--charcoal);
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .feat .ic-sq {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: rgba(17,107,79,0.08); color: var(--emerald);
+    display: grid; place-items: center; font-size: 14px;
+    flex: 0 0 28px;
+  }
+
+  /* ---------- AI Coach prompts ---------- */
+  .chat-mock {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .chat-head {
+    display: flex; align-items: center; gap: 10px;
+    padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    margin-bottom: 14px;
+  }
+  .chat-head .ai-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--emerald-deep), var(--emerald));
+    color: var(--gold);
+    display: grid; place-items: center; font-weight: 700;
+    box-shadow: 0 0 0 3px rgba(212,175,55,0.18);
+  }
+  .chat-head .meta strong { display: block; font-size: 14px; }
+  .chat-head .meta span { font-size: 12px; color: var(--emerald-soft); }
+  .chat-head .meta span::before {
+    content: "•"; color: var(--emerald-soft); margin-right: 4px;
+  }
+
+  .prompt-grid {
+    display: grid; gap: 8px; grid-template-columns: 1fr;
+  }
+  @media (min-width: 600px) {
+    .prompt-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .prompt-chip {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 11px 12px;
+    font-size: 13px; color: var(--charcoal);
+    display: flex; gap: 8px; align-items: center;
+  }
+  .prompt-chip .ic { color: var(--emerald); }
+
+  /* ---------- Success ---------- */
+  .success-icon {
+    margin: 12px auto 14px;
+    width: 90px; height: 90px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--emerald), var(--emerald-soft));
+    color: var(--gold);
+    display: grid; place-items: center;
+    font-size: 42px;
+    box-shadow: 0 0 0 8px rgba(212,175,55,0.18), 0 18px 40px rgba(17,107,79,0.25);
+    animation: pop .5s ease both;
+  }
+  @keyframes pop {
+    0% { transform: scale(.6); opacity: 0; }
+    60% { transform: scale(1.06); opacity: 1; }
+    100% { transform: scale(1); }
+  }
+
+  .receipt {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    margin: 20px 0 6px;
+  }
+  .receipt h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--emerald-deep); margin-bottom: 12px; }
+  .receipt ul { list-style: none; padding: 0; margin: 0; }
+  .receipt li {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0; border-bottom: 1px dashed var(--border);
+    font-size: 14px;
+  }
+  .receipt li:last-child { border-bottom: 0; }
+  .receipt li .name { display: flex; align-items: center; gap: 10px; }
+  .receipt li .name .tick {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--emerald-soft); color: var(--off-white);
+    display: grid; place-items: center; font-size: 12px; font-weight: 700;
+  }
+  .receipt .grand {
+    margin-top: 6px; padding-top: 12px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between;
+    font-weight: 700; color: var(--emerald-deep); font-size: 17px;
+  }
+
+  /* ---------- Personalised offer sections ---------- */
+  .insights-card, .meaning-card, .bridge-card, .thirty-day-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 18px;
+  }
+  .section-eyebrow {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--emerald-deep); font-weight: 700;
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 12px;
+  }
+  .section-eyebrow::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); box-shadow: 0 0 0 3px rgba(212,175,55,0.22);
+  }
+  .insights-grid {
+    display: grid; gap: 10px;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 480px) {
+    .insights-grid { grid-template-columns: 1fr; }
+  }
+  .insight-cell {
+    background: linear-gradient(180deg, var(--cream), var(--off-white));
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .insight-cell .ic {
+    flex: 0 0 28px; height: 28px; border-radius: 8px;
+    background: rgba(17,107,79,0.10); color: var(--emerald);
+    display: grid; place-items: center; font-size: 14px;
+  }
+  .insight-cell .label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--grey); font-weight: 700;
+    line-height: 1.3;
+  }
+  .insight-cell .value {
+    font-size: 14.5px; font-weight: 700; color: var(--emerald-deep);
+    margin-top: 2px; line-height: 1.3;
+  }
+  .meaning-card p, .bridge-card p {
+    font-size: 14.5px; color: var(--charcoal); line-height: 1.65;
+    margin: 0;
+  }
+  .bridge-card {
+    background: linear-gradient(180deg, var(--off-white), var(--cream));
+    border-color: rgba(17,107,79,0.18);
+  }
+  .thirty-day-card .weeks { display: grid; gap: 10px; }
+
+  /* ---------- Long-form Sales Page ---------- */
+  .sp-hero { text-align: center; padding: 6px 0 4px; margin-bottom: 18px; }
+  .sp-preheadline {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(212,175,55,0.16);
+    color: #7a5a08;
+    border: 1px solid rgba(212,175,55,0.4);
+    padding: 8px 14px; border-radius: 999px;
+    font-size: 12px; font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+  .sp-headline { font-size: 30px; line-height: 1.15; margin: 0 0 14px; color: var(--charcoal); letter-spacing: -0.02em; font-weight: 700; }
+  @media (min-width: 900px) { .sp-headline { font-size: 42px; } }
+  .sp-subheadline {
+    color: var(--grey); font-size: 16px;
+    max-width: 600px; margin: 0 auto 22px;
+    line-height: 1.6;
+  }
+  .sp-price-row {
+    display: inline-flex; align-items: baseline; gap: 10px;
+    margin-bottom: 18px;
+  }
+  .sp-price-row .strike { color: var(--grey); text-decoration: line-through; font-size: 15px; }
+  .sp-price-row .now { color: var(--emerald-deep); font-size: 42px; font-weight: 700; letter-spacing: -0.03em; }
+  .sp-price-row .per { color: var(--grey); font-size: 13px; }
+  .sp-hero .btn { max-width: 380px; margin: 0 auto; }
+  .sp-micro { text-align: center; color: var(--grey); font-size: 12.5px; margin-top: 10px; }
+  .sp-eth-note {
+    display: inline-block; margin-top: 12px;
+    background: rgba(17,107,79,0.05);
+    border: 1px solid rgba(17,107,79,0.18);
+    padding: 6px 12px; border-radius: 999px;
+    color: var(--emerald); font-size: 11.5px; font-weight: 600;
+  }
+
+  .sp-section {
+    padding: 28px 0;
+    border-top: 1px solid var(--border);
+  }
+  .sp-section:first-of-type { border-top: 0; padding-top: 6px; }
+  .sp-eyebrow {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--emerald); font-weight: 800;
+    margin-bottom: 10px;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .sp-eyebrow::before {
+    content: ""; width: 18px; height: 2px;
+    background: var(--gold); border-radius: 2px;
+  }
+  .sp-h2 {
+    font-size: 24px; line-height: 1.2;
+    color: var(--charcoal); letter-spacing: -0.02em;
+    margin: 0 0 14px;
+    font-weight: 700;
+  }
+  @media (min-width: 900px) { .sp-h2 { font-size: 30px; } }
+  .sp-section p {
+    font-size: 15px; color: var(--charcoal);
+    line-height: 1.7; margin: 0 0 12px;
+  }
+
+  /* Premium stack list */
+  .stack-list-premium {
+    list-style: none; padding: 0; margin: 16px 0 0;
+    display: grid; gap: 10px;
+  }
+  .stack-item {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .stack-item .tick-lg {
+    flex: 0 0 28px; height: 28px; border-radius: 50%;
+    background: var(--emerald); color: var(--off-white);
+    display: grid; place-items: center; font-size: 14px; font-weight: 700;
+  }
+  .stack-item .meta { flex: 1; min-width: 0; }
+  .stack-item .stk-name { font-size: 14.5px; font-weight: 700; color: var(--charcoal); }
+  .stack-item .stk-benefit { font-size: 12.5px; color: var(--grey); margin-top: 3px; line-height: 1.5; }
+  .stack-item .stk-value {
+    font-size: 13px; font-weight: 700; color: var(--emerald-deep);
+    white-space: nowrap; padding-top: 2px;
+  }
+  .stack-total-premium {
+    margin-top: 14px;
+    background: linear-gradient(180deg, var(--cream), var(--off-white));
+    border: 1px solid var(--border);
+    border-radius: 14px; padding: 14px 18px;
+  }
+
+  /* FAQ */
+  .faq { display: grid; gap: 8px; margin-top: 14px; }
+  .faq details {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    transition: border .15s;
+  }
+  .faq details[open] { border-color: rgba(17,107,79,0.4); }
+  .faq summary {
+    list-style: none; cursor: pointer;
+    font-size: 14.5px; font-weight: 700; color: var(--charcoal);
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 12px;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "+"; color: var(--emerald);
+    font-size: 22px; font-weight: 500; line-height: 1;
+    flex: 0 0 22px; text-align: center;
+  }
+  .faq details[open] summary::after { content: "−"; }
+  .faq .faq-a {
+    font-size: 14px; color: var(--grey); line-height: 1.65;
+    margin-top: 10px; padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Final CTA */
+  .sp-final-cta {
+    background: linear-gradient(160deg, var(--emerald-deep), var(--emerald));
+    color: var(--off-white);
+    border-radius: var(--radius-xl);
+    padding: 32px 24px;
+    text-align: center;
+    margin: 20px 0 12px;
+    box-shadow: var(--shadow-lg);
+    position: relative; overflow: hidden;
+  }
+  .sp-final-cta::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(280px 140px at 50% 100%, rgba(212,175,55,0.26), transparent 70%),
+      radial-gradient(circle at 50% 0%, rgba(212,175,55,0.10), transparent 60%);
+    pointer-events: none;
+  }
+  .sp-final-cta h2 {
+    color: var(--off-white); font-size: 26px; line-height: 1.2;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em; font-weight: 700;
+    position: relative;
+  }
+  @media (min-width: 900px) { .sp-final-cta h2 { font-size: 32px; } }
+  .sp-final-cta p {
+    color: rgba(255,252,244,0.88); font-size: 15px;
+    margin: 0 auto 20px; max-width: 500px;
+    line-height: 1.65;
+    position: relative;
+  }
+  .sp-final-cta .btn { max-width: 420px; margin: 0 auto; position: relative; }
+  .sp-final-cta .btn-primary {
+    background: linear-gradient(180deg, var(--gold), #C09425);
+    color: #2B1F00;
+    box-shadow: 0 12px 30px rgba(212,175,55,0.45);
+    font-size: 17px;
+    padding: 18px 24px;
+  }
+  .sp-final-cta .sp-micro { color: rgba(255,252,244,0.78); position: relative; margin-top: 14px; }
+
+  /* ---------- Sales Page v2 — Product Reveal Style ---------- */
+  /* Slightly wider frame when the sales page is active (Chrome/Safari/Edge/FF121+) */
+  @media (min-width: 1100px) {
+    body:has(#screen-offer.active) .app-shell { max-width: 1120px; }
+  }
+  #screen-offer { padding: 22px 18px 30px; }
+  @media (min-width: 900px) { #screen-offer { padding: 36px 40px 60px; } }
+
+  /* Alternating section blocks */
+  .sp-block {
+    padding: 30px 0;
+    border-top: 1px solid var(--border);
+  }
+  .sp-block:first-of-type { border-top: 0; padding-top: 10px; }
+  .sp-block.cream {
+    background: linear-gradient(180deg, var(--cream) 0%, #F5EFE0 100%);
+    border-radius: var(--radius-xl);
+    padding: 28px 22px;
+    margin: 14px 0;
+    border-top: 0;
+    border: 1px solid var(--border);
+  }
+  @media (min-width: 900px) { .sp-block.cream { padding: 40px 36px; } }
+  .sp-block h2 {
+    font-size: 24px; line-height: 1.15; letter-spacing: -0.02em;
+    margin: 8px 0 8px; color: var(--charcoal); font-weight: 700;
+  }
+  @media (min-width: 900px) { .sp-block h2 { font-size: 32px; } }
+  .sp-block .sp-sub-h {
+    font-size: 15px; color: var(--grey);
+    line-height: 1.65; margin: 0 0 16px;
+    max-width: 660px;
+  }
+
+  /* HERO 2-col */
+  .sp-hero-grid {
+    display: grid; gap: 30px;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding-top: 6px;
+  }
+  @media (min-width: 880px) {
+    .sp-hero-grid { grid-template-columns: 1.05fr 1fr; gap: 44px; }
+  }
+  .sp-hero-text { text-align: center; }
+  @media (min-width: 880px) { .sp-hero-text { text-align: left; } }
+  .sp-hero-text .sp-headline {
+    font-size: 28px; line-height: 1.15; margin: 0 0 14px;
+  }
+  @media (min-width: 880px) { .sp-hero-text .sp-headline { font-size: 36px; } }
+  @media (min-width: 1100px) { .sp-hero-text .sp-headline { font-size: 42px; } }
+  .sp-hero-text .sp-subheadline { margin-left: auto; margin-right: auto; }
+  @media (min-width: 880px) {
+    .sp-hero-text .sp-subheadline { margin-left: 0; margin-right: 0; max-width: 540px; }
+  }
+
+  .sp-badges {
+    display: inline-flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 16px; justify-content: center;
+  }
+  @media (min-width: 880px) { .sp-badges { justify-content: flex-start; } }
+  .sp-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 11.5px; font-weight: 700;
+    line-height: 1;
+  }
+  .sp-badge.top  { background: rgba(17,107,79,0.08); color: var(--emerald); border: 1px solid rgba(17,107,79,0.20); }
+  .sp-badge.arch { background: rgba(212,175,55,0.16); color: #7a5a08; border: 1px solid rgba(212,175,55,0.4); }
+
+  .sp-trust-bullets {
+    list-style: none; padding: 0; margin: 14px auto 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    max-width: 460px;
+  }
+  @media (min-width: 880px) { .sp-trust-bullets { margin-left: 0; margin-right: 0; } }
+  .sp-trust-bullets li {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12.5px; color: var(--charcoal); font-weight: 500;
+  }
+  .sp-trust-bullets li::before {
+    content: "✓"; color: var(--emerald-soft); font-weight: 800; font-size: 13px;
+    flex: 0 0 14px;
+  }
+
+  /* Price box */
+  .price-box {
+    display: inline-flex; flex-direction: column; align-items: flex-start;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 12px 18px;
+    margin: 16px 0;
+  }
+  .price-box .reg {
+    font-size: 11px; color: var(--grey);
+    text-decoration: line-through;
+    font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .price-box .today {
+    display: flex; align-items: baseline; gap: 8px; margin-top: 2px;
+  }
+  .price-box .today .lbl { font-size: 12px; color: var(--grey); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .price-box .today .amt { font-size: 36px; font-weight: 700; color: var(--emerald-deep); letter-spacing: -0.03em; line-height: 1; }
+  .price-box .today .per { font-size: 12px; color: var(--grey); }
+  .price-box.dark {
+    background: rgba(255,252,244,0.08);
+    border-color: rgba(212,175,55,0.4);
+    backdrop-filter: blur(4px);
+  }
+  .price-box.dark .reg { color: rgba(255,252,244,0.55); }
+  .price-box.dark .today .lbl { color: rgba(255,252,244,0.75); }
+  .price-box.dark .today .amt { color: var(--gold); }
+  .price-box.dark .today .per { color: rgba(255,252,244,0.6); }
+
+  .sp-hero-text .btn { max-width: 380px; margin: 0 auto; }
+  @media (min-width: 880px) { .sp-hero-text .btn { margin-left: 0; margin-right: 0; } }
+
+  /* PRODUCT MOCKUP */
+  .sp-hero-visual {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 360px;
+  }
+  .product-mockup {
+    position: relative;
+    width: 100%; max-width: 460px;
+    height: 360px;
+  }
+  @media (max-width: 480px) {
+    .product-mockup { height: 340px; }
+  }
+  .mockup-glow {
+    position: absolute; inset: -20px;
+    background: radial-gradient(closest-side, rgba(212,175,55,0.20), transparent 75%);
+    pointer-events: none;
+  }
+  .mockup-book {
+    position: absolute;
+    width: 220px; height: 296px;
+    left: 0; bottom: 12px;
+    background: linear-gradient(160deg, var(--emerald-deep), var(--emerald) 75%);
+    border-radius: 6px 14px 14px 6px;
+    box-shadow:
+      0 30px 60px rgba(11,61,46,0.40),
+      inset 0 0 0 1px rgba(212,175,55,0.20),
+      inset 4px 0 0 0 rgba(0,0,0,0.25);
+    padding: 28px 22px 22px 28px;
+    color: var(--off-white);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+    z-index: 2;
+    transform: rotate(-3deg);
+  }
+  .mockup-book::before {
+    content: ""; position: absolute; left: 8px; top: 8px; bottom: 8px;
+    width: 1px; background: rgba(212,175,55,0.30);
+  }
+  .mockup-book::after {
+    content: ""; position: absolute; top: 16px; right: 16px;
+    width: 26px; height: 26px;
+    border-top: 1.5px solid var(--gold);
+    border-right: 1.5px solid var(--gold);
+  }
+  .mockup-book .mb-eyebrow {
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); font-weight: 800;
+    margin-bottom: 14px;
+  }
+  .mockup-book .mb-title {
+    font-size: 22px; line-height: 1.1;
+    font-weight: 700; color: var(--off-white);
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .mockup-book .mb-divider {
+    height: 1px; width: 36px;
+    background: var(--gold);
+    margin: 12px 0;
+  }
+  .mockup-book .mb-sub {
+    font-size: 11px; color: rgba(255,252,244,0.75);
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+  }
+  .mockup-book .mb-stages {
+    margin-top: auto;
+    display: flex; flex-wrap: wrap; gap: 4px;
+  }
+  .mockup-book .mb-stages span {
+    font-size: 9px; padding: 4px 8px;
+    background: rgba(212,175,55,0.16);
+    border: 1px solid rgba(212,175,55,0.4);
+    color: var(--gold);
+    border-radius: 999px;
+    font-weight: 800; letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .mockup-book .mb-seal {
+    position: absolute; bottom: 18px; right: 18px;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: grid; place-items: center;
+    color: var(--emerald-deep); font-weight: 800; font-size: 11px;
+    font-family: var(--font);
+  }
+
+  .mockup-dashboard {
+    position: absolute;
+    right: 0; bottom: 80px;
+    width: 240px;
+    background: var(--off-white);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: 0 30px 50px rgba(11,61,46,0.20);
+    padding: 14px;
+    z-index: 3;
+    transform: rotate(4deg);
+  }
+  .mockup-dashboard .md-top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 10px;
+    font-size: 10px; color: var(--grey); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .mockup-dashboard .md-top .md-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald-soft); box-shadow: 0 0 0 3px rgba(31,138,91,0.18); }
+  .mockup-dashboard .md-top .md-status { display: inline-flex; align-items: center; gap: 6px; color: var(--emerald-soft); }
+  .mockup-dashboard .md-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+  }
+  .mockup-dashboard .md-card:last-child { margin-bottom: 0; }
+  .mockup-dashboard .md-card .lbl { font-size: 9px; color: var(--grey); font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+  .mockup-dashboard .md-card .val { font-size: 17px; font-weight: 700; color: var(--emerald-deep); margin-top: 2px; line-height: 1; letter-spacing: -0.01em; }
+  .mockup-dashboard .md-card .bar { height: 4px; background: rgba(17,107,79,0.10); border-radius: 999px; margin-top: 8px; overflow: hidden; }
+  .mockup-dashboard .md-card .bar div { height: 100%; background: linear-gradient(90deg, var(--emerald), var(--gold)); border-radius: 999px; }
+
+  /* SECTION 2: cleaner spacing for the insights grid (already styled), plus bridge */
+  .pattern-bridge {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 14px;
+    padding: 16px 18px;
+    font-size: 14.5px; color: var(--charcoal); line-height: 1.65;
+    margin-top: 16px;
+  }
+
+  /* Final CTA tweaks */
+  .sp-final-cta .price-box { margin: 0 auto 14px; position: relative; }
+
+  /* ---------- Sales Page v3 — Conversion Polish ---------- */
+  /* Mechanism cards (Why The Rizq Reset Works) */
+  .mech-grid {
+    display: grid; gap: 12px; margin-top: 18px;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (min-width: 900px) { .mech-grid { grid-template-columns: repeat(4, 1fr); } }
+  .mech-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: left;
+    position: relative;
+  }
+  .mech-card .m-num {
+    font-size: 10px; color: var(--gold); font-weight: 800;
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .mech-card .m-icon {
+    width: 38px; height: 38px; border-radius: 12px;
+    background: linear-gradient(135deg, rgba(17,107,79,0.10), rgba(212,175,55,0.20));
+    border: 1px solid rgba(17,107,79,0.18);
+    color: var(--emerald);
+    display: grid; place-items: center; font-size: 18px;
+    margin: 6px 0 10px;
+  }
+  .mech-card h4 {
+    font-size: 16px; margin: 0 0 6px;
+    color: var(--charcoal); font-weight: 700; letter-spacing: -0.01em;
+  }
+  .mech-card p { font-size: 13px; color: var(--grey); margin: 0; line-height: 1.55; }
+  /* Why $47? callout — light cream/gold to keep the final CTA as the single dark moment */
+  .why47 {
+    background: linear-gradient(180deg, #FFFCF4, #F8F3E7);
+    border: 1px solid rgba(212,175,55,0.35);
+    border-left: 4px solid var(--gold);
+    border-radius: var(--radius-xl);
+    padding: 24px 26px;
+    margin: 16px 0;
+  }
+  .why47 .sp-eyebrow { color: var(--emerald-deep); }
+  .why47 .sp-eyebrow::before { background: var(--gold); }
+  .why47 p {
+    color: var(--charcoal);
+    font-size: 15.5px; line-height: 1.65;
+    max-width: 640px;
+    margin: 0;
+  }
+  .why47 .w47-anchor {
+    background: rgba(212,175,55,0.20);
+    border: 1px solid rgba(212,175,55,0.45);
+    color: var(--emerald-deep);
+    font-weight: 700;
+    padding: 2px 8px; border-radius: 6px;
+  }
+
+  /* Product mockup — additional sheet layers */
+  .mockup-sheet {
+    position: absolute;
+    width: 178px; height: 232px;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 4px 8px 8px 4px;
+    box-shadow: 0 14px 28px rgba(11,61,46,0.16);
+    overflow: hidden;
+    z-index: 1;
+  }
+  .mockup-sheet::before {
+    /* Subtle "lines" suggesting a worksheet */
+    content: ""; position: absolute;
+    top: 28px; left: 14px; right: 14px; bottom: 30px;
+    background:
+      repeating-linear-gradient(180deg,
+        rgba(17,107,79,0.10) 0 1px,
+        transparent 1px 14px);
+  }
+  .mockup-sheet::after {
+    /* Header strip */
+    content: ""; position: absolute;
+    top: 12px; left: 14px; width: 60px; height: 6px;
+    background: var(--gold);
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+  .mockup-sheet.sheet-1 {
+    left: 18px; bottom: 30px;
+    transform: rotate(-9deg);
+  }
+  .mockup-sheet.sheet-2 {
+    left: 38px; bottom: 22px;
+    transform: rotate(-5deg);
+    background: #FAF5E8;
+    z-index: 1;
+  }
+
+  .mockup-pill {
+    position: absolute;
+    bottom: -2px; left: 50%; transform: translateX(-50%);
+    background: var(--emerald-deep);
+    color: var(--gold);
+    font-size: 10.5px; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(212,175,55,0.40);
+    box-shadow: 0 10px 24px rgba(11,61,46,0.25);
+    z-index: 4;
+    white-space: nowrap;
+  }
+
+  /* Slightly tighter sp-block subhead */
+  .sp-block .sp-sub-h { max-width: 640px; }
+  @media (min-width: 880px) { .sp-block .sp-sub-h { font-size: 16px; } }
+
+  /* Universal CTA pulse — subtle attention */
+  .sales-cta { transition: transform .15s ease, box-shadow .15s ease, filter .15s; }
+  .sales-cta:hover { filter: brightness(1.04); }
+
+  /* Hero — keep price box and CTA close together */
+  .sp-hero-text .price-box { margin: 14px 0 12px; }
+
+  /* ---------- Footer ---------- */
+  .footer-mini {
+    text-align: center; font-size: 11px; color: var(--grey);
+    padding: 18px 16px;
+  }
+  .footer-mini a { color: var(--grey); text-decoration: none; }
+
+  /* Smooth focus */
+  button:focus-visible, input:focus-visible {
+    outline: 2px solid var(--emerald);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="app-shell">
+  <div class="frame">
+    <!-- Brand bar -->
+    <header class="brandbar">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <div>
+          The Rizq Reset
+          <small>Islamic Money System</small>
+        </div>
+      </div>
+      <div class="badge">Built for Muslims · Halal-friendly</div>
+    </header>
+
+    <!-- Progress -->
+    <div class="progress-wrap" id="progressWrap" style="display:none;">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-label" id="progressLabel">Step 1</div>
+    </div>
+
+    <!-- ====== Screen 1: Landing ====== -->
+    <section class="screen active" id="screen-landing">
+      <div class="hero">
+        <span class="eyebrow"><span class="dot"></span> 3-minute Muslim Money Quiz</span>
+        <h1>Discover Your Muslim Money Archetype</h1>
+        <p class="sub">Take the 3-minute quiz and get your personalised 30-day roadmap to manage your money with more clarity, discipline, and Islamic principles.</p>
+
+        <ul class="hero-bullets">
+          <li><span class="tick">✓</span><span>Find what's really holding you back financially.</span></li>
+          <li><span class="tick">✓</span><span>Get a personalised 30-day reset plan.</span></li>
+          <li><span class="tick">✓</span><span>Learn how to budget, save, give, and grow halal.</span></li>
+        </ul>
+
+        <div class="roadmap-preview">
+          <div class="rp-head">
+            <h3>Your 30-Day Rizq Reset Roadmap</h3>
+            <span class="tag">Preview</span>
+          </div>
+          <div class="rp-sub">A personalised, step-by-step Islamic money plan, built around your archetype.</div>
+          <div class="rp-weeks">
+            <div class="rp-week"><div class="num">WK 1</div><div class="lbl">Audit</div></div>
+            <div class="rp-week"><div class="num">WK 2</div><div class="lbl">Control</div></div>
+            <div class="rp-week"><div class="num">WK 3</div><div class="lbl">Build</div></div>
+            <div class="rp-week"><div class="num">WK 4</div><div class="lbl">Stabilise</div></div>
+          </div>
+        </div>
+
+        <div class="trust-row">
+          <div class="pill"><span class="ic">⏱</span> 3-minute quiz</div>
+          <div class="pill"><span class="ic">✦</span> Personalised</div>
+          <div class="pill"><span class="ic">☪</span> Islamic system</div>
+          <div class="pill"><span class="ic">🔒</span> Private & non-judgmental</div>
+        </div>
+
+        <div class="cta-block">
+          <button class="btn btn-primary" onclick="goto('archetype')">Start My Roadmap →</button>
+          <div class="micro-note">Your money is an amanah. This system helps you manage it with clarity.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Screen 2: Archetype Selection ====== -->
+    <section class="screen" id="screen-archetype">
+      <button class="btn-link" onclick="goto('landing')">← Back</button>
+      <div style="text-align:center; margin-bottom: 18px; margin-top: 4px;">
+        <h2>Which Muslim Money Archetype Sounds Most Like You?</h2>
+        <p class="muted" style="margin-top:8px; font-size: 14.5px;">Choose the one that feels closest. We'll ask a few focused questions and build your roadmap around it.</p>
+      </div>
+
+      <div class="arche-grid" id="archetypeGrid"></div>
+
+      <div style="margin-top: 22px;">
+        <button class="btn btn-primary" id="archetypeContinue" disabled style="opacity:0.55;cursor:not-allowed;" onclick="startQuiz()">Continue →</button>
+        <div class="micro-note">Stop guessing where your rizq is going.</div>
+      </div>
+    </section>
+
+    <!-- ====== Screen 3: Quiz ====== -->
+    <section class="screen q-screen" id="screen-quiz">
+      <button class="btn-link" id="quizBack">← Back</button>
+      <div class="q-num" id="qNum">Question 1 of 6</div>
+      <h2 id="qTitle">Question</h2>
+      <div class="q-options" id="qOptions"></div>
+    </section>
+
+    <!-- ====== Screen 4: Loading ====== -->
+    <section class="screen loading-screen" id="screen-loading">
+      <div class="loading-orbit">
+        <div class="ring"></div>
+        <div class="ring spin"></div>
+        <div class="core"></div>
+      </div>
+      <h2 style="margin-bottom:6px;">Building your personalised 30-day Rizq Reset Roadmap…</h2>
+      <div class="load-msg" id="loadMsg">Analysing your archetype…</div>
+      <div class="load-bar"><div id="loadFill"></div></div>
+    </section>
+
+    <!-- ====== Screen 5: Results ====== -->
+    <section class="screen" id="screen-results">
+      <div class="result-hero">
+        <div class="label">Your Muslim Money Archetype</div>
+        <h1 id="resArchName">The Rizq Leaker</h1>
+        <p class="diag" id="resDiag">Your archetype diagnosis…</p>
+      </div>
+
+      <div class="result-section">
+        <div class="head"><span class="dot"></span><h3>Your Main Financial Bottleneck</h3></div>
+        <div class="bottleneck" id="resBottleneck"></div>
+      </div>
+
+      <div class="result-section">
+        <div class="head"><span class="dot"></span><h3>Your 30-Day Rizq Reset Focus</h3></div>
+        <div class="weeks" id="resWeeks"></div>
+      </div>
+
+      <div class="result-section">
+        <div class="head"><span class="dot"></span><h3>Your Recommended System</h3></div>
+        <div class="reco-card">
+          <div class="icon-square">📘</div>
+          <div style="flex:1;">
+            <div class="meta">Front-end system · digital download</div>
+            <h4>The Rizq Reset Blueprint</h4>
+            <div class="meta" style="margin-top:4px;">Worksheets · trackers · 30-day plan · Islamic framework</div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" onclick="goto('offer')">See My Personalised Blueprint →</button>
+      <div class="micro-note">Your roadmap tells you what needs to change. The system helps you follow through.</div>
+    </section>
+
+    <!-- ====== Screen 6: Sales Page v4 — Stripped & Premium (6 sections) ====== -->
+    <section class="screen" id="screen-offer">
+
+      <!-- SECTION 1: HERO -->
+      <div class="sp-hero-grid">
+        <div class="sp-hero-text">
+          <div class="sp-badges">
+            <span class="sp-badge top">★ Your roadmap is ready</span>
+            <span class="sp-badge arch" id="offerArchBadge">Recommended for: The Rizq Leaker</span>
+          </div>
+          <h1 class="sp-headline" id="offerHeadline">Stop Letting Your Money Disappear Every Month</h1>
+          <p class="sp-subheadline" id="offerSubheadline">Your quiz revealed the pattern. The Blueprint is the 30-day system to change it.</p>
+          <div class="price-box">
+            <span class="reg">Regular value $297</span>
+            <span class="today"><span class="lbl">Today</span><span class="amt">$47</span><span class="per">one-time</span></span>
+          </div>
+          <button class="btn btn-primary sales-cta" onclick="goto('checkout')">Start My Rizq Reset — $47 →</button>
+          <ul class="sp-trust-bullets">
+            <li>Instant access</li>
+            <li>30-day system</li>
+            <li>Built for Muslims</li>
+            <li>Educational only</li>
+          </ul>
+        </div>
+        <div class="sp-hero-visual" aria-hidden="true">
+          <div class="product-mockup">
+            <div class="mockup-glow"></div>
+            <div class="mockup-sheet sheet-1"></div>
+            <div class="mockup-sheet sheet-2"></div>
+            <div class="mockup-dashboard">
+              <div class="md-top">
+                <span>rizq-reset · week 1</span>
+                <span class="md-status"><span class="md-dot"></span>Audit</span>
+              </div>
+              <div class="md-card">
+                <div class="lbl">Money Left This Month</div>
+                <div class="val">$1,284</div>
+                <div class="bar"><div style="width: 64%"></div></div>
+              </div>
+              <div class="md-card">
+                <div class="lbl">Spending Leaks Found</div>
+                <div class="val">$312</div>
+                <div class="bar"><div style="width: 38%; background: linear-gradient(90deg, var(--amber), var(--gold));"></div></div>
+              </div>
+              <div class="md-card">
+                <div class="lbl">Savings → Goals</div>
+                <div class="val">52%</div>
+                <div class="bar"><div style="width: 52%"></div></div>
+              </div>
+            </div>
+            <div class="mockup-book">
+              <div class="mb-eyebrow">The Rizq Reset</div>
+              <div class="mb-title">The Rizq Reset<br/>Blueprint</div>
+              <div class="mb-divider"></div>
+              <div class="mb-sub">A 30-Day Islamic<br/>Money System</div>
+              <div class="mb-stages">
+                <span>Audit</span><span>Control</span><span>Build</span><span>Stabilise</span>
+              </div>
+              <div class="mb-seal">R</div>
+            </div>
+            <div class="mockup-pill">A complete 30-day system</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: YOUR QUIZ REVEALED -->
+      <div class="sp-block">
+        <div class="sp-eyebrow">From Your Quiz</div>
+        <h2>Your Quiz Revealed</h2>
+        <div class="insights-grid" id="offerInsights"></div>
+        <div class="pattern-bridge">That's why your next step is not more random advice — it's a simple system you can follow weekly.</div>
+      </div>
+
+      <!-- SECTION 3: THE 30-DAY SYSTEM -->
+      <div class="sp-block cream">
+        <div class="sp-eyebrow">The 30-Day System</div>
+        <h2>Audit. Control. Direct. Review.</h2>
+        <div class="mech-grid" id="offerSystem"></div>
+      </div>
+
+      <!-- SECTION 4: WHAT YOU GET -->
+      <div class="sp-block">
+        <div class="sp-eyebrow">What You Get</div>
+        <h2>Inside The Blueprint</h2>
+        <ul class="stack-list-premium" id="offerStackList"></ul>
+        <div class="stack-total-premium">
+          <div class="stack-total">
+            <span class="label">Total Value</span>
+            <span class="strike">$297</span>
+          </div>
+          <div class="stack-total" style="border-top:0; padding-top:4px;">
+            <span class="label">Today</span>
+            <span class="final">$47</span>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top: 20px;">
+          <button class="btn btn-primary sales-cta" onclick="goto('checkout')" style="max-width: 380px;">Start My Rizq Reset — $47 →</button>
+        </div>
+      </div>
+
+      <!-- SECTION 5: WHY $47 IS EASY -->
+      <div class="why47">
+        <div class="sp-eyebrow">Why $47 Is Easy</div>
+        <p id="offerWhy47Note"></p>
+      </div>
+
+      <!-- SECTION 6: FAQ + FINAL CTA -->
+      <div class="sp-block">
+        <div class="sp-eyebrow">Common Questions</div>
+        <h2>Honest Answers</h2>
+        <div class="faq" id="offerFAQ"></div>
+      </div>
+
+      <div class="sp-final-cta">
+        <h2 id="offerFinalHeadline">Ready To Begin?</h2>
+        <div class="price-box dark">
+          <span class="reg">Regular value $297</span>
+          <span class="today"><span class="lbl">Today</span><span class="amt">$47</span></span>
+        </div>
+        <button class="btn btn-primary sales-cta" onclick="goto('checkout')" id="offerFinalCTA">Start My Rizq Reset — $47 →</button>
+        <div class="sp-micro">Instant access · One-time payment · Start today</div>
+      </div>
+
+      <div class="ethics-note">
+        <span class="ic">✦</span>
+        <span>Built to help you manage your money with structure, discipline, and Islamic principles. Educational only. No hype. No get-rich-quick promises.</span>
+      </div>
+    </section>
+
+    <!-- ====== Screen 7: Checkout ====== -->
+    <section class="screen" id="screen-checkout">
+      <button class="btn-link" onclick="goto('offer')">← Back to offer</button>
+      <h2 style="margin-bottom: 16px;">Secure Checkout</h2>
+
+      <div class="checkout-grid">
+        <div>
+          <div class="summary-card">
+            <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:0.12em; color:var(--emerald-deep); margin-bottom: 10px;">Order Summary</h3>
+            <div class="sum-row">
+              <div class="name">The Rizq Reset Blueprint</div>
+              <div class="price">$47</div>
+            </div>
+            <div class="sum-row" id="bumpSumRow" style="display:none;">
+              <div class="name">+ Halal Budget Toolkit</div>
+              <div class="price">$11</div>
+            </div>
+          </div>
+
+          <div class="bump-card">
+            <div class="bump-flag">Add for just $11 · no-brainer add-on</div>
+            <label>
+              <input type="checkbox" id="bumpCheck" onchange="toggleBump()">
+              <div>
+                <div class="b-title">Add the Halal Budget Toolkit for just <span class="b-price">$11</span></div>
+                <div class="b-desc">Turn your Blueprint into action with the exact spreadsheets, trackers, calculators, and worksheets for your 30-day reset.</div>
+              </div>
+            </label>
+            <ul class="bump-includes">
+              <li>Monthly budget spreadsheet</li>
+              <li>Expense tracker</li>
+              <li>Spending audit sheet</li>
+              <li>Debt payoff tracker</li>
+              <li>Sadaqah tracker</li>
+              <li>Zakat estimator</li>
+              <li>Subscription audit</li>
+              <li>Weekly money review sheet</li>
+              <li>Ramadan / Eid budget planner</li>
+              <li>Family support planner</li>
+            </ul>
+          </div>
+
+          <div class="total-bar">
+            <div class="lbl">Order total</div>
+            <div class="amt" id="orderTotal">$47</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="form-card">
+            <h3>Your details</h3>
+            <div class="field">
+              <label>Full name</label>
+              <input type="text" placeholder="Yusuf Rahman" />
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input type="email" placeholder="you@example.com" />
+            </div>
+            <div class="field">
+              <label>Card number</label>
+              <input type="text" placeholder="•••• •••• •••• 4242" />
+            </div>
+            <div class="row-2">
+              <div class="field">
+                <label>Expiry</label>
+                <input type="text" placeholder="MM / YY" />
+              </div>
+              <div class="field">
+                <label>CVC</label>
+                <input type="text" placeholder="123" />
+              </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="completeOrder()">Complete My Order →</button>
+
+            <div class="reassure">
+              <span>⚡ Instant access</span>
+              <span>🔒 Secure mockup</span>
+              <span>📘 Educational only</span>
+              <span>☪ No riba-based picks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Screen 8: Upsell 1 — Rizq Tracker ====== -->
+    <section class="screen" id="screen-upsell1">
+      <div class="ups-hero">
+        <div class="eyebrow" style="display:inline-flex; align-items:center; gap:8px; background:rgba(212,175,55,0.16); color:#7a5a08; border:1px solid rgba(212,175,55,0.4); padding:8px 14px; border-radius:999px; font-size:12px; font-weight:700; margin-bottom: 14px;">
+          ✓ Order confirmed · One-time offer
+        </div>
+        <h1>Your Roadmap Tells You What To Do. Rizq Tracker Helps You Do It Every Day.</h1>
+        <p class="muted" style="margin-top:14px; font-size: 15px;">Track your income, expenses, savings, debt, sadaqah, zakat, and goals inside a simple Islamic money dashboard.</p>
+        <div class="pillrow">
+          <span>$147 lifetime access</span>
+          <span>Web app · all devices</span>
+        </div>
+      </div>
+
+      <div class="dash-mock">
+        <div class="dash-top">
+          <div class="dt-title">
+            <div class="dot-row"><i></i><i></i><i></i></div>
+            <span>rizqtracker.app/dashboard</span>
+          </div>
+          <div class="dt-user">
+            <span>Salam, Yusuf</span>
+            <div class="avatar">Y</div>
+          </div>
+        </div>
+        <div class="dash-grid">
+          <div class="barakah-card">
+            <div class="b-left">
+              <div class="lbl">Monthly Barakah Score</div>
+              <div class="score">82<span style="font-size:14px; color:var(--grey); font-weight:500;">/100</span></div>
+              <div class="delta">▲ +6 vs last month</div>
+            </div>
+            <div class="ring-score"><span>82%</span></div>
+          </div>
+
+          <div class="dash-card">
+            <div class="lbl">Money Left This Month</div>
+            <div class="val">$1,284</div>
+            <div class="meta">After bills, sadaqah, savings</div>
+          </div>
+          <div class="dash-card">
+            <div class="lbl">Spending Today</div>
+            <div class="val">$28<span style="font-size:13px; color:var(--grey); font-weight:500;">.40</span></div>
+            <div class="meta">3 transactions logged</div>
+          </div>
+
+          <div class="dash-card">
+            <div class="lbl">Savings → Umrah</div>
+            <div class="val small">$2,100 / $4,000</div>
+            <div class="mini-bar"><div style="width:52%"></div></div>
+          </div>
+          <div class="dash-card">
+            <div class="lbl">Debt Reduced</div>
+            <div class="val small">$1,650 / $5,200</div>
+            <div class="mini-bar"><div style="width:31%; background:linear-gradient(90deg, var(--amber), var(--gold));"></div></div>
+          </div>
+
+          <div class="dash-card">
+            <div class="lbl">Sadaqah Given</div>
+            <div class="val small">$185 this month</div>
+            <div class="meta">12 acts of giving</div>
+          </div>
+          <div class="dash-card">
+            <div class="lbl">Upcoming Bills</div>
+            <div class="val small">$612</div>
+            <div class="meta">Due in 6 days</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:0.12em; color:var(--emerald-deep); margin-bottom: 10px;">What you'll unlock</h3>
+      <div class="feat-grid">
+        <div class="feat"><span class="ic-sq">📊</span><div><strong>Daily spending log</strong><br><span class="muted">Track every dirham, every day.</span></div></div>
+        <div class="feat"><span class="ic-sq">📅</span><div><strong>Monthly budget tracker</strong><br><span class="muted">See your full month at a glance.</span></div></div>
+        <div class="feat"><span class="ic-sq">🎯</span><div><strong>Savings goals</strong><br><span class="muted">Umrah, marriage, home, more.</span></div></div>
+        <div class="feat"><span class="ic-sq">⚖️</span><div><strong>Debt tracker</strong><br><span class="muted">Plan your debt-free timeline.</span></div></div>
+        <div class="feat"><span class="ic-sq">🤲</span><div><strong>Sadaqah tracker</strong><br><span class="muted">Give with intention, not impulse.</span></div></div>
+        <div class="feat"><span class="ic-sq">🧮</span><div><strong>Zakat estimator</strong><br><span class="muted">Calculate annually with ease.</span></div></div>
+        <div class="feat"><span class="ic-sq">🔁</span><div><strong>Subscription tracker</strong><br><span class="muted">Find leaks fast.</span></div></div>
+        <div class="feat"><span class="ic-sq">🌙</span><div><strong>Ramadan / Eid mode</strong><br><span class="muted">Plan ahead for high months.</span></div></div>
+        <div class="feat"><span class="ic-sq">👨‍👩‍👧</span><div><strong>Family support</strong><br><span class="muted">Budget what you give clearly.</span></div></div>
+        <div class="feat"><span class="ic-sq">✓</span><div><strong>Weekly review dashboard</strong><br><span class="muted">Stay on track every Friday.</span></div></div>
+      </div>
+
+      <button class="btn btn-primary" onclick="acceptUpsell(1)">Yes, Add Rizq Tracker — $147</button>
+      <button class="btn btn-ghost" onclick="declineUpsell(1)">No thanks, I'll stick with the guide</button>
+    </section>
+
+    <!-- ====== Screen 9: Upsell 2 — AI Coach ====== -->
+    <section class="screen" id="screen-upsell2">
+      <div class="ups-hero">
+        <div class="eyebrow" style="display:inline-flex; align-items:center; gap:8px; background:rgba(212,175,55,0.16); color:#7a5a08; border:1px solid rgba(212,175,55,0.4); padding:8px 14px; border-radius:999px; font-size:12px; font-weight:700; margin-bottom: 14px;">
+          ✦ Final add-on · One-time offer
+        </div>
+        <h1>Add Your Private AI Muslim Money Coach</h1>
+        <p class="muted" style="margin-top:14px; font-size:15px;">Get personalised help when you need to plan your month, review your spending, avoid impulse purchases, save for goals, or make better financial decisions.</p>
+        <div class="pillrow">
+          <span>$97/year</span>
+          <span>Available 24/7</span>
+        </div>
+      </div>
+
+      <div class="chat-mock">
+        <div class="chat-head">
+          <div class="ai-avatar">☪</div>
+          <div class="meta">
+            <strong>Rizq Coach</strong>
+            <span>Online · ready to help</span>
+          </div>
+        </div>
+        <div class="prompt-grid">
+          <div class="prompt-chip"><span class="ic">▸</span> Build my budget for this month</div>
+          <div class="prompt-chip"><span class="ic">▸</span> Can I afford this purchase?</div>
+          <div class="prompt-chip"><span class="ic">▸</span> Review my spending</div>
+          <div class="prompt-chip"><span class="ic">▸</span> Help me cut unnecessary expenses</div>
+          <div class="prompt-chip"><span class="ic">▸</span> Create a debt payoff plan</div>
+          <div class="prompt-chip"><span class="ic">▸</span> Help me save for Umrah</div>
+          <div class="prompt-chip"><span class="ic">▸</span> Create a sadaqah plan</div>
+          <div class="prompt-chip"><span class="ic">▸</span> Explain zakat basics simply</div>
+          <div class="prompt-chip"><span class="ic">▸</span> Give me a 7-day money reset</div>
+        </div>
+      </div>
+
+      <div class="ethics-note">
+        <span class="ic">⚖</span>
+        <span>This assistant gives general educational guidance and money organisation support. It does not provide fatwas, regulated financial advice, or investment recommendations. For specific Islamic rulings, consult a qualified scholar. For financial advice, consult a qualified adviser.</span>
+      </div>
+
+      <div style="margin-top: 18px;">
+        <button class="btn btn-primary" onclick="acceptUpsell(2)">Yes, Add The AI Coach — $97/yr</button>
+        <button class="btn btn-ghost" onclick="declineUpsell(2)">No thanks, continue</button>
+      </div>
+    </section>
+
+    <!-- ====== Screen 10: Success ====== -->
+    <section class="screen" id="screen-success">
+      <div style="text-align:center;">
+        <div class="success-icon">✓</div>
+        <h1>Your Rizq Reset Has Started</h1>
+        <p class="muted" style="font-size:15px; margin-top:10px; max-width: 460px; margin-left:auto; margin-right:auto;">
+          Your roadmap, tools, and Islamic money system are ready. Begin Week 1: Audit — and remember, your money is an amanah.
+        </p>
+      </div>
+
+      <div class="receipt">
+        <h3>What you now have access to</h3>
+        <ul id="receiptList"></ul>
+        <div class="grand">
+          <span>Total invested</span>
+          <span id="receiptGrand">$47</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 18px;">
+        <button class="btn btn-primary" onclick="alert('This is a mockup — your real dashboard would open here.')">Go To My Dashboard →</button>
+        <button class="btn btn-ghost" onclick="alert('This is a mockup — your Blueprint PDF would download here.')">Download My Blueprint</button>
+      </div>
+
+      <div class="ethics-note" style="margin-top: 18px;">
+        <span class="ic">✦</span>
+        <span>The Rizq Reset is an educational money system. It does not guarantee specific financial outcomes, issue fatwas, or recommend riba-based products. May Allah grant barakah in your effort.</span>
+      </div>
+    </section>
+
+    <div class="footer-mini">
+      The Rizq Reset · An Islamic money system · Educational use · Built for Muslims who want financial clarity without compromising their deen.
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ================== Data ================== */
+  const ARCHETYPES = {
+    leaker: {
+      key: 'leaker',
+      answerKeys: ['trackingFrequency','overspendCategory','monthlyLeak','budgetStatus','spendingTrigger','urgency'],
+      name: 'The Rizq Leaker',
+      icon: '💧',
+      desc: 'Money comes in, but somehow it disappears before the month ends.',
+      tags: ['Impulse spending', 'Subscriptions', 'No tracking'],
+      diagnosis: "Your biggest issue is not that you don't care about money. It's that too much of your income is escaping through untracked spending, emotional purchases, subscriptions, and convenience spending. Your first goal is not to become rich overnight. Your first goal is to stop the leaks.",
+      bottleneck: "Your income is healthy enough — but small, untracked decisions are draining it. Without a daily lens on your spending, you'll keep wondering 'where did my money go?' at the end of every month.",
+      weeks: [
+        { title: 'Week 1 — Audit', body: 'Pull 30 days of transactions. Categorise every dirham. Identify your top 3 leak categories.' },
+        { title: 'Week 2 — Control', body: 'Cancel 3 subscriptions, set spending caps for food + shopping, install daily logging.' },
+        { title: 'Week 3 — Build', body: 'Replace impulse triggers with halal alternatives. Start a weekly money review.' },
+        { title: 'Week 4 — Stabilise', body: 'Automate savings, lock in your monthly budget, and protect your reset with rules.' },
+      ],
+      questions: [
+        { q: 'How often do you track your spending?', options: ['Never','Sometimes','Weekly','Daily'] },
+        { q: 'What do you overspend on most?', options: ['Food delivery','Shopping','Subscriptions','Social spending','Random impulse buys'] },
+        { q: 'How much do you think "leaks" every month?', options: ['Under $100','$100–$300','$300–$500','$500+'] },
+        { q: 'Do you currently have a monthly budget?', options: ['No','Sort of','Yes but I don\'t follow it','Yes and I follow it'] },
+        { q: 'What usually triggers your spending?', options: ['Stress','Boredom','Social pressure','Convenience','I don\'t know'] },
+        { q: 'How urgently do you want to fix this?', options: ['This week','This month','In the next 3 months','I\'m just exploring'] }
+      ]
+    },
+    prisoner: {
+      key: 'prisoner',
+      answerKeys: ['paydayShortageFrequency','emergencyFund','incomeDrain','survivalNumber','peaceNeed','breathingRoom'],
+      name: 'The Paycheck Prisoner',
+      icon: '🔁',
+      desc: 'You work hard, but still feel stuck waiting for the next payday.',
+      tags: ['Month to month', 'No buffer', 'Financial anxiety'],
+      diagnosis: "You are working hard, but your money has no breathing room. Bills, fixed expenses, and lack of planning are keeping you stuck in a cycle where payday feels like temporary relief instead of real progress.",
+      bottleneck: "There's no buffer between your income and your obligations. A single unexpected expense can collapse the whole month — which keeps you in survival mode instead of building mode.",
+      weeks: [
+        { title: 'Week 1 — Audit', body: 'Map every bill, fixed cost, and recurring expense. Calculate your true monthly survival number.' },
+        { title: 'Week 2 — Control', body: 'Negotiate or cut 1–2 fixed expenses. Build a 1-week cash buffer.' },
+        { title: 'Week 3 — Build', body: 'Begin a starter emergency fund. Set up a payday control system.' },
+        { title: 'Week 4 — Stabilise', body: 'Lock in monthly cashflow rhythm and create breathing room for the next month.' },
+      ],
+      questions: [
+        { q: 'How often do you run out of money before payday?', options: ['Almost every month','Sometimes','Rarely','I avoid checking'] },
+        { q: 'Do you have an emergency fund?', options: ['No','Less than 1 month','1–3 months','3+ months'] },
+        { q: 'What eats most of your income?', options: ['Rent/mortgage','Bills','Food','Family support','Debt payments'] },
+        { q: 'Do you know your minimum monthly survival number?', options: ['No idea','Roughly','Yes but I don\'t track it','Yes clearly'] },
+        { q: 'What would give you the most peace right now?', options: ['More savings','Lower bills','Clear budget','Less debt','More income'] },
+        { q: 'How much breathing room do you want each month?', options: ['$100–$250','$250–$500','$500–$1,000','$1,000+'] }
+      ]
+    },
+    debt: {
+      key: 'debt',
+      answerKeys: ['debtType','debtAmount','ribaStatus','minimumPayments','debtCause','planUrgency'],
+      name: 'The Debt-Burdened Muslim',
+      icon: '⚖️',
+      desc: 'Debt, bills, or riba-related stress are weighing you down.',
+      tags: ['Credit cards', 'Minimum payments', 'Riba concern'],
+      diagnosis: "Your money pressure is being amplified by debt. The goal is not to shame yourself over the past. The goal is to create a clear repayment plan, review any riba-related concerns, and start moving toward financial relief step by step.",
+      bottleneck: "Debt is consuming both your cashflow and your mental space. Without an order of operations — what to pay first, what to cut, what to address ethically — progress feels impossible.",
+      weeks: [
+        { title: 'Week 1 — Audit', body: 'List every debt, balance, and interest type. Flag any riba-related concerns clearly.' },
+        { title: 'Week 2 — Control', body: 'Pause unnecessary spending. Apply a halal-friendly repayment priority method.' },
+        { title: 'Week 3 — Build', body: 'Free up cashflow by trimming expenses. Direct it to your priority debt.' },
+        { title: 'Week 4 — Stabilise', body: 'Lock in your debt-free timeline. Set the rules that keep you out of new debt.' },
+      ],
+      questions: [
+        { q: 'What type of debt are you carrying?', options: ['Credit cards','Personal loans','Buy now pay later','Family debt','Multiple types'] },
+        { q: 'Roughly how much debt do you have?', options: ['Under $1,000','$1,000–$5,000','$5,000–$20,000','$20,000+'] },
+        { q: 'Are any debts interest/riba-based?', options: ['Yes','No','Not sure','I need to check'] },
+        { q: 'Are you making minimum payments only?', options: ['Yes','Mostly','No','I\'ve missed payments'] },
+        { q: 'What caused the debt originally?', options: ['Emergency','Overspending','Low income','Family pressure','Business or education'] },
+        { q: 'How soon do you want a debt escape plan?', options: ['Immediately','This month','Next 3 months','I\'m exploring'] }
+      ]
+    },
+    giver: {
+      key: 'giver',
+      answerKeys: ['supportRecipient','givingBudget','guiltSayingNo','givingPressure','safeGivingAmount','givingType'],
+      name: 'The Generous Giver',
+      icon: '🤲',
+      desc: 'You love giving and helping others, but sometimes your own finances suffer.',
+      tags: ['Family support', 'Sadaqah', 'No structure'],
+      diagnosis: "Your generosity is a strength, but generosity without structure can create stress. Your roadmap focuses on giving with intention, supporting others wisely, and protecting your own financial stability.",
+      bottleneck: "You give from the heart, but not from a plan. Without clear limits and categories, generosity ends up competing with your own essentials, savings, and zakat planning.",
+      weeks: [
+        { title: 'Week 1 — Audit', body: 'Review 90 days of giving and family support. Categorise sadaqah, family, masjid.' },
+        { title: 'Week 2 — Control', body: 'Set a monthly giving percentage. Define clear, kind boundaries for support.' },
+        { title: 'Week 3 — Build', body: 'Plan sadaqah ahead. Map zakat for the year. Protect savings as non-negotiable.' },
+        { title: 'Week 4 — Stabilise', body: 'Install a monthly review so generosity stays joyful, not draining.' },
+      ],
+      questions: [
+        { q: 'Who do you financially support?', options: ['Parents','Siblings','Spouse/children','Community/charity','Multiple people'] },
+        { q: 'Do you budget sadaqah or family support in advance?', options: ['No','Sometimes','Yes but inconsistently','Yes clearly'] },
+        { q: 'Do you feel guilty saying no?', options: ['Always','Often','Sometimes','Rarely'] },
+        { q: 'Has giving ever caused you financial pressure?', options: ['Yes often','Sometimes','Rarely','No'] },
+        { q: 'Do you know how much you can safely give monthly?', options: ['No','Roughly','Yes but I exceed it','Yes clearly'] },
+        { q: 'What kind of giving do you want to build into your life?', options: ['Sadaqah','Family support','Masjid/community','Zakat planning','All of these'] }
+      ]
+    },
+    builder: {
+      key: 'builder',
+      answerKeys: ['mainGoal','monthlySavings','emergencyFund','halalInvestingKnowledge','timeline','progressBlocker'],
+      name: 'The Future Builder',
+      icon: '🌱',
+      desc: 'You want to save, invest halal, provide, marry, travel, or build wealth — but need a clear plan.',
+      tags: ['Marriage / Umrah', 'Halal investing', 'Family security'],
+      diagnosis: "You have ambition and long-term goals, but ambition needs structure. Your roadmap focuses on turning your goals into numbers, timelines, monthly allocations, and consistent progress.",
+      bottleneck: "Your goals are real, but they're not translated into monthly numbers yet. Without a target, a timeline, and an allocation, progress stays slow and uncertain.",
+      weeks: [
+        { title: 'Week 1 — Audit', body: 'Pick your top 1–2 goals. Define target amount, deadline, and reason.' },
+        { title: 'Week 2 — Control', body: 'Cut waste from your current budget. Free up monthly allocation toward goals.' },
+        { title: 'Week 3 — Build', body: 'Automate transfers. Begin halal-friendly savings & learning track.' },
+        { title: 'Week 4 — Stabilise', body: 'Lock in your monthly system. Track progress on your goal dashboard.' },
+      ],
+      questions: [
+        { q: 'What are you trying to build toward?', options: ['Marriage','Umrah or Hajj','Home','Business','Halal investing','Family security'] },
+        { q: 'How much do you currently save monthly?', options: ['Nothing','Under $100','$100–$500','$500+'] },
+        { q: 'Do you have an emergency fund?', options: ['No','Less than 1 month','1–3 months','3+ months'] },
+        { q: 'Do you understand halal investing basics?', options: ['No','A little','Somewhat','Yes confidently'] },
+        { q: 'What is your timeline for your main goal?', options: ['Under 6 months','6–12 months','1–3 years','3+ years'] },
+        { q: 'What is stopping you from making faster progress?', options: ['No plan','Overspending','Low income','Debt','Lack of knowledge'] }
+      ]
+    }
+  };
+
+  /* ================== State ================== */
+  const state = {
+    archetype: null,
+    qIndex: 0,
+    answers: {},
+    purchases: {
+      blueprint: false,
+      bump: false,
+      tracker: false,
+      coach: false
+    },
+    totals: {
+      blueprint: 47,
+      bump: 11,
+      tracker: 147,
+      coach: 97
+    }
+  };
+
+  /* ================== Screen routing ================== */
+  const SCREENS = ['landing','archetype','quiz','loading','results','offer','checkout','upsell1','upsell2','success'];
+
+  function goto(name) {
+    document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+    const target = document.getElementById('screen-' + name);
+    if (target) target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    updateProgress(name);
+    if (name === 'archetype') buildArchetypeGrid();
+    if (name === 'quiz') renderQuestion();
+    if (name === 'loading') runLoading();
+    if (name === 'results') renderResults();
+    if (name === 'offer') renderOffer();
+    if (name === 'success') renderReceipt();
+  }
+
+  function updateProgress(name) {
+    const wrap = document.getElementById('progressWrap');
+    const fill = document.getElementById('progressFill');
+    const lbl = document.getElementById('progressLabel');
+
+    const map = {
+      archetype:  { pct: 10, label: 'Step 1' },
+      quiz:       { pct: 10 + (state.qIndex+1) * 8, label: `Q ${state.qIndex+1} / 6` },
+      loading:    { pct: 65, label: 'Generating' },
+      results:    { pct: 78, label: 'Your Roadmap' },
+      offer:      { pct: 85, label: 'Your System' },
+      checkout:   { pct: 92, label: 'Checkout' },
+      upsell1:    { pct: 95, label: 'Add-ons' },
+      upsell2:    { pct: 97, label: 'Add-ons' },
+      success:    { pct: 100, label: 'Complete' },
+    };
+
+    if (!map[name]) {
+      wrap.style.display = 'none';
+      return;
+    }
+    wrap.style.display = 'flex';
+    fill.style.width = map[name].pct + '%';
+    lbl.textContent = map[name].label;
+  }
+
+  /* ================== Archetype grid ================== */
+  function buildArchetypeGrid() {
+    const grid = document.getElementById('archetypeGrid');
+    grid.innerHTML = '';
+    Object.values(ARCHETYPES).forEach(a => {
+      const card = document.createElement('div');
+      card.className = 'arche-card' + (state.archetype === a.key ? ' selected' : '');
+      card.onclick = () => {
+        state.archetype = a.key;
+        buildArchetypeGrid();
+        const btn = document.getElementById('archetypeContinue');
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.style.cursor = 'pointer';
+      };
+      card.innerHTML = `
+        <div class="arche-head">
+          <div class="arche-icon">${a.icon}</div>
+          <div>
+            <div class="arche-name">${a.name}</div>
+            <div class="arche-desc">${a.desc}</div>
+          </div>
+        </div>
+        <div class="arche-tags">
+          ${a.tags.map(t => `<span>${t}</span>`).join('')}
+        </div>
+        <div class="choose">${state.archetype === a.key ? '✓ Selected' : 'Choose this path'}</div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function startQuiz() {
+    if (!state.archetype) return;
+    state.qIndex = 0;
+    state.answers = {};
+    goto('quiz');
+  }
+
+  /* ================== Quiz ================== */
+  function renderQuestion() {
+    const a = ARCHETYPES[state.archetype];
+    const i = state.qIndex;
+    const q = a.questions[i];
+    const answerKey = a.answerKeys[i];
+
+    document.getElementById('qNum').textContent = `Question ${i+1} of ${a.questions.length}`;
+    document.getElementById('qTitle').textContent = q.q;
+
+    const wrap = document.getElementById('qOptions');
+    wrap.innerHTML = '';
+    q.options.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'q-option' + (state.answers[answerKey] === opt ? ' selected' : '');
+      btn.innerHTML = `<span>${opt}</span><span class="check">✓</span>`;
+      btn.onclick = () => {
+        state.answers[answerKey] = opt;
+        renderQuestion();
+        setTimeout(() => {
+          if (state.qIndex < a.questions.length - 1) {
+            state.qIndex++;
+            renderQuestion();
+            updateProgress('quiz');
+          } else {
+            goto('loading');
+          }
+        }, 280);
+      };
+      wrap.appendChild(btn);
+    });
+
+    document.getElementById('quizBack').onclick = () => {
+      if (state.qIndex === 0) goto('archetype');
+      else { state.qIndex--; renderQuestion(); updateProgress('quiz'); }
+    };
+
+    updateProgress('quiz');
+  }
+
+  /* ================== Loading ================== */
+  function runLoading() {
+    const msgs = [
+      'Analysing your archetype…',
+      'Identifying your biggest money bottleneck…',
+      'Creating your 30-day action plan…',
+      'Preparing your recommended Muslim Money System…'
+    ];
+    const msgEl = document.getElementById('loadMsg');
+    const fill = document.getElementById('loadFill');
+    let pct = 0, i = 0;
+    msgEl.textContent = msgs[0];
+
+    const interval = setInterval(() => {
+      pct += Math.random() * 8 + 4;
+      if (pct > 100) pct = 100;
+      fill.style.width = pct + '%';
+      const newIdx = Math.min(msgs.length - 1, Math.floor(pct / 25));
+      if (newIdx !== i) { i = newIdx; msgEl.textContent = msgs[i]; }
+      if (pct >= 100) {
+        clearInterval(interval);
+        setTimeout(() => goto('results'), 600);
+      }
+    }, 220);
+  }
+
+  /* ================== Results ================== */
+  function renderResults() {
+    const a = ARCHETYPES[state.archetype];
+    document.getElementById('resArchName').textContent = a.name;
+    document.getElementById('resDiag').textContent = a.diagnosis;
+    document.getElementById('resBottleneck').textContent = a.bottleneck;
+
+    const wrap = document.getElementById('resWeeks');
+    wrap.innerHTML = '';
+    a.weeks.forEach((w, idx) => {
+      const card = document.createElement('div');
+      card.className = 'week-card';
+      card.innerHTML = `
+        <div class="wk-num">W${idx+1}</div>
+        <div>
+          <h4>${w.title}</h4>
+          <p>${w.body}</p>
+        </div>
+      `;
+      wrap.appendChild(card);
+    });
+  }
+
+  /* ================== Personalised Sales Page v2 — Product Reveal ================== */
+  // Per-archetype copy structured around a visual product-reveal sales page.
+  // Functions (a) => let us inject quiz answers safely with graceful fallbacks.
+
+  // v4 — minimal per-archetype copy: badge, headline, 3 insights, why47 note, final headline.
+  const archetypeSalesPages = {
+    leaker: {
+      archetypeBadge: 'Recommended for: The Rizq Leaker',
+      headline: "Stop Letting Your Money Disappear Every Month",
+      subheadline: () =>
+        "Your quiz revealed the pattern. The Blueprint is the 30-day system to change it.",
+      insights: [
+        { label: 'Biggest leak',     key: 'overspendCategory', icon: '💧', fallback: 'Untracked spending' },
+        { label: 'Monthly leak',     key: 'monthlyLeak',       icon: '📉', fallback: 'Not measured yet' },
+        { label: 'Spending trigger', key: 'spendingTrigger',   icon: '⚡', fallback: 'Unclear' },
+      ],
+      why47Note: (a) =>
+        `If <span class="w47-anchor">${a.monthlyLeak || '$300–$500'}</span> is leaking every month, this pays for itself before week 2. The Blueprint protects every month after. Easy decision.`,
+      finalHeadline: 'Ready To Stop Guessing Where Your Money Is Going?',
+    },
+    prisoner: {
+      archetypeBadge: 'Recommended for: The Paycheck Prisoner',
+      headline: "Stop Waiting For Payday To Feel In Control",
+      subheadline: () =>
+        "Your quiz revealed the pattern. The Blueprint is the 30-day system that creates real breathing room.",
+      insights: [
+        { label: 'Short before payday', key: 'paydayShortageFrequency', icon: '🔁', fallback: 'Often' },
+        { label: 'Emergency fund',      key: 'emergencyFund',           icon: '🛡', fallback: 'Not yet built' },
+        { label: 'Breathing room goal', key: 'breathingRoom',           icon: '💨', fallback: 'A monthly buffer' },
+      ],
+      why47Note: (a) =>
+        `${a.breathingRoom ? `<span class="w47-anchor">${a.breathingRoom}</span> of monthly breathing room` : 'Real monthly breathing room'} is worth more than $47. The system protects every paycheck after this one. Easy trade.`,
+      finalHeadline: "Ready To Stop Waiting For Payday To Feel Okay?",
+    },
+    debt: {
+      archetypeBadge: 'Recommended for: The Debt-Burdened Muslim',
+      headline: "Turn Debt Stress Into A Clear 30-Day Repayment System",
+      subheadline: () =>
+        "Your quiz revealed the pattern. The Blueprint helps you face the numbers calmly and dismantle it step by step.",
+      insights: [
+        { label: 'Debt type',     key: 'debtType',   icon: '💳', fallback: 'Multiple types' },
+        { label: 'Rough amount',  key: 'debtAmount', icon: '📊', fallback: 'To be mapped' },
+        { label: 'Riba concern',  key: 'ribaStatus', icon: '⚖️', fallback: 'Needs review' },
+      ],
+      why47Note: () =>
+        `Another month of <span class="w47-anchor">avoidance and minimums</span> costs more than $47 in mental load and momentum. The Blueprint gives you a calm plan instead of a quiet weight. Easy decision.`,
+      finalHeadline: 'Ready To Face The Numbers And Build A Plan?',
+    },
+    giver: {
+      archetypeBadge: 'Recommended for: The Generous Giver',
+      headline: "Give With Intention Without Putting Yourself Under Financial Pressure",
+      subheadline: () =>
+        "Your quiz revealed the pattern. The Blueprint is the 30-day system that gives generosity structure.",
+      insights: [
+        { label: 'Who you support',  key: 'supportRecipient', icon: '👨‍👩‍👧', fallback: 'Multiple people' },
+        { label: 'Giving budgeted?', key: 'givingBudget',     icon: '📅', fallback: 'Inconsistently' },
+        { label: 'Caused pressure?', key: 'givingPressure',   icon: '⚠️', fallback: 'Sometimes' },
+      ],
+      why47Note: () =>
+        `One month of <span class="w47-anchor">absorbing every ask</span> quietly costs more than $47 in stress and savings. The Blueprint gives generosity structure — not chaos. Easy decision.`,
+      finalHeadline: 'Ready To Give With Structure And Peace?',
+    },
+    builder: {
+      archetypeBadge: 'Recommended for: The Future Builder',
+      headline: "Turn Your Goals Into A Clear Halal Money Plan",
+      subheadline: () =>
+        "Your quiz revealed the pattern. The Blueprint turns your goal into a monthly number on a calendar.",
+      insights: [
+        { label: 'Main goal',       key: 'mainGoal',       icon: '🎯', fallback: 'Clarifying' },
+        { label: 'Timeline',        key: 'timeline',       icon: '🗓', fallback: 'To be defined' },
+        { label: 'Monthly savings', key: 'monthlySavings', icon: '💰', fallback: 'Inconsistent' },
+      ],
+      why47Note: (a) =>
+        `Another year of <span class="w47-anchor">"someday"</span> on ${a.mainGoal ? a.mainGoal.toLowerCase() : 'your goal'} costs more than $47 in lost time. The Blueprint turns it into a monthly number on a calendar. Easy trade.`,
+      finalHeadline: 'Ready To Turn Your Goals Into A Real Plan?',
+    },
+  };
+
+  // The 4-step universal system shown in Section 3
+  const thirtyDaySystem = [
+    { num: 'Step 01', icon: '👁',  title: 'Audit',   desc: 'Find where your money is going.' },
+    { num: 'Step 02', icon: '🛑', title: 'Control', desc: 'Set limits and organise your month.' },
+    { num: 'Step 03', icon: '➜',  title: 'Direct',  desc: 'Assign money to savings, giving, debt, and goals.' },
+    { num: 'Step 04', icon: '✓',  title: 'Review',  desc: 'Build the weekly rhythm that keeps you consistent.' },
+  ];
+
+  // 6 core components shown in "What You Get" (totals to $297)
+  const blueprintStack = [
+    { name: 'Rizq Reset Blueprint Guide',  benefit: 'Find your money pattern and the fastest path to fix it.',     value: 67 },
+    { name: '30-Day Action Plan',          benefit: 'A week-by-week checklist so you never wonder what to do next.', value: 47 },
+    { name: 'Spending Audit Worksheet',    benefit: 'Find the exact categories draining your money.',                value: 47 },
+    { name: 'Halal Budget Method',         benefit: 'Give every dirham a job — bills, savings, sadaqah, goals.',     value: 47 },
+    { name: 'Sadaqah & Zakat Planner',     benefit: 'Give with intention — without financial chaos.',                value: 47 },
+    { name: 'Weekly Money Review System',  benefit: 'A 10-minute rhythm that keeps the system alive.',               value: 42 },
+  ];
+
+  // 5 FAQ entries — clean, no shaming, no advice
+  const blueprintFAQ = [
+    { q: "Is this financial advice?", a: "No. This is an educational money organisation system built around Islamic principles. It does not issue fatwas, provide regulated financial advice, or give investment recommendations. For specific rulings, consult a qualified scholar." },
+    { q: "Does this work outside the US?", a: "Yes. The system is principles-based and works globally. Examples can be adapted to any currency — the method stays the same." },
+    { q: "Does it include zakat?", a: "Yes — practical zakat basics are included to help you organise. For specific rulings on your personal situation, please consult a qualified scholar." },
+    { q: "Will it tell me what to invest in?", a: "No. We do not recommend specific investments or financial products. The Blueprint focuses on budgeting, saving, debt reduction, giving, and goal structure." },
+    { q: "What happens after I buy?", a: "Instant access. You're taken to checkout, then to your dashboard, where you can download the Blueprint and begin Week 1: Audit the same day." },
+  ];
+
+  // Graceful fallback for missing answers
+  function safeAnswer(answers, key, fallback) {
+    const v = answers && answers[key];
+    if (v === undefined || v === null || v === '') return fallback;
+    return v;
+  }
+
+  // Small DOM helpers
+  function setText(id, txt) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = txt;
+  }
+
+  /* ================== Render the v4 stripped sales page ================== */
+  function renderOffer() {
+    const sales = archetypeSalesPages[state.archetype];
+    if (!sales) return; // graceful no-op if user lands here cold
+    const answers = state.answers || {};
+
+    // SECTION 1: Hero
+    setText('offerArchBadge',   sales.archetypeBadge);
+    setText('offerHeadline',    sales.headline);
+    setText('offerSubheadline', sales.subheadline(answers));
+
+    // SECTION 2: 3 insight cards + universal bridge (already in HTML)
+    const insightsWrap = document.getElementById('offerInsights');
+    insightsWrap.innerHTML = '';
+    sales.insights.forEach(item => {
+      const val = safeAnswer(answers, item.key, item.fallback);
+      const cell = document.createElement('div');
+      cell.className = 'insight-cell';
+      cell.innerHTML = `
+        <div class="ic">${item.icon}</div>
+        <div>
+          <div class="label">${item.label}</div>
+          <div class="value">${val}</div>
+        </div>`;
+      insightsWrap.appendChild(cell);
+    });
+
+    // SECTION 3: The 30-Day System (universal, 4 cards)
+    const sysWrap = document.getElementById('offerSystem');
+    sysWrap.innerHTML = '';
+    thirtyDaySystem.forEach(s => {
+      const card = document.createElement('div');
+      card.className = 'mech-card';
+      card.innerHTML = `
+        <div class="m-num">${s.num}</div>
+        <div class="m-icon">${s.icon}</div>
+        <h4>${s.title}</h4>
+        <p>${s.desc}</p>`;
+      sysWrap.appendChild(card);
+    });
+
+    // SECTION 4: What You Get — 6-item value stack
+    const stkWrap = document.getElementById('offerStackList');
+    stkWrap.innerHTML = '';
+    blueprintStack.forEach(item => {
+      const li = document.createElement('li');
+      li.className = 'stack-item';
+      li.innerHTML = `
+        <div class="tick-lg">✓</div>
+        <div class="meta">
+          <div class="stk-name">${item.name}</div>
+          <div class="stk-benefit">${item.benefit}</div>
+        </div>
+        <div class="stk-value">$${item.value}</div>`;
+      stkWrap.appendChild(li);
+    });
+
+    // SECTION 5: Why $47 Is Easy — short archetype callout (innerHTML for the price span)
+    const w47 = document.getElementById('offerWhy47Note');
+    if (w47) w47.innerHTML = sales.why47Note(answers);
+
+    // SECTION 6: FAQ (5 universal entries)
+    const faqWrap = document.getElementById('offerFAQ');
+    faqWrap.innerHTML = '';
+    blueprintFAQ.forEach((f, idx) => {
+      const d = document.createElement('details');
+      if (idx === 0) d.open = true;
+      d.innerHTML = `<summary>${f.q}</summary><div class="faq-a">${f.a}</div>`;
+      faqWrap.appendChild(d);
+    });
+
+    // Final CTA
+    setText('offerFinalHeadline', sales.finalHeadline);
+
+    // Universal CTA copy across the page (3 buttons: hero, value stack, final)
+    const universalCTA = 'Start My Rizq Reset — $47 →';
+    document.querySelectorAll('.sales-cta').forEach(b => {
+      b.textContent = universalCTA;
+    });
+  }
+
+  /* ================== Checkout / Bump ================== */
+  function toggleBump() {
+    state.purchases.bump = document.getElementById('bumpCheck').checked;
+    const total = state.totals.blueprint + (state.purchases.bump ? state.totals.bump : 0);
+    document.getElementById('orderTotal').textContent = '$' + total;
+    document.getElementById('bumpSumRow').style.display = state.purchases.bump ? 'flex' : 'none';
+  }
+
+  function completeOrder() {
+    state.purchases.blueprint = true;
+    goto('upsell1');
+  }
+
+  /* ================== Upsells ================== */
+  function acceptUpsell(n) {
+    if (n === 1) { state.purchases.tracker = true; goto('upsell2'); }
+    else if (n === 2) { state.purchases.coach = true; goto('success'); }
+  }
+  function declineUpsell(n) {
+    if (n === 1) goto('upsell2');
+    else if (n === 2) goto('success');
+  }
+
+  /* ================== Success / Receipt ================== */
+  function renderReceipt() {
+    const list = document.getElementById('receiptList');
+    list.innerHTML = '';
+    let total = 0;
+    const add = (name, price) => {
+      total += price;
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <div class="name"><span class="tick">✓</span>${name}</div>
+        <div class="price">$${price}</div>`;
+      list.appendChild(li);
+    };
+    if (state.purchases.blueprint) add('The Rizq Reset Blueprint', state.totals.blueprint);
+    if (state.purchases.bump)      add('Halal Budget Toolkit',       state.totals.bump);
+    if (state.purchases.tracker)   add('Rizq Tracker Web App',       state.totals.tracker);
+    if (state.purchases.coach)     add('AI Muslim Money Coach',      state.totals.coach);
+    document.getElementById('receiptGrand').textContent = '$' + total;
+  }
+</script>
+
+</body>
+</html>
