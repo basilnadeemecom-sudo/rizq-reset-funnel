@@ -4,18 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>The Rizq Reset — Discover Your Muslim Money Archetype</title>
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-// Disable Meta's automatic event detection (SubscribedButtonClick, form heuristics, etc.)
-// so only the events we explicitly fire from the funnel flow are tracked.
-fbq('set', 'autoConfig', false, '1028694942816111');
-fbq('init', '1028694942816111');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1028694942816111&ev=PageView&noscript=1" alt=""/></noscript>
-<!-- End Meta Pixel Code -->
 <style>
   /* ---------- Base ---------- */
   *, *::before, *::after { box-sizing: border-box; }
@@ -976,603 +964,6 @@ fbq('track', 'PageView');
     font-weight: 700; color: var(--emerald-deep); font-size: 17px;
   }
 
-  /* ---------- Personalised offer sections ---------- */
-  .insights-card, .meaning-card, .bridge-card, .thirty-day-card {
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 18px;
-    box-shadow: var(--shadow-sm);
-    margin-bottom: 18px;
-  }
-  .section-eyebrow {
-    font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em;
-    color: var(--emerald-deep); font-weight: 700;
-    display: flex; align-items: center; gap: 10px;
-    margin-bottom: 12px;
-  }
-  .section-eyebrow::before {
-    content: ""; width: 6px; height: 6px; border-radius: 50%;
-    background: var(--gold); box-shadow: 0 0 0 3px rgba(212,175,55,0.22);
-  }
-  .insights-grid {
-    display: grid; gap: 10px;
-    grid-template-columns: 1fr 1fr;
-  }
-  @media (max-width: 480px) {
-    .insights-grid { grid-template-columns: 1fr; }
-  }
-  .insight-cell {
-    background: linear-gradient(180deg, var(--cream), var(--off-white));
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 12px 14px;
-    display: flex; align-items: flex-start; gap: 10px;
-  }
-  .insight-cell .ic {
-    flex: 0 0 28px; height: 28px; border-radius: 8px;
-    background: rgba(17,107,79,0.10); color: var(--emerald);
-    display: grid; place-items: center; font-size: 14px;
-  }
-  .insight-cell .label {
-    font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
-    color: var(--grey); font-weight: 700;
-    line-height: 1.3;
-  }
-  .insight-cell .value {
-    font-size: 14.5px; font-weight: 700; color: var(--emerald-deep);
-    margin-top: 2px; line-height: 1.3;
-  }
-  .meaning-card p, .bridge-card p {
-    font-size: 14.5px; color: var(--charcoal); line-height: 1.65;
-    margin: 0;
-  }
-  .bridge-card {
-    background: linear-gradient(180deg, var(--off-white), var(--cream));
-    border-color: rgba(17,107,79,0.18);
-  }
-  .thirty-day-card .weeks { display: grid; gap: 10px; }
-
-  /* ---------- Long-form Sales Page ---------- */
-  .sp-hero { text-align: center; padding: 6px 0 4px; margin-bottom: 18px; }
-  .sp-preheadline {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(212,175,55,0.16);
-    color: #7a5a08;
-    border: 1px solid rgba(212,175,55,0.4);
-    padding: 8px 14px; border-radius: 999px;
-    font-size: 12px; font-weight: 700;
-    margin-bottom: 16px;
-    letter-spacing: 0.02em;
-  }
-  .sp-headline { font-size: 30px; line-height: 1.15; margin: 0 0 14px; color: var(--charcoal); letter-spacing: -0.02em; font-weight: 700; }
-  @media (min-width: 900px) { .sp-headline { font-size: 42px; } }
-  .sp-subheadline {
-    color: var(--grey); font-size: 16px;
-    max-width: 600px; margin: 0 auto 22px;
-    line-height: 1.6;
-  }
-  .sp-price-row {
-    display: inline-flex; align-items: baseline; gap: 10px;
-    margin-bottom: 18px;
-  }
-  .sp-price-row .strike { color: var(--grey); text-decoration: line-through; font-size: 15px; }
-  .sp-price-row .now { color: var(--emerald-deep); font-size: 42px; font-weight: 700; letter-spacing: -0.03em; }
-  .sp-price-row .per { color: var(--grey); font-size: 13px; }
-  .sp-hero .btn { max-width: 380px; margin: 0 auto; }
-  .sp-micro { text-align: center; color: var(--grey); font-size: 12.5px; margin-top: 10px; }
-  .sp-eth-note {
-    display: inline-block; margin-top: 12px;
-    background: rgba(17,107,79,0.05);
-    border: 1px solid rgba(17,107,79,0.18);
-    padding: 6px 12px; border-radius: 999px;
-    color: var(--emerald); font-size: 11.5px; font-weight: 600;
-  }
-
-  .sp-section {
-    padding: 28px 0;
-    border-top: 1px solid var(--border);
-  }
-  .sp-section:first-of-type { border-top: 0; padding-top: 6px; }
-  .sp-eyebrow {
-    font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em;
-    color: var(--emerald); font-weight: 800;
-    margin-bottom: 10px;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .sp-eyebrow::before {
-    content: ""; width: 18px; height: 2px;
-    background: var(--gold); border-radius: 2px;
-  }
-  .sp-h2 {
-    font-size: 24px; line-height: 1.2;
-    color: var(--charcoal); letter-spacing: -0.02em;
-    margin: 0 0 14px;
-    font-weight: 700;
-  }
-  @media (min-width: 900px) { .sp-h2 { font-size: 30px; } }
-  .sp-section p {
-    font-size: 15px; color: var(--charcoal);
-    line-height: 1.7; margin: 0 0 12px;
-  }
-
-  /* Premium stack list */
-  .stack-list-premium {
-    list-style: none; padding: 0; margin: 16px 0 0;
-    display: grid; gap: 10px;
-  }
-  .stack-item {
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 14px 16px;
-    display: flex; gap: 12px; align-items: flex-start;
-  }
-  .stack-item .tick-lg {
-    flex: 0 0 28px; height: 28px; border-radius: 50%;
-    background: var(--emerald); color: var(--off-white);
-    display: grid; place-items: center; font-size: 14px; font-weight: 700;
-  }
-  .stack-item .meta { flex: 1; min-width: 0; }
-  .stack-item .stk-name { font-size: 14.5px; font-weight: 700; color: var(--charcoal); }
-  .stack-item .stk-benefit { font-size: 12.5px; color: var(--grey); margin-top: 3px; line-height: 1.5; }
-  .stack-item .stk-value {
-    font-size: 13px; font-weight: 700; color: var(--emerald-deep);
-    white-space: nowrap; padding-top: 2px;
-  }
-  .stack-total-premium {
-    margin-top: 14px;
-    background: linear-gradient(180deg, var(--cream), var(--off-white));
-    border: 1px solid var(--border);
-    border-radius: 14px; padding: 14px 18px;
-  }
-
-  /* FAQ */
-  .faq { display: grid; gap: 8px; margin-top: 14px; }
-  .faq details {
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 14px 16px;
-    transition: border .15s;
-  }
-  .faq details[open] { border-color: rgba(17,107,79,0.4); }
-  .faq summary {
-    list-style: none; cursor: pointer;
-    font-size: 14.5px; font-weight: 700; color: var(--charcoal);
-    display: flex; justify-content: space-between; align-items: center;
-    gap: 12px;
-  }
-  .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after {
-    content: "+"; color: var(--emerald);
-    font-size: 22px; font-weight: 500; line-height: 1;
-    flex: 0 0 22px; text-align: center;
-  }
-  .faq details[open] summary::after { content: "−"; }
-  .faq .faq-a {
-    font-size: 14px; color: var(--grey); line-height: 1.65;
-    margin-top: 10px; padding-top: 10px;
-    border-top: 1px solid var(--border);
-  }
-
-  /* Final CTA */
-  .sp-final-cta {
-    background: linear-gradient(160deg, var(--emerald-deep), var(--emerald));
-    color: var(--off-white);
-    border-radius: var(--radius-xl);
-    padding: 32px 24px;
-    text-align: center;
-    margin: 20px 0 12px;
-    box-shadow: var(--shadow-lg);
-    position: relative; overflow: hidden;
-  }
-  .sp-final-cta::before {
-    content: ""; position: absolute; inset: 0;
-    background:
-      radial-gradient(280px 140px at 50% 100%, rgba(212,175,55,0.26), transparent 70%),
-      radial-gradient(circle at 50% 0%, rgba(212,175,55,0.10), transparent 60%);
-    pointer-events: none;
-  }
-  .sp-final-cta h2 {
-    color: var(--off-white); font-size: 26px; line-height: 1.2;
-    margin: 0 0 12px;
-    letter-spacing: -0.02em; font-weight: 700;
-    position: relative;
-  }
-  @media (min-width: 900px) { .sp-final-cta h2 { font-size: 32px; } }
-  .sp-final-cta p {
-    color: rgba(255,252,244,0.88); font-size: 15px;
-    margin: 0 auto 20px; max-width: 500px;
-    line-height: 1.65;
-    position: relative;
-  }
-  .sp-final-cta .btn { max-width: 420px; margin: 0 auto; position: relative; }
-  .sp-final-cta .btn-primary {
-    background: linear-gradient(180deg, var(--gold), #C09425);
-    color: #2B1F00;
-    box-shadow: 0 12px 30px rgba(212,175,55,0.45);
-    font-size: 17px;
-    padding: 18px 24px;
-  }
-  .sp-final-cta .sp-micro { color: rgba(255,252,244,0.78); position: relative; margin-top: 14px; }
-
-  /* ---------- Sales Page v2 — Product Reveal Style ---------- */
-  /* Slightly wider frame when the sales page is active (Chrome/Safari/Edge/FF121+) */
-  @media (min-width: 1100px) {
-    body:has(#screen-offer.active) .app-shell { max-width: 1120px; }
-  }
-  #screen-offer { padding: 22px 18px 30px; }
-  @media (min-width: 900px) { #screen-offer { padding: 36px 40px 60px; } }
-
-  /* Alternating section blocks */
-  .sp-block {
-    padding: 30px 0;
-    border-top: 1px solid var(--border);
-  }
-  .sp-block:first-of-type { border-top: 0; padding-top: 10px; }
-  .sp-block.cream {
-    background: linear-gradient(180deg, var(--cream) 0%, #F5EFE0 100%);
-    border-radius: var(--radius-xl);
-    padding: 28px 22px;
-    margin: 14px 0;
-    border-top: 0;
-    border: 1px solid var(--border);
-  }
-  @media (min-width: 900px) { .sp-block.cream { padding: 40px 36px; } }
-  .sp-block h2 {
-    font-size: 24px; line-height: 1.15; letter-spacing: -0.02em;
-    margin: 8px 0 8px; color: var(--charcoal); font-weight: 700;
-  }
-  @media (min-width: 900px) { .sp-block h2 { font-size: 32px; } }
-  .sp-block .sp-sub-h {
-    font-size: 15px; color: var(--grey);
-    line-height: 1.65; margin: 0 0 16px;
-    max-width: 660px;
-  }
-
-  /* HERO 2-col */
-  .sp-hero-grid {
-    display: grid; gap: 30px;
-    grid-template-columns: 1fr;
-    align-items: center;
-    padding-top: 6px;
-  }
-  @media (min-width: 880px) {
-    .sp-hero-grid { grid-template-columns: 1.05fr 1fr; gap: 44px; }
-  }
-  .sp-hero-text { text-align: center; }
-  @media (min-width: 880px) { .sp-hero-text { text-align: left; } }
-  .sp-hero-text .sp-headline {
-    font-size: 28px; line-height: 1.15; margin: 0 0 14px;
-  }
-  @media (min-width: 880px) { .sp-hero-text .sp-headline { font-size: 36px; } }
-  @media (min-width: 1100px) { .sp-hero-text .sp-headline { font-size: 42px; } }
-  .sp-hero-text .sp-subheadline { margin-left: auto; margin-right: auto; }
-  @media (min-width: 880px) {
-    .sp-hero-text .sp-subheadline { margin-left: 0; margin-right: 0; max-width: 540px; }
-  }
-
-  .sp-badges {
-    display: inline-flex; flex-wrap: wrap; gap: 8px;
-    margin-bottom: 16px; justify-content: center;
-  }
-  @media (min-width: 880px) { .sp-badges { justify-content: flex-start; } }
-  .sp-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 7px 12px;
-    border-radius: 999px;
-    font-size: 11.5px; font-weight: 700;
-    line-height: 1;
-  }
-  .sp-badge.top  { background: rgba(17,107,79,0.08); color: var(--emerald); border: 1px solid rgba(17,107,79,0.20); }
-  .sp-badge.arch { background: rgba(212,175,55,0.16); color: #7a5a08; border: 1px solid rgba(212,175,55,0.4); }
-
-  .sp-trust-bullets {
-    list-style: none; padding: 0; margin: 14px auto 0;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-    max-width: 460px;
-  }
-  @media (min-width: 880px) { .sp-trust-bullets { margin-left: 0; margin-right: 0; } }
-  .sp-trust-bullets li {
-    display: flex; align-items: center; gap: 8px;
-    font-size: 12.5px; color: var(--charcoal); font-weight: 500;
-  }
-  .sp-trust-bullets li::before {
-    content: "✓"; color: var(--emerald-soft); font-weight: 800; font-size: 13px;
-    flex: 0 0 14px;
-  }
-
-  /* Price box */
-  .price-box {
-    display: inline-flex; flex-direction: column; align-items: flex-start;
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 12px 18px;
-    margin: 16px 0;
-  }
-  .price-box .reg {
-    font-size: 11px; color: var(--grey);
-    text-decoration: line-through;
-    font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  }
-  .price-box .today {
-    display: flex; align-items: baseline; gap: 8px; margin-top: 2px;
-  }
-  .price-box .today .lbl { font-size: 12px; color: var(--grey); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
-  .price-box .today .amt { font-size: 36px; font-weight: 700; color: var(--emerald-deep); letter-spacing: -0.03em; line-height: 1; }
-  .price-box .today .per { font-size: 12px; color: var(--grey); }
-  .price-box.dark {
-    background: rgba(255,252,244,0.08);
-    border-color: rgba(212,175,55,0.4);
-    backdrop-filter: blur(4px);
-  }
-  .price-box.dark .reg { color: rgba(255,252,244,0.55); }
-  .price-box.dark .today .lbl { color: rgba(255,252,244,0.75); }
-  .price-box.dark .today .amt { color: var(--gold); }
-  .price-box.dark .today .per { color: rgba(255,252,244,0.6); }
-
-  .sp-hero-text .btn { max-width: 380px; margin: 0 auto; }
-  @media (min-width: 880px) { .sp-hero-text .btn { margin-left: 0; margin-right: 0; } }
-
-  /* PRODUCT MOCKUP */
-  .sp-hero-visual {
-    display: flex; align-items: center; justify-content: center;
-    min-height: 360px;
-  }
-  .product-mockup {
-    position: relative;
-    width: 100%; max-width: 460px;
-    height: 360px;
-  }
-  @media (max-width: 480px) {
-    .product-mockup { height: 340px; }
-  }
-  .mockup-glow {
-    position: absolute; inset: -20px;
-    background: radial-gradient(closest-side, rgba(212,175,55,0.20), transparent 75%);
-    pointer-events: none;
-  }
-  .mockup-book {
-    position: absolute;
-    width: 220px; height: 296px;
-    left: 0; bottom: 12px;
-    background: linear-gradient(160deg, var(--emerald-deep), var(--emerald) 75%);
-    border-radius: 6px 14px 14px 6px;
-    box-shadow:
-      0 30px 60px rgba(11,61,46,0.40),
-      inset 0 0 0 1px rgba(212,175,55,0.20),
-      inset 4px 0 0 0 rgba(0,0,0,0.25);
-    padding: 28px 22px 22px 28px;
-    color: var(--off-white);
-    display: flex; flex-direction: column;
-    overflow: hidden;
-    z-index: 2;
-    transform: rotate(-3deg);
-  }
-  .mockup-book::before {
-    content: ""; position: absolute; left: 8px; top: 8px; bottom: 8px;
-    width: 1px; background: rgba(212,175,55,0.30);
-  }
-  .mockup-book::after {
-    content: ""; position: absolute; top: 16px; right: 16px;
-    width: 26px; height: 26px;
-    border-top: 1.5px solid var(--gold);
-    border-right: 1.5px solid var(--gold);
-  }
-  .mockup-book .mb-eyebrow {
-    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--gold); font-weight: 800;
-    margin-bottom: 14px;
-  }
-  .mockup-book .mb-title {
-    font-size: 22px; line-height: 1.1;
-    font-weight: 700; color: var(--off-white);
-    letter-spacing: -0.01em;
-    margin-bottom: 8px;
-  }
-  .mockup-book .mb-divider {
-    height: 1px; width: 36px;
-    background: var(--gold);
-    margin: 12px 0;
-  }
-  .mockup-book .mb-sub {
-    font-size: 11px; color: rgba(255,252,244,0.75);
-    letter-spacing: 0.04em;
-    line-height: 1.4;
-  }
-  .mockup-book .mb-stages {
-    margin-top: auto;
-    display: flex; flex-wrap: wrap; gap: 4px;
-  }
-  .mockup-book .mb-stages span {
-    font-size: 9px; padding: 4px 8px;
-    background: rgba(212,175,55,0.16);
-    border: 1px solid rgba(212,175,55,0.4);
-    color: var(--gold);
-    border-radius: 999px;
-    font-weight: 800; letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-  .mockup-book .mb-seal {
-    position: absolute; bottom: 18px; right: 18px;
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    background: var(--gold);
-    display: grid; place-items: center;
-    color: var(--emerald-deep); font-weight: 800; font-size: 11px;
-    font-family: var(--font);
-  }
-
-  .mockup-dashboard {
-    position: absolute;
-    right: 0; bottom: 80px;
-    width: 240px;
-    background: var(--off-white);
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    box-shadow: 0 30px 50px rgba(11,61,46,0.20);
-    padding: 14px;
-    z-index: 3;
-    transform: rotate(4deg);
-  }
-  .mockup-dashboard .md-top {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 10px;
-    font-size: 10px; color: var(--grey); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  }
-  .mockup-dashboard .md-top .md-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald-soft); box-shadow: 0 0 0 3px rgba(31,138,91,0.18); }
-  .mockup-dashboard .md-top .md-status { display: inline-flex; align-items: center; gap: 6px; color: var(--emerald-soft); }
-  .mockup-dashboard .md-card {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 10px 12px;
-    margin-bottom: 8px;
-  }
-  .mockup-dashboard .md-card:last-child { margin-bottom: 0; }
-  .mockup-dashboard .md-card .lbl { font-size: 9px; color: var(--grey); font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
-  .mockup-dashboard .md-card .val { font-size: 17px; font-weight: 700; color: var(--emerald-deep); margin-top: 2px; line-height: 1; letter-spacing: -0.01em; }
-  .mockup-dashboard .md-card .bar { height: 4px; background: rgba(17,107,79,0.10); border-radius: 999px; margin-top: 8px; overflow: hidden; }
-  .mockup-dashboard .md-card .bar div { height: 100%; background: linear-gradient(90deg, var(--emerald), var(--gold)); border-radius: 999px; }
-
-  /* SECTION 2: cleaner spacing for the insights grid (already styled), plus bridge */
-  .pattern-bridge {
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--gold);
-    border-radius: 14px;
-    padding: 16px 18px;
-    font-size: 14.5px; color: var(--charcoal); line-height: 1.65;
-    margin-top: 16px;
-  }
-
-  /* Final CTA tweaks */
-  .sp-final-cta .price-box { margin: 0 auto 14px; position: relative; }
-
-  /* ---------- Sales Page v3 — Conversion Polish ---------- */
-  /* Mechanism cards (Why The Rizq Reset Works) */
-  .mech-grid {
-    display: grid; gap: 12px; margin-top: 18px;
-    grid-template-columns: 1fr 1fr;
-  }
-  @media (min-width: 900px) { .mech-grid { grid-template-columns: repeat(4, 1fr); } }
-  .mech-card {
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 18px;
-    text-align: left;
-    position: relative;
-  }
-  .mech-card .m-num {
-    font-size: 10px; color: var(--gold); font-weight: 800;
-    letter-spacing: 0.18em; text-transform: uppercase;
-  }
-  .mech-card .m-icon {
-    width: 38px; height: 38px; border-radius: 12px;
-    background: linear-gradient(135deg, rgba(17,107,79,0.10), rgba(212,175,55,0.20));
-    border: 1px solid rgba(17,107,79,0.18);
-    color: var(--emerald);
-    display: grid; place-items: center; font-size: 18px;
-    margin: 6px 0 10px;
-  }
-  .mech-card h4 {
-    font-size: 16px; margin: 0 0 6px;
-    color: var(--charcoal); font-weight: 700; letter-spacing: -0.01em;
-  }
-  .mech-card p { font-size: 13px; color: var(--grey); margin: 0; line-height: 1.55; }
-  /* Why $47? callout — light cream/gold to keep the final CTA as the single dark moment */
-  .why47 {
-    background: linear-gradient(180deg, #FFFCF4, #F8F3E7);
-    border: 1px solid rgba(212,175,55,0.35);
-    border-left: 4px solid var(--gold);
-    border-radius: var(--radius-xl);
-    padding: 24px 26px;
-    margin: 16px 0;
-  }
-  .why47 .sp-eyebrow { color: var(--emerald-deep); }
-  .why47 .sp-eyebrow::before { background: var(--gold); }
-  .why47 p {
-    color: var(--charcoal);
-    font-size: 15.5px; line-height: 1.65;
-    max-width: 640px;
-    margin: 0;
-  }
-  .why47 .w47-anchor {
-    background: rgba(212,175,55,0.20);
-    border: 1px solid rgba(212,175,55,0.45);
-    color: var(--emerald-deep);
-    font-weight: 700;
-    padding: 2px 8px; border-radius: 6px;
-  }
-
-  /* Product mockup — additional sheet layers */
-  .mockup-sheet {
-    position: absolute;
-    width: 178px; height: 232px;
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: 4px 8px 8px 4px;
-    box-shadow: 0 14px 28px rgba(11,61,46,0.16);
-    overflow: hidden;
-    z-index: 1;
-  }
-  .mockup-sheet::before {
-    /* Subtle "lines" suggesting a worksheet */
-    content: ""; position: absolute;
-    top: 28px; left: 14px; right: 14px; bottom: 30px;
-    background:
-      repeating-linear-gradient(180deg,
-        rgba(17,107,79,0.10) 0 1px,
-        transparent 1px 14px);
-  }
-  .mockup-sheet::after {
-    /* Header strip */
-    content: ""; position: absolute;
-    top: 12px; left: 14px; width: 60px; height: 6px;
-    background: var(--gold);
-    border-radius: 2px;
-    opacity: 0.7;
-  }
-  .mockup-sheet.sheet-1 {
-    left: 18px; bottom: 30px;
-    transform: rotate(-9deg);
-  }
-  .mockup-sheet.sheet-2 {
-    left: 38px; bottom: 22px;
-    transform: rotate(-5deg);
-    background: #FAF5E8;
-    z-index: 1;
-  }
-
-  .mockup-pill {
-    position: absolute;
-    bottom: -2px; left: 50%; transform: translateX(-50%);
-    background: var(--emerald-deep);
-    color: var(--gold);
-    font-size: 10.5px; font-weight: 800;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    padding: 7px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(212,175,55,0.40);
-    box-shadow: 0 10px 24px rgba(11,61,46,0.25);
-    z-index: 4;
-    white-space: nowrap;
-  }
-
-  /* Slightly tighter sp-block subhead */
-  .sp-block .sp-sub-h { max-width: 640px; }
-  @media (min-width: 880px) { .sp-block .sp-sub-h { font-size: 16px; } }
-
-  /* Universal CTA pulse — subtle attention */
-  .sales-cta { transition: transform .15s ease, box-shadow .15s ease, filter .15s; }
-  .sales-cta:hover { filter: brightness(1.04); }
-
-  /* Hero — keep price box and CTA close together */
-  .sp-hero-text .price-box { margin: 14px 0 12px; }
-
   /* ---------- Footer ---------- */
   .footer-mini {
     text-align: center; font-size: 11px; color: var(--grey);
@@ -1710,142 +1101,61 @@ fbq('track', 'PageView');
           <div class="icon-square">📘</div>
           <div style="flex:1;">
             <div class="meta">Front-end system · digital download</div>
-            <h4>The Rizq Reset Blueprint</h4>
+            <h4>The Muslim Money Blueprint</h4>
             <div class="meta" style="margin-top:4px;">Worksheets · trackers · 30-day plan · Islamic framework</div>
           </div>
         </div>
       </div>
 
-      <button class="btn btn-primary" onclick="goto('offer')">See My Personalised Blueprint →</button>
+      <button class="btn btn-primary" onclick="goto('offer')">Get The Muslim Money Blueprint →</button>
       <div class="micro-note">Your roadmap tells you what needs to change. The system helps you follow through.</div>
     </section>
 
-    <!-- ====== Screen 6: Sales Page v4 — Stripped & Premium (6 sections) ====== -->
+    <!-- ====== Screen 6: Offer ====== -->
     <section class="screen" id="screen-offer">
+      <div class="offer-hero">
+        <span class="eyebrow" style="background:rgba(212,175,55,0.16); color:#7a5a08; border-color:rgba(212,175,55,0.4); display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; font-size:12px; font-weight:600; margin-bottom: 14px;">
+          ★ Recommended for your archetype
+        </span>
+        <h1>Get The Complete 30-Day System To Take Control Of Your Money As A Muslim</h1>
+        <p class="muted" style="font-size:15px; margin-top:14px;">Your roadmap showed you what needs to change. The Muslim Money Blueprint gives you the step-by-step system, worksheets, trackers, and Islamic money framework to actually implement it.</p>
 
-      <!-- SECTION 1: HERO -->
-      <div class="sp-hero-grid">
-        <div class="sp-hero-text">
-          <div class="sp-badges">
-            <span class="sp-badge top">★ Your roadmap is ready</span>
-            <span class="sp-badge arch" id="offerArchBadge">Recommended for: The Rizq Leaker</span>
-          </div>
-          <h1 class="sp-headline" id="offerHeadline">Stop Letting Your Money Disappear Every Month</h1>
-          <p class="sp-subheadline" id="offerSubheadline">Your quiz revealed the pattern. The Blueprint is the 30-day system to change it.</p>
-          <div class="price-box">
-            <span class="reg">Regular value $297</span>
-            <span class="today"><span class="lbl">Today</span><span class="amt">$47</span><span class="per">one-time</span></span>
-          </div>
-          <button class="btn btn-primary sales-cta" onclick="goto('checkout')">Start My Rizq Reset — $47 →</button>
-          <ul class="sp-trust-bullets">
-            <li>Instant access</li>
-            <li>30-day system</li>
-            <li>Built for Muslims</li>
-            <li>Educational only</li>
-          </ul>
-        </div>
-        <div class="sp-hero-visual" aria-hidden="true">
-          <div class="product-mockup">
-            <div class="mockup-glow"></div>
-            <div class="mockup-sheet sheet-1"></div>
-            <div class="mockup-sheet sheet-2"></div>
-            <div class="mockup-dashboard">
-              <div class="md-top">
-                <span>rizq-reset · week 1</span>
-                <span class="md-status"><span class="md-dot"></span>Audit</span>
-              </div>
-              <div class="md-card">
-                <div class="lbl">Money Left This Month</div>
-                <div class="val">$1,284</div>
-                <div class="bar"><div style="width: 64%"></div></div>
-              </div>
-              <div class="md-card">
-                <div class="lbl">Spending Leaks Found</div>
-                <div class="val">$312</div>
-                <div class="bar"><div style="width: 38%; background: linear-gradient(90deg, var(--amber), var(--gold));"></div></div>
-              </div>
-              <div class="md-card">
-                <div class="lbl">Savings → Goals</div>
-                <div class="val">52%</div>
-                <div class="bar"><div style="width: 52%"></div></div>
-              </div>
-            </div>
-            <div class="mockup-book">
-              <div class="mb-eyebrow">The Rizq Reset</div>
-              <div class="mb-title">The Rizq Reset<br/>Blueprint</div>
-              <div class="mb-divider"></div>
-              <div class="mb-sub">A 30-Day Islamic<br/>Money System</div>
-              <div class="mb-stages">
-                <span>Audit</span><span>Control</span><span>Build</span><span>Stabilise</span>
-              </div>
-              <div class="mb-seal">R</div>
-            </div>
-            <div class="mockup-pill">A complete 30-day system</div>
-          </div>
+        <div class="price-row">
+          <span class="strike">$297</span>
+          <span class="now">$47</span>
+          <span class="per">one-time</span>
         </div>
       </div>
 
-      <!-- SECTION 2: YOUR QUIZ REVEALED -->
-      <div class="sp-block">
-        <div class="sp-eyebrow">From Your Quiz</div>
-        <h2>Your Quiz Revealed</h2>
-        <div class="insights-grid" id="offerInsights"></div>
-        <div class="pattern-bridge">That's why your next step is not more random advice — it's a simple system you can follow weekly.</div>
-      </div>
-
-      <!-- SECTION 3: THE 30-DAY SYSTEM -->
-      <div class="sp-block cream">
-        <div class="sp-eyebrow">The 30-Day System</div>
-        <h2>Audit. Control. Direct. Review.</h2>
-        <div class="mech-grid" id="offerSystem"></div>
-      </div>
-
-      <!-- SECTION 4: WHAT YOU GET -->
-      <div class="sp-block">
-        <div class="sp-eyebrow">What You Get</div>
-        <h2>Inside The Blueprint</h2>
-        <ul class="stack-list-premium" id="offerStackList"></ul>
-        <div class="stack-total-premium">
-          <div class="stack-total">
-            <span class="label">Total Value</span>
-            <span class="strike">$297</span>
-          </div>
-          <div class="stack-total" style="border-top:0; padding-top:4px;">
-            <span class="label">Today</span>
-            <span class="final">$47</span>
-          </div>
+      <div class="stack-card">
+        <h3>What's inside The Muslim Money Blueprint</h3>
+        <ul class="stack-list">
+          <li><span class="tick">✓</span><span>The Muslim Money Blueprint guide</span><span class="val">$67</span></li>
+          <li><span class="tick">✓</span><span>30-Day Rizq Reset action plan</span><span class="val">$37</span></li>
+          <li><span class="tick">✓</span><span>Spending audit system</span><span class="val">$27</span></li>
+          <li><span class="tick">✓</span><span>Halal monthly budget method</span><span class="val">$27</span></li>
+          <li><span class="tick">✓</span><span>Debt &amp; riba audit framework</span><span class="val">$27</span></li>
+          <li><span class="tick">✓</span><span>Sadaqah planning system</span><span class="val">$19</span></li>
+          <li><span class="tick">✓</span><span>Zakat basics walkthrough</span><span class="val">$19</span></li>
+          <li><span class="tick">✓</span><span>Savings goal planner</span><span class="val">$27</span></li>
+          <li><span class="tick">✓</span><span>Weekly money review system</span><span class="val">$27</span></li>
+          <li><span class="tick">✓</span><span>Archetype-specific action path</span><span class="val">$20</span></li>
+        </ul>
+        <div class="stack-total">
+          <span class="label">Total Value</span>
+          <span class="strike">$297</span>
         </div>
-        <div style="text-align:center; margin-top: 20px;">
-          <button class="btn btn-primary sales-cta" onclick="goto('checkout')" style="max-width: 380px;">Start My Rizq Reset — $47 →</button>
+        <div class="stack-total" style="border-top:0; padding-top:4px;">
+          <span class="label">Today</span>
+          <span class="final">$47</span>
         </div>
       </div>
 
-      <!-- SECTION 5: WHY $47 IS EASY -->
-      <div class="why47">
-        <div class="sp-eyebrow">Why $47 Is Easy</div>
-        <p id="offerWhy47Note"></p>
-      </div>
-
-      <!-- SECTION 6: FAQ + FINAL CTA -->
-      <div class="sp-block">
-        <div class="sp-eyebrow">Common Questions</div>
-        <h2>Honest Answers</h2>
-        <div class="faq" id="offerFAQ"></div>
-      </div>
-
-      <div class="sp-final-cta">
-        <h2 id="offerFinalHeadline">Ready To Begin?</h2>
-        <div class="price-box dark">
-          <span class="reg">Regular value $297</span>
-          <span class="today"><span class="lbl">Today</span><span class="amt">$47</span></span>
-        </div>
-        <button class="btn btn-primary sales-cta" onclick="goto('checkout')" id="offerFinalCTA">Start My Rizq Reset — $47 →</button>
-        <div class="sp-micro">Instant access · One-time payment · Start today</div>
-      </div>
+      <button class="btn btn-primary" onclick="goto('checkout')">Get Instant Access →</button>
 
       <div class="ethics-note">
         <span class="ic">✦</span>
-        <span>Built to help you manage your money with structure, discipline, and Islamic principles. Educational only. No hype. No get-rich-quick promises.</span>
+        <span>Built to help you manage your money with structure, discipline, and Islamic principles. No hype. No get-rich-quick promises.</span>
       </div>
     </section>
 
@@ -1859,33 +1169,32 @@ fbq('track', 'PageView');
           <div class="summary-card">
             <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:0.12em; color:var(--emerald-deep); margin-bottom: 10px;">Order Summary</h3>
             <div class="sum-row">
-              <div class="name">The Rizq Reset Blueprint</div>
+              <div class="name">The Muslim Money Blueprint</div>
               <div class="price">$47</div>
             </div>
             <div class="sum-row" id="bumpSumRow" style="display:none;">
               <div class="name">+ Halal Budget Toolkit</div>
-              <div class="price">$11</div>
+              <div class="price">$27</div>
             </div>
           </div>
 
           <div class="bump-card">
-            <div class="bump-flag">Add for just $11 · no-brainer add-on</div>
+            <div class="bump-flag">One-time add-on</div>
             <label>
               <input type="checkbox" id="bumpCheck" onchange="toggleBump()">
               <div>
-                <div class="b-title">Add the Halal Budget Toolkit for just <span class="b-price">$11</span></div>
-                <div class="b-desc">Turn your Blueprint into action with the exact spreadsheets, trackers, calculators, and worksheets for your 30-day reset.</div>
+                <div class="b-title">Add the Halal Budget Toolkit <span class="b-price">+$27</span></div>
+                <div class="b-desc">Get the spreadsheets, calculators, and trackers to implement your roadmap immediately.</div>
               </div>
             </label>
             <ul class="bump-includes">
-              <li>Monthly budget spreadsheet</li>
+              <li>Budget spreadsheet</li>
               <li>Expense tracker</li>
-              <li>Spending audit sheet</li>
               <li>Debt payoff tracker</li>
               <li>Sadaqah tracker</li>
-              <li>Zakat estimator</li>
-              <li>Subscription audit</li>
-              <li>Weekly money review sheet</li>
+              <li>Zakat calculator</li>
+              <li>Subscription audit sheet</li>
+              <li>Weekly review sheet</li>
               <li>Ramadan / Eid budget planner</li>
               <li>Family support planner</li>
             </ul>
@@ -2111,7 +1420,6 @@ fbq('track', 'PageView');
   const ARCHETYPES = {
     leaker: {
       key: 'leaker',
-      answerKeys: ['trackingFrequency','overspendCategory','monthlyLeak','budgetStatus','spendingTrigger','urgency'],
       name: 'The Rizq Leaker',
       icon: '💧',
       desc: 'Money comes in, but somehow it disappears before the month ends.',
@@ -2135,7 +1443,6 @@ fbq('track', 'PageView');
     },
     prisoner: {
       key: 'prisoner',
-      answerKeys: ['paydayShortageFrequency','emergencyFund','incomeDrain','survivalNumber','peaceNeed','breathingRoom'],
       name: 'The Paycheck Prisoner',
       icon: '🔁',
       desc: 'You work hard, but still feel stuck waiting for the next payday.',
@@ -2159,7 +1466,6 @@ fbq('track', 'PageView');
     },
     debt: {
       key: 'debt',
-      answerKeys: ['debtType','debtAmount','ribaStatus','minimumPayments','debtCause','planUrgency'],
       name: 'The Debt-Burdened Muslim',
       icon: '⚖️',
       desc: 'Debt, bills, or riba-related stress are weighing you down.',
@@ -2183,7 +1489,6 @@ fbq('track', 'PageView');
     },
     giver: {
       key: 'giver',
-      answerKeys: ['supportRecipient','givingBudget','guiltSayingNo','givingPressure','safeGivingAmount','givingType'],
       name: 'The Generous Giver',
       icon: '🤲',
       desc: 'You love giving and helping others, but sometimes your own finances suffer.',
@@ -2207,7 +1512,6 @@ fbq('track', 'PageView');
     },
     builder: {
       key: 'builder',
-      answerKeys: ['mainGoal','monthlySavings','emergencyFund','halalInvestingKnowledge','timeline','progressBlocker'],
       name: 'The Future Builder',
       icon: '🌱',
       desc: 'You want to save, invest halal, provide, marry, travel, or build wealth — but need a clear plan.',
@@ -2231,83 +1535,6 @@ fbq('track', 'PageView');
     }
   };
 
-  /* ================== Meta Pixel + Conversions API helper ================== */
-  // Fires the browser Pixel and posts the same event to /.netlify/functions/capi
-  // for server-side delivery, sharing an event_id for Meta-side deduplication.
-  const META_PIXEL_ID = '1028694942816111';
-
-  function fbpGetCookie(name) {
-    const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
-    return m ? decodeURIComponent(m[1]) : undefined;
-  }
-
-  // Meta's standard event names — anything else is dispatched as a custom event.
-  const META_STANDARD_EVENTS = new Set([
-    'PageView','ViewContent','Search','AddToCart','AddToWishlist',
-    'InitiateCheckout','AddPaymentInfo','Purchase','Lead','CompleteRegistration',
-    'Contact','CustomizeProduct','Donate','FindLocation','Schedule',
-    'StartTrial','SubmitApplication','Subscribe',
-  ]);
-
-  function fbTrack(eventName, customData) {
-    customData = customData || {};
-    const eventId = 'rr_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
-    const isStandard = META_STANDARD_EVENTS.has(eventName);
-
-    // Always attach archetype if known
-    const params = Object.assign({}, customData);
-    try {
-      if (typeof state !== 'undefined' && state && state.archetype && !params.archetype) {
-        params.archetype = state.archetype;
-      }
-    } catch (_) {}
-
-    // Browser-side pixel — use 'track' for Meta's standard events, 'trackCustom' otherwise.
-    if (window.fbq) {
-      try {
-        fbq(isStandard ? 'track' : 'trackCustom', eventName, params, { eventID: eventId });
-      } catch (_) {}
-    }
-
-    // Server-side CAPI relay (Netlify Function)
-    try {
-      const body = JSON.stringify({
-        event_name: eventName,
-        event_id: eventId,
-        event_source_url: window.location.href,
-        custom_data: params,
-        user_data: {
-          fbp: fbpGetCookie('_fbp'),
-          fbc: fbpGetCookie('_fbc'),
-        },
-      });
-      fetch('/.netlify/functions/capi', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: body,
-        keepalive: true,
-      }).catch(function () {});
-    } catch (_) {}
-  }
-
-  /* ================== URL routing map ================== */
-  // Screen name → URL path. Loading is transitional — no URL change.
-  const ROUTES = {
-    landing:   '/',
-    archetype: '/path',
-    quiz:      '/quiz',
-    results:   '/result',
-    offer:     '/roadmap',
-    checkout:  '/checkout',
-    upsell1:   '/upsell-tracker',
-    upsell2:   '/upsell-coach',
-    success:   '/success',
-  };
-  // Reverse map: URL path → screen name (for browser back/forward + deep links)
-  const PATH_TO_SCREEN = Object.fromEntries(
-    Object.entries(ROUTES).map(([screen, path]) => [path, screen])
-  );
-
   /* ================== State ================== */
   const state = {
     archetype: null,
@@ -2321,7 +1548,7 @@ fbq('track', 'PageView');
     },
     totals: {
       blueprint: 47,
-      bump: 11,
+      bump: 27,
       tracker: 147,
       coach: 97
     }
@@ -2330,65 +1557,17 @@ fbq('track', 'PageView');
   /* ================== Screen routing ================== */
   const SCREENS = ['landing','archetype','quiz','loading','results','offer','checkout','upsell1','upsell2','success'];
 
-  function goto(name, skipHistory) {
+  function goto(name) {
     document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
     const target = document.getElementById('screen-' + name);
     if (target) target.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     updateProgress(name);
-
-    // Update browser URL (skipHistory=true when invoked from popstate/initial-route)
-    if (!skipHistory) {
-      const path = ROUTES[name];
-      if (path && window.location.pathname !== path) {
-        try { history.pushState({ screen: name }, '', path); } catch (_) {}
-      }
-    }
     if (name === 'archetype') buildArchetypeGrid();
     if (name === 'quiz') renderQuestion();
     if (name === 'loading') runLoading();
     if (name === 'results') renderResults();
-    if (name === 'offer') renderOffer();
     if (name === 'success') renderReceipt();
-
-    // Meta Pixel + CAPI funnel events.
-    // Note: no standard 'Lead' or 'CompleteRegistration' here — those are reserved
-    // for moments where the user actually submits PII (email/phone). Quiz milestones
-    // are tracked as custom events so we can still build Custom Audiences from them
-    // without misrepresenting intent to Meta's ML.
-    switch (name) {
-      case 'archetype':
-        fbTrack('ViewContent', { content_name: 'Archetype Selection', content_category: 'Quiz' });
-        break;
-      case 'quiz':
-        if (state.qIndex === 0) {
-          fbTrack('QuizStarted', { content_name: 'Quiz Started', content_category: 'Quiz' });
-        }
-        break;
-      case 'results':
-        fbTrack('QuizCompleted', {
-          content_name: 'Roadmap Viewed',
-          content_category: 'Quiz Results',
-        });
-        break;
-      case 'offer':
-        fbTrack('ViewContent', {
-          content_name: 'Rizq Reset Blueprint Sales Page',
-          content_ids: ['rizq-reset-blueprint'],
-          content_type: 'product',
-          value: 47,
-          currency: 'USD',
-        });
-        break;
-      case 'checkout':
-        fbTrack('InitiateCheckout', {
-          content_ids: ['rizq-reset-blueprint'],
-          value: state.totals.blueprint + (state.purchases.bump ? state.totals.bump : 0),
-          currency: 'USD',
-          num_items: 1 + (state.purchases.bump ? 1 : 0),
-        });
-        break;
-    }
   }
 
   function updateProgress(name) {
@@ -2461,7 +1640,6 @@ fbq('track', 'PageView');
     const a = ARCHETYPES[state.archetype];
     const i = state.qIndex;
     const q = a.questions[i];
-    const answerKey = a.answerKeys[i];
 
     document.getElementById('qNum').textContent = `Question ${i+1} of ${a.questions.length}`;
     document.getElementById('qTitle').textContent = q.q;
@@ -2470,10 +1648,10 @@ fbq('track', 'PageView');
     wrap.innerHTML = '';
     q.options.forEach(opt => {
       const btn = document.createElement('button');
-      btn.className = 'q-option' + (state.answers[answerKey] === opt ? ' selected' : '');
+      btn.className = 'q-option' + (state.answers[i] === opt ? ' selected' : '');
       btn.innerHTML = `<span>${opt}</span><span class="check">✓</span>`;
       btn.onclick = () => {
-        state.answers[answerKey] = opt;
+        state.answers[i] = opt;
         renderQuestion();
         setTimeout(() => {
           if (state.qIndex < a.questions.length - 1) {
@@ -2525,7 +1703,6 @@ fbq('track', 'PageView');
   /* ================== Results ================== */
   function renderResults() {
     const a = ARCHETYPES[state.archetype];
-    if (!a) return; // deep-link to /result with no archetype — bail safely
     document.getElementById('resArchName').textContent = a.name;
     document.getElementById('resDiag').textContent = a.diagnosis;
     document.getElementById('resBottleneck').textContent = a.bottleneck;
@@ -2546,267 +1723,23 @@ fbq('track', 'PageView');
     });
   }
 
-  /* ================== Personalised Sales Page v2 — Product Reveal ================== */
-  // Per-archetype copy structured around a visual product-reveal sales page.
-  // Functions (a) => let us inject quiz answers safely with graceful fallbacks.
-
-  // v4 — minimal per-archetype copy: badge, headline, 3 insights, why47 note, final headline.
-  const archetypeSalesPages = {
-    leaker: {
-      archetypeBadge: 'Recommended for: The Rizq Leaker',
-      headline: "Stop Letting Your Money Disappear Every Month",
-      subheadline: () =>
-        "Your quiz revealed the pattern. The Blueprint is the 30-day system to change it.",
-      insights: [
-        { label: 'Biggest leak',     key: 'overspendCategory', icon: '💧', fallback: 'Untracked spending' },
-        { label: 'Monthly leak',     key: 'monthlyLeak',       icon: '📉', fallback: 'Not measured yet' },
-        { label: 'Spending trigger', key: 'spendingTrigger',   icon: '⚡', fallback: 'Unclear' },
-      ],
-      why47Note: (a) =>
-        `If <span class="w47-anchor">${a.monthlyLeak || '$300–$500'}</span> is leaking every month, this pays for itself before week 2. The Blueprint protects every month after. Easy decision.`,
-      finalHeadline: 'Ready To Stop Guessing Where Your Money Is Going?',
-    },
-    prisoner: {
-      archetypeBadge: 'Recommended for: The Paycheck Prisoner',
-      headline: "Stop Waiting For Payday To Feel In Control",
-      subheadline: () =>
-        "Your quiz revealed the pattern. The Blueprint is the 30-day system that creates real breathing room.",
-      insights: [
-        { label: 'Short before payday', key: 'paydayShortageFrequency', icon: '🔁', fallback: 'Often' },
-        { label: 'Emergency fund',      key: 'emergencyFund',           icon: '🛡', fallback: 'Not yet built' },
-        { label: 'Breathing room goal', key: 'breathingRoom',           icon: '💨', fallback: 'A monthly buffer' },
-      ],
-      why47Note: (a) =>
-        `${a.breathingRoom ? `<span class="w47-anchor">${a.breathingRoom}</span> of monthly breathing room` : 'Real monthly breathing room'} is worth more than $47. The system protects every paycheck after this one. Easy trade.`,
-      finalHeadline: "Ready To Stop Waiting For Payday To Feel Okay?",
-    },
-    debt: {
-      archetypeBadge: 'Recommended for: The Debt-Burdened Muslim',
-      headline: "Turn Debt Stress Into A Clear 30-Day Repayment System",
-      subheadline: () =>
-        "Your quiz revealed the pattern. The Blueprint helps you face the numbers calmly and dismantle it step by step.",
-      insights: [
-        { label: 'Debt type',     key: 'debtType',   icon: '💳', fallback: 'Multiple types' },
-        { label: 'Rough amount',  key: 'debtAmount', icon: '📊', fallback: 'To be mapped' },
-        { label: 'Riba concern',  key: 'ribaStatus', icon: '⚖️', fallback: 'Needs review' },
-      ],
-      why47Note: () =>
-        `Another month of <span class="w47-anchor">avoidance and minimums</span> costs more than $47 in mental load and momentum. The Blueprint gives you a calm plan instead of a quiet weight. Easy decision.`,
-      finalHeadline: 'Ready To Face The Numbers And Build A Plan?',
-    },
-    giver: {
-      archetypeBadge: 'Recommended for: The Generous Giver',
-      headline: "Give With Intention Without Putting Yourself Under Financial Pressure",
-      subheadline: () =>
-        "Your quiz revealed the pattern. The Blueprint is the 30-day system that gives generosity structure.",
-      insights: [
-        { label: 'Who you support',  key: 'supportRecipient', icon: '👨‍👩‍👧', fallback: 'Multiple people' },
-        { label: 'Giving budgeted?', key: 'givingBudget',     icon: '📅', fallback: 'Inconsistently' },
-        { label: 'Caused pressure?', key: 'givingPressure',   icon: '⚠️', fallback: 'Sometimes' },
-      ],
-      why47Note: () =>
-        `One month of <span class="w47-anchor">absorbing every ask</span> quietly costs more than $47 in stress and savings. The Blueprint gives generosity structure — not chaos. Easy decision.`,
-      finalHeadline: 'Ready To Give With Structure And Peace?',
-    },
-    builder: {
-      archetypeBadge: 'Recommended for: The Future Builder',
-      headline: "Turn Your Goals Into A Clear Halal Money Plan",
-      subheadline: () =>
-        "Your quiz revealed the pattern. The Blueprint turns your goal into a monthly number on a calendar.",
-      insights: [
-        { label: 'Main goal',       key: 'mainGoal',       icon: '🎯', fallback: 'Clarifying' },
-        { label: 'Timeline',        key: 'timeline',       icon: '🗓', fallback: 'To be defined' },
-        { label: 'Monthly savings', key: 'monthlySavings', icon: '💰', fallback: 'Inconsistent' },
-      ],
-      why47Note: (a) =>
-        `Another year of <span class="w47-anchor">"someday"</span> on ${a.mainGoal ? a.mainGoal.toLowerCase() : 'your goal'} costs more than $47 in lost time. The Blueprint turns it into a monthly number on a calendar. Easy trade.`,
-      finalHeadline: 'Ready To Turn Your Goals Into A Real Plan?',
-    },
-  };
-
-  // The 4-step universal system shown in Section 3
-  const thirtyDaySystem = [
-    { num: 'Step 01', icon: '👁',  title: 'Audit',   desc: 'Find where your money is going.' },
-    { num: 'Step 02', icon: '🛑', title: 'Control', desc: 'Set limits and organise your month.' },
-    { num: 'Step 03', icon: '➜',  title: 'Direct',  desc: 'Assign money to savings, giving, debt, and goals.' },
-    { num: 'Step 04', icon: '✓',  title: 'Review',  desc: 'Build the weekly rhythm that keeps you consistent.' },
-  ];
-
-  // 6 core components shown in "What You Get" (totals to $297)
-  const blueprintStack = [
-    { name: 'Rizq Reset Blueprint Guide',  benefit: 'Find your money pattern and the fastest path to fix it.',     value: 67 },
-    { name: '30-Day Action Plan',          benefit: 'A week-by-week checklist so you never wonder what to do next.', value: 47 },
-    { name: 'Spending Audit Worksheet',    benefit: 'Find the exact categories draining your money.',                value: 47 },
-    { name: 'Halal Budget Method',         benefit: 'Give every dirham a job — bills, savings, sadaqah, goals.',     value: 47 },
-    { name: 'Sadaqah & Zakat Planner',     benefit: 'Give with intention — without financial chaos.',                value: 47 },
-    { name: 'Weekly Money Review System',  benefit: 'A 10-minute rhythm that keeps the system alive.',               value: 42 },
-  ];
-
-  // 5 FAQ entries — clean, no shaming, no advice
-  const blueprintFAQ = [
-    { q: "Is this financial advice?", a: "No. This is an educational money organisation system built around Islamic principles. It does not issue fatwas, provide regulated financial advice, or give investment recommendations. For specific rulings, consult a qualified scholar." },
-    { q: "Does this work outside the US?", a: "Yes. The system is principles-based and works globally. Examples can be adapted to any currency — the method stays the same." },
-    { q: "Does it include zakat?", a: "Yes — practical zakat basics are included to help you organise. For specific rulings on your personal situation, please consult a qualified scholar." },
-    { q: "Will it tell me what to invest in?", a: "No. We do not recommend specific investments or financial products. The Blueprint focuses on budgeting, saving, debt reduction, giving, and goal structure." },
-    { q: "What happens after I buy?", a: "Instant access. You're taken to checkout, then to your dashboard, where you can download the Blueprint and begin Week 1: Audit the same day." },
-  ];
-
-  // Graceful fallback for missing answers
-  function safeAnswer(answers, key, fallback) {
-    const v = answers && answers[key];
-    if (v === undefined || v === null || v === '') return fallback;
-    return v;
-  }
-
-  // Small DOM helpers
-  function setText(id, txt) {
-    const el = document.getElementById(id);
-    if (el) el.textContent = txt;
-  }
-
-  /* ================== Render the v4 stripped sales page ================== */
-  function renderOffer() {
-    const sales = archetypeSalesPages[state.archetype];
-    if (!sales) return; // graceful no-op if user lands here cold
-    const answers = state.answers || {};
-
-    // SECTION 1: Hero
-    setText('offerArchBadge',   sales.archetypeBadge);
-    setText('offerHeadline',    sales.headline);
-    setText('offerSubheadline', sales.subheadline(answers));
-
-    // SECTION 2: 3 insight cards + universal bridge (already in HTML)
-    const insightsWrap = document.getElementById('offerInsights');
-    insightsWrap.innerHTML = '';
-    sales.insights.forEach(item => {
-      const val = safeAnswer(answers, item.key, item.fallback);
-      const cell = document.createElement('div');
-      cell.className = 'insight-cell';
-      cell.innerHTML = `
-        <div class="ic">${item.icon}</div>
-        <div>
-          <div class="label">${item.label}</div>
-          <div class="value">${val}</div>
-        </div>`;
-      insightsWrap.appendChild(cell);
-    });
-
-    // SECTION 3: The 30-Day System (universal, 4 cards)
-    const sysWrap = document.getElementById('offerSystem');
-    sysWrap.innerHTML = '';
-    thirtyDaySystem.forEach(s => {
-      const card = document.createElement('div');
-      card.className = 'mech-card';
-      card.innerHTML = `
-        <div class="m-num">${s.num}</div>
-        <div class="m-icon">${s.icon}</div>
-        <h4>${s.title}</h4>
-        <p>${s.desc}</p>`;
-      sysWrap.appendChild(card);
-    });
-
-    // SECTION 4: What You Get — 6-item value stack
-    const stkWrap = document.getElementById('offerStackList');
-    stkWrap.innerHTML = '';
-    blueprintStack.forEach(item => {
-      const li = document.createElement('li');
-      li.className = 'stack-item';
-      li.innerHTML = `
-        <div class="tick-lg">✓</div>
-        <div class="meta">
-          <div class="stk-name">${item.name}</div>
-          <div class="stk-benefit">${item.benefit}</div>
-        </div>
-        <div class="stk-value">$${item.value}</div>`;
-      stkWrap.appendChild(li);
-    });
-
-    // SECTION 5: Why $47 Is Easy — short archetype callout (innerHTML for the price span)
-    const w47 = document.getElementById('offerWhy47Note');
-    if (w47) w47.innerHTML = sales.why47Note(answers);
-
-    // SECTION 6: FAQ (5 universal entries)
-    const faqWrap = document.getElementById('offerFAQ');
-    faqWrap.innerHTML = '';
-    blueprintFAQ.forEach((f, idx) => {
-      const d = document.createElement('details');
-      if (idx === 0) d.open = true;
-      d.innerHTML = `<summary>${f.q}</summary><div class="faq-a">${f.a}</div>`;
-      faqWrap.appendChild(d);
-    });
-
-    // Final CTA
-    setText('offerFinalHeadline', sales.finalHeadline);
-
-    // Universal CTA copy across the page (3 buttons: hero, value stack, final)
-    const universalCTA = 'Start My Rizq Reset — $47 →';
-    document.querySelectorAll('.sales-cta').forEach(b => {
-      b.textContent = universalCTA;
-    });
-  }
-
   /* ================== Checkout / Bump ================== */
   function toggleBump() {
     state.purchases.bump = document.getElementById('bumpCheck').checked;
     const total = state.totals.blueprint + (state.purchases.bump ? state.totals.bump : 0);
     document.getElementById('orderTotal').textContent = '$' + total;
     document.getElementById('bumpSumRow').style.display = state.purchases.bump ? 'flex' : 'none';
-    if (state.purchases.bump) {
-      fbTrack('AddToCart', {
-        content_ids: ['halal-budget-toolkit'],
-        content_name: 'Halal Budget Toolkit',
-        content_type: 'product',
-        value: state.totals.bump,
-        currency: 'USD',
-        num_items: 1,
-      });
-    }
   }
 
   function completeOrder() {
     state.purchases.blueprint = true;
-    const total = state.totals.blueprint + (state.purchases.bump ? state.totals.bump : 0);
-    const contentIds = ['rizq-reset-blueprint'];
-    if (state.purchases.bump) contentIds.push('halal-budget-toolkit');
-    fbTrack('Purchase', {
-      content_ids: contentIds,
-      content_name: 'Rizq Reset Blueprint' + (state.purchases.bump ? ' + Halal Budget Toolkit' : ''),
-      content_type: 'product',
-      value: total,
-      currency: 'USD',
-      num_items: contentIds.length,
-      order_stage: 'front_end',
-    });
     goto('upsell1');
   }
 
   /* ================== Upsells ================== */
   function acceptUpsell(n) {
-    if (n === 1) {
-      state.purchases.tracker = true;
-      fbTrack('Purchase', {
-        content_ids: ['rizq-tracker'],
-        content_name: 'Rizq Tracker Web App',
-        content_type: 'product',
-        value: state.totals.tracker,
-        currency: 'USD',
-        num_items: 1,
-        order_stage: 'upsell_1',
-      });
-      goto('upsell2');
-    } else if (n === 2) {
-      state.purchases.coach = true;
-      fbTrack('Purchase', {
-        content_ids: ['ai-coach'],
-        content_name: 'AI Muslim Money Coach',
-        content_type: 'product',
-        value: state.totals.coach,
-        currency: 'USD',
-        num_items: 1,
-        order_stage: 'upsell_2',
-      });
-      goto('success');
-    }
+    if (n === 1) { state.purchases.tracker = true; goto('upsell2'); }
+    else if (n === 2) { state.purchases.coach = true; goto('success'); }
   }
   function declineUpsell(n) {
     if (n === 1) goto('upsell2');
@@ -2826,36 +1759,12 @@ fbq('track', 'PageView');
         <div class="price">$${price}</div>`;
       list.appendChild(li);
     };
-    if (state.purchases.blueprint) add('The Rizq Reset Blueprint', state.totals.blueprint);
+    if (state.purchases.blueprint) add('The Muslim Money Blueprint', state.totals.blueprint);
     if (state.purchases.bump)      add('Halal Budget Toolkit',       state.totals.bump);
     if (state.purchases.tracker)   add('Rizq Tracker Web App',       state.totals.tracker);
     if (state.purchases.coach)     add('AI Muslim Money Coach',      state.totals.coach);
     document.getElementById('receiptGrand').textContent = '$' + total;
   }
-
-  /* ================== URL routing — browser nav + initial boot ================== */
-  // Back/forward navigation: re-render the screen for the URL we landed on,
-  // without pushing a new history entry.
-  window.addEventListener('popstate', function (e) {
-    const stateScreen = e.state && e.state.screen;
-    const pathScreen  = PATH_TO_SCREEN[window.location.pathname];
-    const screen = stateScreen || pathScreen || 'landing';
-    goto(screen, true);
-  });
-
-  // Initial page load: route from the URL the user arrived on.
-  (function initialRoute() {
-    const path = window.location.pathname;
-    const screen = PATH_TO_SCREEN[path];
-    if (screen) {
-      // Replace state so back-button works correctly from any starting point
-      try { history.replaceState({ screen: screen }, '', path); } catch (_) {}
-      if (screen !== 'landing') goto(screen, true);
-    } else {
-      // Unknown path — show landing and normalise the URL to "/"
-      try { history.replaceState({ screen: 'landing' }, '', '/'); } catch (_) {}
-    }
-  })();
 </script>
 
 </body>

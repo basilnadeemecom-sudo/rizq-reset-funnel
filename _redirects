@@ -1,0 +1,11 @@
+# SPA rewrite: every path serves index.html so the client-side router can
+# resolve /path, /quiz, /result, /roadmap, /checkout, /upsell-tracker,
+# /upsell-coach, /success without 404s.
+#
+# Status 200 (not 301/302) means Netlify rewrites the response server-side
+# and the browser URL stays as the user requested.
+#
+# Function endpoints (/.netlify/functions/*) and static assets are matched
+# before this rule, so this catch-all doesn't shadow them.
+
+/*    /index.html   200
