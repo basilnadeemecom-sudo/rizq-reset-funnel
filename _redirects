@@ -1,11 +1,23 @@
-# SPA rewrite: every path serves index.html so the client-side router can
-# resolve /path, /quiz, /result, /roadmap, /checkout, /upsell-tracker,
-# /upsell-coach, /success without 404s.
-#
-# Status 200 (not 301/302) means Netlify rewrites the response server-side
-# and the browser URL stays as the user requested.
-#
-# Function endpoints (/.netlify/functions/*) and static assets are matched
-# before this rule, so this catch-all doesn't shadow them.
+# Netlify routing rules.
+# Order matters: specific 301s first, then the SPA catch-all.
+# Function endpoints (/.netlify/functions/*) are matched before all of these.
 
-/*    /index.html   200
+# 1) Legacy URL → canonical customer-facing URL (server-side 301).
+#    Any old links / external referrers / browser-history entries to
+#    /upsell-* and /downsell-* are permanently rewritten to the new
+#    branded URLs before the SPA loads.
+/upsell-assistant       /rizq-assistant                       301!
+/downsell-assistant     /rizq-assistant-special-offer         301!
+/upsell-income          /the-halal-method                     301!
+/downsell-income        /the-halal-method-special-offer       301!
+/upsell-app             /rizq-mastery-app                     301!
+/downsell-app           /rizq-mastery-app-special-offer       301!
+
+# 2) SPA rewrite: every remaining path serves index.html so the client-side
+#    router can resolve /path, /quiz, /result, /roadmap, /checkout,
+#    /rizq-assistant, /rizq-assistant-special-offer, /the-halal-method,
+#    /the-halal-method-special-offer, /rizq-mastery-app,
+#    /rizq-mastery-app-special-offer, /success without 404s.
+#    Status 200 (not 301/302) means Netlify rewrites the response server-side
+#    and the browser URL stays as the user requested.
+/*                      /index.html                           200

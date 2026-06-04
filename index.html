@@ -2987,7 +2987,9 @@ fbq('track', 'PageView');
   }
 
   /* ================== URL routing map ================== */
-  // Screen name → URL path. Loading is transitional — no URL change.
+  // Screen name (internal) → customer-facing URL path. Loading is transitional —
+  // no URL change. Internal screen names keep upsell/downsell wording for
+  // clarity in code; only the browser-visible PATHS were cleaned up.
   const ROUTES = {
     landing:            '/',
     archetype:          '/path',
@@ -2995,18 +2997,29 @@ fbq('track', 'PageView');
     results:            '/result',
     offer:              '/roadmap',
     checkout:           '/checkout',
-    upsellAssistant:    '/upsell-assistant',
-    downsellAssistant:  '/downsell-assistant',
-    upsellIncome:       '/upsell-income',
-    downsellIncome:     '/downsell-income',
-    upsellApp:          '/upsell-app',
-    downsellApp:        '/downsell-app',
+    upsellAssistant:    '/rizq-assistant',
+    downsellAssistant:  '/rizq-assistant-special-offer',
+    upsellIncome:       '/the-halal-method',
+    downsellIncome:     '/the-halal-method-special-offer',
+    upsellApp:          '/rizq-mastery-app',
+    downsellApp:        '/rizq-mastery-app-special-offer',
     success:            '/success',
   };
   // Reverse map: URL path → screen name (for browser back/forward + deep links)
   const PATH_TO_SCREEN = Object.fromEntries(
     Object.entries(ROUTES).map(([screen, path]) => [path, screen])
   );
+  // Graceful fallback: anyone landing on the legacy URLs (old links, browser
+  // history, external traffic) gets transparently re-mapped to the new path.
+  // Netlify _redirects handles this server-side; this is the client-side guard.
+  const LEGACY_PATHS = {
+    '/upsell-assistant':   '/rizq-assistant',
+    '/downsell-assistant': '/rizq-assistant-special-offer',
+    '/upsell-income':      '/the-halal-method',
+    '/downsell-income':    '/the-halal-method-special-offer',
+    '/upsell-app':         '/rizq-mastery-app',
+    '/downsell-app':       '/rizq-mastery-app-special-offer',
+  };
 
   /* ================== State ================== */
   const state = {
@@ -3619,7 +3632,19 @@ fbq('track', 'PageView');
 
   // Initial page load: route from the URL the user arrived on.
   (function initialRoute() {
-    const path = window.location.pathname;
+    let path = window.location.pathname;
+
+    // Legacy URL guard: if a user arrived at an old upsell/downsell URL
+    // (cached link, external referrer, bookmark), silently rewrite to the new
+    // customer-facing path before screen resolution. Netlify _redirects does
+    // the same server-side; this is the client-side belt-and-braces.
+    if (LEGACY_PATHS[path]) {
+      const newPath = LEGACY_PATHS[path];
+      try { history.replaceState({ legacy: path }, '', newPath); } catch (_) {}
+      if (window.console) console.log('[router] legacy URL rewrite', path, '→', newPath);
+      path = newPath;
+    }
+
     let screen = PATH_TO_SCREEN[path];
 
     // If URL is unknown, fall back to sessionStorage (covers SPA reloads on a stale path)
