@@ -1484,7 +1484,7 @@ fbq('track', 'PageView');
     color: var(--charcoal); font-weight: 700; letter-spacing: -0.01em;
   }
   .mech-card p { font-size: 13px; color: var(--grey); margin: 0; line-height: 1.55; }
-  /* Why $47? callout — light cream/gold to keep the final CTA as the single dark moment */
+  /* Why $37? callout — light cream/gold to keep the final CTA as the single dark moment */
   .why47 {
     background: linear-gradient(180deg, #FFFCF4, #F8F3E7);
     border: 1px solid rgba(212,175,55,0.35);
@@ -1573,6 +1573,314 @@ fbq('track', 'PageView');
 
   /* Hero — keep price box and CTA close together */
   .sp-hero-text .price-box { margin: 14px 0 12px; }
+
+  /* ---------- One-Time-Offer (Upsell / Downsell) Pages ---------- */
+  .oto-screen { max-width: 720px; margin: 0 auto; }
+
+  /* 1. Preframe — "already loaded in your account" */
+  .oto-preframe {
+    text-align: center;
+    margin-bottom: 18px;
+  }
+  .oto-flag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(31,138,91,0.10);
+    color: var(--emerald-soft);
+    border: 1px solid rgba(31,138,91,0.25);
+    padding: 6px 12px; border-radius: 999px;
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+  }
+  .oto-preframe p {
+    font-size: 14px; color: var(--grey); margin: 0;
+  }
+
+  /* 2-3. Hero — headline + sub + price + first CTA */
+  .oto-hero {
+    background: linear-gradient(180deg, var(--off-white), var(--cream));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 28px 22px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 22px;
+  }
+  @media (min-width: 700px) { .oto-hero { padding: 36px 32px; } }
+  .oto-hero h1 {
+    font-size: 26px; line-height: 1.18;
+    letter-spacing: -0.02em; color: var(--charcoal);
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+  @media (min-width: 700px) { .oto-hero h1 { font-size: 32px; } }
+  .oto-hero .oto-sub {
+    color: var(--grey); font-size: 15px; line-height: 1.55;
+    max-width: 540px; margin: 0 auto 18px;
+  }
+  .oto-price {
+    display: inline-flex; flex-direction: column; align-items: center;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 10px 18px;
+    margin-bottom: 16px;
+  }
+  .oto-price .oto-amt {
+    font-size: 32px; font-weight: 700; color: var(--emerald-deep);
+    letter-spacing: -0.03em; line-height: 1;
+  }
+  .oto-price .oto-meta {
+    font-size: 11px; color: var(--grey);
+    margin-top: 4px; letter-spacing: 0.04em;
+  }
+  .oto-cta {
+    max-width: 420px; margin: 0 auto 10px;
+    display: block; width: 100%;
+  }
+  .oto-decline {
+    color: var(--grey);
+    font-size: 13.5px;
+    font-weight: 500;
+  }
+
+  /* Generic OTO sections */
+  .oto-section {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow-sm);
+  }
+  @media (min-width: 700px) { .oto-section { padding: 28px; } }
+  .oto-section-cream {
+    background: linear-gradient(180deg, var(--cream), #F5EFE0);
+  }
+  .oto-eyebrow {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--emerald); font-weight: 800;
+    margin-bottom: 8px;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .oto-eyebrow::before {
+    content: ""; width: 16px; height: 2px;
+    background: var(--gold); border-radius: 2px;
+  }
+  .oto-section h2 {
+    font-size: 22px; line-height: 1.22;
+    letter-spacing: -0.02em; color: var(--charcoal);
+    margin: 0 0 14px;
+    font-weight: 700;
+  }
+  @media (min-width: 700px) { .oto-section h2 { font-size: 26px; } }
+  .oto-section p {
+    font-size: 14.5px; color: var(--charcoal); line-height: 1.65;
+    margin: 0 0 10px;
+  }
+  .oto-section p:last-child { margin-bottom: 0; }
+
+  /* 6. How it works — 3 step cards */
+  .oto-steps {
+    display: grid; gap: 12px;
+    grid-template-columns: 1fr;
+    margin-top: 14px;
+  }
+  @media (min-width: 720px) { .oto-steps { grid-template-columns: repeat(3, 1fr); } }
+  .oto-step {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    text-align: left;
+  }
+  .oto-step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--emerald-deep), var(--emerald));
+    color: var(--gold);
+    font-size: 13px; font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .oto-step p {
+    font-size: 14px; color: var(--charcoal); line-height: 1.55; margin: 0;
+  }
+
+  /* 7. What you unlock */
+  .oto-unlocks {
+    list-style: none; padding: 0; margin: 12px 0 0;
+    display: grid; gap: 8px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 600px) { .oto-unlocks { grid-template-columns: 1fr 1fr; } }
+  .oto-unlocks li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: var(--charcoal); line-height: 1.5;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .oto-unlocks li::before {
+    flex: 0 0 20px; height: 20px; border-radius: 50%;
+    background: rgba(17,107,79,0.10); color: var(--emerald);
+    display: grid; place-items: center;
+    font-size: 11px; font-weight: 800;
+    content: "✓";
+    margin-top: 1px;
+  }
+
+  /* 8. Long way vs Easy way */
+  .oto-compare {
+    display: grid; gap: 12px;
+    grid-template-columns: 1fr;
+    margin-top: 14px;
+  }
+  @media (min-width: 720px) { .oto-compare { grid-template-columns: 1fr 1fr; } }
+  .oto-compare-col {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .oto-compare-col.chaos {
+    background: linear-gradient(180deg, #FFF6EE, var(--off-white));
+    border-color: rgba(185,74,72,0.28);
+  }
+  .oto-compare-col.path {
+    background: linear-gradient(180deg, var(--off-white), #EFF6F1);
+    border-color: rgba(17,107,79,0.28);
+  }
+  .oto-compare-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 10.5px; font-weight: 800; letter-spacing: 0.12em;
+    padding: 4px 10px; border-radius: 999px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .oto-compare-col.chaos .oto-compare-label { background: rgba(185,74,72,0.10); color: var(--red); border: 1px solid rgba(185,74,72,0.28); }
+  .oto-compare-col.path  .oto-compare-label { background: rgba(17,107,79,0.10); color: var(--emerald-deep); border: 1px solid rgba(17,107,79,0.28); }
+  .oto-compare-col h3 { font-size: 15px; margin: 0 0 10px; color: var(--charcoal); font-weight: 700; letter-spacing: -0.01em; }
+  .oto-compare-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; }
+  .oto-compare-col li {
+    font-size: 13.5px; color: var(--charcoal); line-height: 1.5;
+    display: flex; gap: 9px; align-items: flex-start;
+  }
+  .oto-compare-col li::before {
+    flex: 0 0 16px; height: 16px; border-radius: 50%;
+    display: grid; place-items: center;
+    font-size: 10px; font-weight: 800;
+    margin-top: 2px;
+  }
+  .oto-compare-col.chaos li::before { content: "✕"; background: rgba(185,74,72,0.15); color: var(--red); }
+  .oto-compare-col.path  li::before { content: "✓"; background: rgba(17,107,79,0.15); color: var(--emerald); }
+
+  /* 9. Value stack */
+  .oto-stack {
+    list-style: none; padding: 0; margin: 14px 0 0;
+    display: grid; gap: 8px;
+  }
+  .oto-stack li {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex; gap: 12px; align-items: flex-start; justify-content: space-between;
+  }
+  .oto-stack .oto-stack-name { font-size: 14px; font-weight: 700; color: var(--charcoal); }
+  .oto-stack .oto-stack-benefit { font-size: 12.5px; color: var(--grey); margin-top: 3px; line-height: 1.5; }
+  .oto-stack .oto-stack-val { font-size: 13px; font-weight: 700; color: var(--emerald-deep); white-space: nowrap; }
+  .oto-totals {
+    margin-top: 14px;
+    background: linear-gradient(180deg, var(--cream), var(--off-white));
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 16px;
+  }
+  .oto-tot-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 6px 0;
+    font-size: 14px; color: var(--grey);
+  }
+  .oto-tot-row .strike { color: var(--grey); text-decoration: line-through; font-weight: 600; }
+  .oto-tot-row.big {
+    border-top: 1px dashed var(--border);
+    margin-top: 4px; padding-top: 10px;
+    font-weight: 700; color: var(--charcoal);
+  }
+  .oto-tot-row.big .oto-tot-amt {
+    font-size: 24px; color: var(--emerald-deep); letter-spacing: -0.02em;
+  }
+  .oto-section .oto-cta { margin-top: 16px; }
+
+  /* 10. Risk reversal / guarantee block */
+  .oto-guarantee {
+    background: linear-gradient(180deg, #FFFCF4, #F8F3E7);
+    border: 1px solid rgba(212,175,55,0.35);
+    border-left: 4px solid var(--gold);
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    margin-bottom: 18px;
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .oto-guarantee-ic {
+    flex: 0 0 36px; height: 36px; border-radius: 50%;
+    background: var(--gold); color: var(--emerald-deep);
+    display: grid; place-items: center;
+    font-size: 18px; font-weight: 700;
+  }
+  .oto-guarantee h3 { font-size: 15px; color: var(--emerald-deep); margin: 0 0 4px; letter-spacing: -0.01em; }
+  .oto-guarantee p { font-size: 13.5px; color: var(--charcoal); line-height: 1.55; margin: 0; }
+
+  /* 11. Final one-time decision */
+  .oto-final {
+    background: linear-gradient(160deg, var(--emerald-deep), var(--emerald));
+    color: var(--off-white);
+    border-radius: var(--radius-xl);
+    padding: 28px 22px;
+    text-align: center;
+    margin: 18px 0 12px;
+    box-shadow: var(--shadow-md);
+    position: relative; overflow: hidden;
+  }
+  .oto-final::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(220px 110px at 50% 100%, rgba(212,175,55,0.20), transparent 70%);
+    pointer-events: none;
+  }
+  .oto-final .oto-eyebrow { color: var(--gold); position: relative; }
+  .oto-final .oto-eyebrow::before { background: var(--gold); }
+  .oto-final h2 {
+    color: var(--off-white); font-size: 22px; line-height: 1.2;
+    margin: 0 0 10px; letter-spacing: -0.02em; font-weight: 700;
+    position: relative;
+  }
+  @media (min-width: 700px) { .oto-final h2 { font-size: 28px; } }
+  .oto-final p {
+    color: rgba(255,252,244,0.78); font-size: 14px;
+    margin: 0 auto 18px; max-width: 460px;
+    position: relative;
+  }
+  .oto-final .btn { max-width: 420px; margin: 0 auto 10px; position: relative; }
+  .oto-final .btn-primary {
+    background: linear-gradient(180deg, var(--gold), #C09425);
+    color: #2B1F00;
+    box-shadow: 0 10px 26px rgba(212,175,55,0.4);
+  }
+  .oto-final .btn-ghost {
+    background: rgba(255,252,244,0.05);
+    color: rgba(255,252,244,0.85);
+    border-color: rgba(255,252,244,0.20);
+  }
+  .oto-final .btn-ghost:hover { background: rgba(255,252,244,0.10); }
+
+  /* Downsell variant (slimmer hero) */
+  .oto-downsell-hero {
+    background: linear-gradient(180deg, #FFF8E8, #FFFCF4);
+    border-left: 4px solid var(--gold);
+  }
+  .oto-downsell-hero .oto-eyebrow { color: var(--emerald-deep); }
+  .oto-downsell-hero h1 { color: var(--charcoal); }
 
   /* ---------- Footer ---------- */
   .footer-mini {
@@ -1711,13 +2019,13 @@ fbq('track', 'PageView');
           <div class="icon-square">📘</div>
           <div style="flex:1;">
             <div class="meta">Front-end system · digital download</div>
-            <h4>The Rizq Reset Blueprint</h4>
+            <h4>The 30-Day Rizq Reset Guide</h4>
             <div class="meta" style="margin-top:4px;">Worksheets · trackers · 30-day plan · Islamic framework</div>
           </div>
         </div>
       </div>
 
-      <button class="btn btn-primary" onclick="goto('offer')">See My Personalised Blueprint →</button>
+      <button class="btn btn-primary" onclick="goto('offer')">See My Personalised Guide →</button>
       <div class="micro-note">Your roadmap tells you what needs to change. The system helps you follow through.</div>
     </section>
 
@@ -1732,12 +2040,12 @@ fbq('track', 'PageView');
             <span class="sp-badge arch" id="offerArchBadge">Recommended for: The Rizq Leaker</span>
           </div>
           <h1 class="sp-headline" id="offerHeadline">Stop Letting Your Money Disappear Every Month</h1>
-          <p class="sp-subheadline" id="offerSubheadline">Your quiz revealed the pattern. The Blueprint is the 30-day system to change it.</p>
+          <p class="sp-subheadline" id="offerSubheadline">Your quiz revealed the pattern. The Guide is the 30-day system to change it.</p>
           <div class="price-box">
             <span class="reg">Regular value $297</span>
-            <span class="today"><span class="lbl">Today</span><span class="amt">$47</span><span class="per">one-time</span></span>
+            <span class="today"><span class="lbl">Today</span><span class="amt">$37</span><span class="per">one-time</span></span>
           </div>
-          <button class="btn btn-primary sales-cta" onclick="goto('checkout')">Start My Rizq Reset — $47 →</button>
+          <button class="btn btn-primary sales-cta" onclick="goto('checkout')">Start My Rizq Reset — $37 →</button>
           <ul class="sp-trust-bullets">
             <li>Instant access</li>
             <li>30-day system</li>
@@ -1773,7 +2081,7 @@ fbq('track', 'PageView');
             </div>
             <div class="mockup-book">
               <div class="mb-eyebrow">The Rizq Reset</div>
-              <div class="mb-title">The Rizq Reset<br/>Blueprint</div>
+              <div class="mb-title">The Rizq Reset<br/>Guide</div>
               <div class="mb-divider"></div>
               <div class="mb-sub">A 30-Day Islamic<br/>Money System</div>
               <div class="mb-stages">
@@ -1804,7 +2112,7 @@ fbq('track', 'PageView');
       <!-- SECTION 4: WHAT YOU GET -->
       <div class="sp-block">
         <div class="sp-eyebrow">What You Get</div>
-        <h2>Inside The Blueprint</h2>
+        <h2>Inside The Guide</h2>
         <ul class="stack-list-premium" id="offerStackList"></ul>
         <div class="stack-total-premium">
           <div class="stack-total">
@@ -1813,17 +2121,17 @@ fbq('track', 'PageView');
           </div>
           <div class="stack-total" style="border-top:0; padding-top:4px;">
             <span class="label">Today</span>
-            <span class="final">$47</span>
+            <span class="final">$37</span>
           </div>
         </div>
         <div style="text-align:center; margin-top: 20px;">
-          <button class="btn btn-primary sales-cta" onclick="goto('checkout')" style="max-width: 380px;">Start My Rizq Reset — $47 →</button>
+          <button class="btn btn-primary sales-cta" onclick="goto('checkout')" style="max-width: 380px;">Start My Rizq Reset — $37 →</button>
         </div>
       </div>
 
       <!-- SECTION 5: WHY $47 IS EASY -->
       <div class="why47">
-        <div class="sp-eyebrow">Why $47 Is Easy</div>
+        <div class="sp-eyebrow">Why $37 Is Easy</div>
         <p id="offerWhy47Note"></p>
       </div>
 
@@ -1838,9 +2146,9 @@ fbq('track', 'PageView');
         <h2 id="offerFinalHeadline">Ready To Begin?</h2>
         <div class="price-box dark">
           <span class="reg">Regular value $297</span>
-          <span class="today"><span class="lbl">Today</span><span class="amt">$47</span></span>
+          <span class="today"><span class="lbl">Today</span><span class="amt">$37</span></span>
         </div>
-        <button class="btn btn-primary sales-cta" onclick="goto('checkout')" id="offerFinalCTA">Start My Rizq Reset — $47 →</button>
+        <button class="btn btn-primary sales-cta" onclick="goto('checkout')" id="offerFinalCTA">Start My Rizq Reset — $37 →</button>
         <div class="sp-micro">Instant access · One-time payment · Start today</div>
       </div>
 
@@ -1860,11 +2168,11 @@ fbq('track', 'PageView');
           <div class="summary-card">
             <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:0.12em; color:var(--emerald-deep); margin-bottom: 10px;">Order Summary</h3>
             <div class="sum-row">
-              <div class="name">The Rizq Reset Blueprint</div>
-              <div class="price">$47</div>
+              <div class="name">The 30-Day Rizq Reset Guide</div>
+              <div class="price">$37</div>
             </div>
             <div class="sum-row" id="bumpSumRow" style="display:none;">
-              <div class="name">+ Halal Budget Toolkit</div>
+              <div class="name">+ 100 Rizq Lessons From The Qur'an, Sunnah & Hadith</div>
               <div class="price">$11</div>
             </div>
           </div>
@@ -1874,27 +2182,26 @@ fbq('track', 'PageView');
             <label>
               <input type="checkbox" id="bumpCheck" onchange="toggleBump()">
               <div>
-                <div class="b-title">Add the Halal Budget Toolkit for just <span class="b-price">$11</span></div>
-                <div class="b-desc">Turn your Blueprint into action with the exact spreadsheets, trackers, calculators, and worksheets for your 30-day reset.</div>
+                <div class="b-title">Add 100 Rizq Lessons From The Qur'an, Sunnah &amp; Hadith for just <span class="b-price">$11</span></div>
+                <div class="b-desc">100 short, practical lessons on how to approach money — earning, spending, saving, giving, and contentment — drawn from the Qur'an, Sunnah, and Hadith. Read alongside your 30-day reset.</div>
               </div>
             </label>
             <ul class="bump-includes">
-              <li>Monthly budget spreadsheet</li>
-              <li>Expense tracker</li>
-              <li>Spending audit sheet</li>
-              <li>Debt payoff tracker</li>
-              <li>Sadaqah tracker</li>
-              <li>Zakat estimator</li>
-              <li>Subscription audit</li>
-              <li>Weekly money review sheet</li>
-              <li>Ramadan / Eid budget planner</li>
-              <li>Family support planner</li>
+              <li>25 lessons on earning rizq with intention</li>
+              <li>25 lessons on spending without waste</li>
+              <li>20 lessons on saving and planning ahead</li>
+              <li>15 lessons on sadaqah and giving with structure</li>
+              <li>10 lessons on debt and the amanah of repayment</li>
+              <li>5 lessons on contentment and the meaning of barakah</li>
+              <li>Printable PDF</li>
+              <li>Mobile-friendly reading format</li>
+              <li>Companion to The 30-Day Rizq Reset Guide</li>
             </ul>
           </div>
 
           <div class="total-bar">
             <div class="lbl">Order total</div>
-            <div class="amt" id="orderTotal">$47</div>
+            <div class="amt" id="orderTotal">$37</div>
           </div>
         </div>
 
@@ -1937,137 +2244,525 @@ fbq('track', 'PageView');
       </div>
     </section>
 
-    <!-- ====== Screen 8: Upsell 1 — Rizq Tracker ====== -->
-    <section class="screen" id="screen-upsell1">
-      <div class="ups-hero">
-        <div class="eyebrow" style="display:inline-flex; align-items:center; gap:8px; background:rgba(212,175,55,0.16); color:#7a5a08; border:1px solid rgba(212,175,55,0.4); padding:8px 14px; border-radius:999px; font-size:12px; font-weight:700; margin-bottom: 14px;">
-          ✓ Order confirmed · One-time offer
+    <!-- ====== Screen 8: Upsell 1 — Rizq Assistant ($47) ====== -->
+    <section class="screen oto-screen" id="screen-upsellAssistant">
+
+      <!-- 1. Preframe -->
+      <div class="oto-preframe">
+        <span class="oto-flag">✓ Order confirmed</span>
+        <p>One final step. Your upgrade is already loaded in your account.</p>
+      </div>
+
+      <!-- 2-3. Hero + first CTA -->
+      <div class="oto-hero">
+        <h1>Your Rizq Assistant Is Already Loaded In Your Account</h1>
+        <p class="oto-sub">You just got The 30-Day Rizq Reset Guide. Now unlock the AI assistant that helps you apply it to your real income, expenses, debts, goals, and spending habits.</p>
+        <div class="oto-price">
+          <span class="oto-amt">$47</span>
+          <span class="oto-meta">one-time · added to your order</span>
         </div>
-        <h1>Your Roadmap Tells You What To Do. Rizq Tracker Helps You Do It Every Day.</h1>
-        <p class="muted" style="margin-top:14px; font-size: 15px;">Track your income, expenses, savings, debt, sadaqah, zakat, and goals inside a simple Islamic money dashboard.</p>
-        <div class="pillrow">
-          <span>$147 lifetime access</span>
-          <span>Web app · all devices</span>
+        <button class="btn btn-primary oto-cta" onclick="acceptUpsellAssistant()">Yes — Unlock Rizq Assistant For $47</button>
+        <button class="btn-link oto-decline" onclick="declineUpsellAssistant()">No thanks — I'll do the reset without the assistant</button>
+      </div>
+
+      <!-- 4. Why this matters -->
+      <section class="oto-section">
+        <div class="oto-eyebrow">Why this matters</div>
+        <p>The Guide shows you the system. Rizq Assistant helps you make better decisions when real life gets messy.</p>
+      </section>
+
+      <!-- 6. How it works -->
+      <section class="oto-section oto-section-cream">
+        <div class="oto-eyebrow">How it works</div>
+        <h2>3 steps to applied guidance</h2>
+        <div class="oto-steps">
+          <div class="oto-step"><div class="oto-step-num">1</div><p>Tell Rizq Assistant your situation.</p></div>
+          <div class="oto-step"><div class="oto-step-num">2</div><p>Ask for help with budgeting, debt, saving, sadaqah, or spending decisions.</p></div>
+          <div class="oto-step"><div class="oto-step-num">3</div><p>Get practical educational guidance you can apply to your 30-day reset.</p></div>
+        </div>
+      </section>
+
+      <!-- 7. What you unlock -->
+      <section class="oto-section">
+        <div class="oto-eyebrow">What it helps with</div>
+        <h2>Real-life money questions, answered</h2>
+        <ul class="oto-unlocks">
+          <li>Build my budget for this month</li>
+          <li>Can I afford this purchase?</li>
+          <li>Help me cut unnecessary expenses</li>
+          <li>Create a debt payoff plan</li>
+          <li>Help me save for Umrah, Hajj, marriage, home, or business</li>
+          <li>Create a sadaqah plan</li>
+          <li>Review my spending</li>
+          <li>Explain zakat basics simply</li>
+        </ul>
+      </section>
+
+      <!-- 8. Long way vs Easy way -->
+      <section class="oto-section oto-section-cream">
+        <div class="oto-eyebrow">Two paths</div>
+        <h2>The Long Way vs The Easy Way</h2>
+        <div class="oto-compare">
+          <div class="oto-compare-col chaos">
+            <span class="oto-compare-label">✕ The long way</span>
+            <h3>Without Rizq Assistant</h3>
+            <ul>
+              <li>Read the Guide alone</li>
+              <li>Get stuck on real-life money decisions</li>
+              <li>Pause for days while you figure it out</li>
+              <li>Risk falling off the system</li>
+            </ul>
+          </div>
+          <div class="oto-compare-col path">
+            <span class="oto-compare-label">✓ The easy way</span>
+            <h3>With Rizq Assistant</h3>
+            <ul>
+              <li>Read the Guide with help in reach</li>
+              <li>Ask any money question as it comes up</li>
+              <li>Stay in motion all 30 days</li>
+              <li>Build the habit faster</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. Value stack -->
+      <section class="oto-section">
+        <div class="oto-eyebrow">What's included</div>
+        <h2>Inside Rizq Assistant</h2>
+        <ul class="oto-stack">
+          <li><div><div class="oto-stack-name">Rizq Assistant (12 months access)</div><div class="oto-stack-benefit">Ask any money question, any time.</div></div><div class="oto-stack-val">$97</div></li>
+          <li><div><div class="oto-stack-name">Archetype-aware prompt library</div><div class="oto-stack-benefit">Pre-loaded with your money pattern.</div></div><div class="oto-stack-val">$30</div></li>
+          <li><div><div class="oto-stack-name">8 pre-built money workflows</div><div class="oto-stack-benefit">Budgeting, debt, sadaqah, zakat basics, savings.</div></div><div class="oto-stack-val">$20</div></li>
+        </ul>
+        <div class="oto-totals">
+          <div class="oto-tot-row"><span>Total value</span><span class="strike">$147</span></div>
+          <div class="oto-tot-row big"><span>Today</span><span class="oto-tot-amt">$47</span></div>
+        </div>
+        <button class="btn btn-primary oto-cta" onclick="acceptUpsellAssistant()">Yes — Unlock Rizq Assistant For $47</button>
+      </section>
+
+      <!-- 10. Risk reversal -->
+      <div class="oto-guarantee">
+        <div class="oto-guarantee-ic">✦</div>
+        <div>
+          <h3>Try it without worry</h3>
+          <p>30 days to try Rizq Assistant. If it doesn't help you apply your reset, email for a refund of just the assistant. You keep The 30-Day Rizq Reset Guide either way.</p>
         </div>
       </div>
 
-      <div class="dash-mock">
-        <div class="dash-top">
-          <div class="dt-title">
-            <div class="dot-row"><i></i><i></i><i></i></div>
-            <span>rizqtracker.app/dashboard</span>
-          </div>
-          <div class="dt-user">
-            <span>Salam, Yusuf</span>
-            <div class="avatar">Y</div>
-          </div>
-        </div>
-        <div class="dash-grid">
-          <div class="barakah-card">
-            <div class="b-left">
-              <div class="lbl">Monthly Barakah Score</div>
-              <div class="score">82<span style="font-size:14px; color:var(--grey); font-weight:500;">/100</span></div>
-              <div class="delta">▲ +6 vs last month</div>
-            </div>
-            <div class="ring-score"><span>82%</span></div>
-          </div>
-
-          <div class="dash-card">
-            <div class="lbl">Money Left This Month</div>
-            <div class="val">$1,284</div>
-            <div class="meta">After bills, sadaqah, savings</div>
-          </div>
-          <div class="dash-card">
-            <div class="lbl">Spending Today</div>
-            <div class="val">$28<span style="font-size:13px; color:var(--grey); font-weight:500;">.40</span></div>
-            <div class="meta">3 transactions logged</div>
-          </div>
-
-          <div class="dash-card">
-            <div class="lbl">Savings → Umrah</div>
-            <div class="val small">$2,100 / $4,000</div>
-            <div class="mini-bar"><div style="width:52%"></div></div>
-          </div>
-          <div class="dash-card">
-            <div class="lbl">Debt Reduced</div>
-            <div class="val small">$1,650 / $5,200</div>
-            <div class="mini-bar"><div style="width:31%; background:linear-gradient(90deg, var(--amber), var(--gold));"></div></div>
-          </div>
-
-          <div class="dash-card">
-            <div class="lbl">Sadaqah Given</div>
-            <div class="val small">$185 this month</div>
-            <div class="meta">12 acts of giving</div>
-          </div>
-          <div class="dash-card">
-            <div class="lbl">Upcoming Bills</div>
-            <div class="val small">$612</div>
-            <div class="meta">Due in 6 days</div>
-          </div>
-        </div>
+      <!-- 11. Final decision -->
+      <div class="oto-final">
+        <div class="oto-eyebrow">One-time decision</div>
+        <h2>This page only shows once.</h2>
+        <p>Adds to your original order. No separate checkout.</p>
+        <button class="btn btn-primary oto-cta" onclick="acceptUpsellAssistant()">Yes — Unlock Rizq Assistant For $47</button>
+        <button class="btn btn-ghost" onclick="declineUpsellAssistant()">No thanks — I'll do the reset without the assistant</button>
       </div>
 
-      <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:0.12em; color:var(--emerald-deep); margin-bottom: 10px;">What you'll unlock</h3>
-      <div class="feat-grid">
-        <div class="feat"><span class="ic-sq">📊</span><div><strong>Daily spending log</strong><br><span class="muted">Track every dirham, every day.</span></div></div>
-        <div class="feat"><span class="ic-sq">📅</span><div><strong>Monthly budget tracker</strong><br><span class="muted">See your full month at a glance.</span></div></div>
-        <div class="feat"><span class="ic-sq">🎯</span><div><strong>Savings goals</strong><br><span class="muted">Umrah, marriage, home, more.</span></div></div>
-        <div class="feat"><span class="ic-sq">⚖️</span><div><strong>Debt tracker</strong><br><span class="muted">Plan your debt-free timeline.</span></div></div>
-        <div class="feat"><span class="ic-sq">🤲</span><div><strong>Sadaqah tracker</strong><br><span class="muted">Give with intention, not impulse.</span></div></div>
-        <div class="feat"><span class="ic-sq">🧮</span><div><strong>Zakat estimator</strong><br><span class="muted">Calculate annually with ease.</span></div></div>
-        <div class="feat"><span class="ic-sq">🔁</span><div><strong>Subscription tracker</strong><br><span class="muted">Find leaks fast.</span></div></div>
-        <div class="feat"><span class="ic-sq">🌙</span><div><strong>Ramadan / Eid mode</strong><br><span class="muted">Plan ahead for high months.</span></div></div>
-        <div class="feat"><span class="ic-sq">👨‍👩‍👧</span><div><strong>Family support</strong><br><span class="muted">Budget what you give clearly.</span></div></div>
-        <div class="feat"><span class="ic-sq">✓</span><div><strong>Weekly review dashboard</strong><br><span class="muted">Stay on track every Friday.</span></div></div>
+      <!-- Disclaimer -->
+      <div class="ethics-note">
+        <span class="ic">⚖</span>
+        <span>Rizq Assistant gives general educational money organisation support. It does not provide fatwas, regulated financial advice, or investment recommendations. For specific Islamic rulings, consult a qualified scholar. For regulated financial advice, consult a qualified adviser.</span>
       </div>
-
-      <button class="btn btn-primary" onclick="acceptUpsell(1)">Yes, Add Rizq Tracker — $147</button>
-      <button class="btn btn-ghost" onclick="declineUpsell(1)">No thanks, I'll stick with the guide</button>
     </section>
 
-    <!-- ====== Screen 9: Upsell 2 — AI Coach ====== -->
-    <section class="screen" id="screen-upsell2">
-      <div class="ups-hero">
-        <div class="eyebrow" style="display:inline-flex; align-items:center; gap:8px; background:rgba(212,175,55,0.16); color:#7a5a08; border:1px solid rgba(212,175,55,0.4); padding:8px 14px; border-radius:999px; font-size:12px; font-weight:700; margin-bottom: 14px;">
-          ✦ Final add-on · One-time offer
+    <!-- ====== Screen 9: Downsell 1 — Rizq Assistant ($27) ====== -->
+    <section class="screen oto-screen" id="screen-downsellAssistant">
+
+      <div class="oto-preframe">
+        <span class="oto-flag">Hold on — let's try this</span>
+        <p>Before you continue, one quicker option.</p>
+      </div>
+
+      <div class="oto-hero oto-downsell-hero">
+        <h1>Wait — Unlock Rizq Assistant Today For Just $27</h1>
+        <p class="oto-sub">Same assistant. Lower one-time price. Get help applying your Rizq Reset without trying to figure it all out alone.</p>
+        <div class="oto-price">
+          <span class="oto-amt">$27</span>
+          <span class="oto-meta">one-time · added to your order</span>
         </div>
-        <h1>Add Your Private AI Muslim Money Coach</h1>
-        <p class="muted" style="margin-top:14px; font-size:15px;">Get personalised help when you need to plan your month, review your spending, avoid impulse purchases, save for goals, or make better financial decisions.</p>
-        <div class="pillrow">
-          <span>$97/year</span>
-          <span>Available 24/7</span>
+        <button class="btn btn-primary oto-cta" onclick="acceptDownsellAssistant()">Yes — Add Rizq Assistant For $27</button>
+        <button class="btn-link oto-decline" onclick="declineDownsellAssistant()">No thanks — continue</button>
+      </div>
+
+      <section class="oto-section">
+        <div class="oto-eyebrow">What it helps with</div>
+        <h2>The same assistant — at the lower price</h2>
+        <ul class="oto-unlocks">
+          <li>Build my budget for this month</li>
+          <li>Can I afford this purchase?</li>
+          <li>Help me cut unnecessary expenses</li>
+          <li>Create a debt payoff plan</li>
+          <li>Help me save for Umrah, Hajj, marriage, home, or business</li>
+          <li>Create a sadaqah plan</li>
+          <li>Review my spending</li>
+          <li>Explain zakat basics simply</li>
+        </ul>
+      </section>
+
+      <div class="oto-guarantee">
+        <div class="oto-guarantee-ic">✦</div>
+        <div>
+          <h3>30 days to try it</h3>
+          <p>If it doesn't help you apply your reset, email for a refund of just the assistant. You keep The 30-Day Rizq Reset Guide either way.</p>
         </div>
       </div>
 
-      <div class="chat-mock">
-        <div class="chat-head">
-          <div class="ai-avatar">☪</div>
-          <div class="meta">
-            <strong>Rizq Coach</strong>
-            <span>Online · ready to help</span>
-          </div>
-        </div>
-        <div class="prompt-grid">
-          <div class="prompt-chip"><span class="ic">▸</span> Build my budget for this month</div>
-          <div class="prompt-chip"><span class="ic">▸</span> Can I afford this purchase?</div>
-          <div class="prompt-chip"><span class="ic">▸</span> Review my spending</div>
-          <div class="prompt-chip"><span class="ic">▸</span> Help me cut unnecessary expenses</div>
-          <div class="prompt-chip"><span class="ic">▸</span> Create a debt payoff plan</div>
-          <div class="prompt-chip"><span class="ic">▸</span> Help me save for Umrah</div>
-          <div class="prompt-chip"><span class="ic">▸</span> Create a sadaqah plan</div>
-          <div class="prompt-chip"><span class="ic">▸</span> Explain zakat basics simply</div>
-          <div class="prompt-chip"><span class="ic">▸</span> Give me a 7-day money reset</div>
-        </div>
+      <div class="oto-final">
+        <div class="oto-eyebrow">One-time decision</div>
+        <h2>This is the lowest price we offer.</h2>
+        <p>Adds to your original order. No separate checkout.</p>
+        <button class="btn btn-primary oto-cta" onclick="acceptDownsellAssistant()">Yes — Add Rizq Assistant For $27</button>
+        <button class="btn btn-ghost" onclick="declineDownsellAssistant()">No thanks — continue</button>
       </div>
 
       <div class="ethics-note">
         <span class="ic">⚖</span>
-        <span>This assistant gives general educational guidance and money organisation support. It does not provide fatwas, regulated financial advice, or investment recommendations. For specific Islamic rulings, consult a qualified scholar. For financial advice, consult a qualified adviser.</span>
+        <span>Rizq Assistant gives general educational money organisation support. It does not provide fatwas, regulated financial advice, or investment recommendations.</span>
+      </div>
+    </section>
+
+    <!-- ====== Screen 10: Upsell 2 — Halal Income Starter System ($47) ====== -->
+    <section class="screen oto-screen" id="screen-upsellIncome">
+
+      <div class="oto-preframe">
+        <span class="oto-flag">✓ Order updated</span>
+        <p>Your next upgrade is ready in your account.</p>
       </div>
 
-      <div style="margin-top: 18px;">
-        <button class="btn btn-primary" onclick="acceptUpsell(2)">Yes, Add The AI Coach — $97/yr</button>
-        <button class="btn btn-ghost" onclick="declineUpsell(2)">No thanks, continue</button>
+      <div class="oto-hero">
+        <h1>Your Halal Income Starter System Is Ready</h1>
+        <p class="oto-sub">You're fixing how you manage money. The next step is learning how to increase your halal income — without hype, riba, or haram shortcuts.</p>
+        <div class="oto-price">
+          <span class="oto-amt">$47</span>
+          <span class="oto-meta">one-time · added to your order</span>
+        </div>
+        <button class="btn btn-primary oto-cta" onclick="acceptUpsellIncome()">Yes — Add The Halal Income Starter System For $47</button>
+        <button class="btn-link oto-decline" onclick="declineUpsellIncome()">No thanks — I'll focus only on managing my money</button>
+      </div>
+
+      <section class="oto-section">
+        <div class="oto-eyebrow">Why this matters</div>
+        <p>Managing your rizq gives you control. Increasing your halal income gives you room to breathe.</p>
+      </section>
+
+      <section class="oto-section oto-section-cream">
+        <div class="oto-eyebrow">How it works</div>
+        <h2>3 steps to your first halal extra income</h2>
+        <div class="oto-steps">
+          <div class="oto-step"><div class="oto-step-num">1</div><p>Audit your current skills, time, and opportunities.</p></div>
+          <div class="oto-step"><div class="oto-step-num">2</div><p>Choose a halal income path that fits your situation.</p></div>
+          <div class="oto-step"><div class="oto-step-num">3</div><p>Follow a 30-day starter plan to work towards your first extra income goal.</p></div>
+        </div>
+      </section>
+
+      <section class="oto-section">
+        <div class="oto-eyebrow">What you unlock</div>
+        <h2>The Halal Income Starter System</h2>
+        <ul class="oto-unlocks">
+          <li>Halal income audit</li>
+          <li>Skill-to-income worksheet</li>
+          <li>30-day halal income plan</li>
+          <li>Digital product, freelance, and service income ideas</li>
+          <li>Avoiding haram / riba-based income traps</li>
+          <li>First $500 halal side-income roadmap</li>
+          <li>Introduction to ethical digital product income</li>
+          <li>Invitation to learn more about The Halal Method later</li>
+        </ul>
+      </section>
+
+      <section class="oto-section oto-section-cream">
+        <div class="oto-eyebrow">Two paths</div>
+        <h2>The Long Way vs The Easy Way</h2>
+        <div class="oto-compare">
+          <div class="oto-compare-col chaos">
+            <span class="oto-compare-label">✕ The long way</span>
+            <h3>Manage money only, never earn more</h3>
+            <ul>
+              <li>Same income, just better organised</li>
+              <li>Slower progress towards your goals</li>
+              <li>Limited room to give, save, or invest</li>
+              <li>Wait for the right opportunity that never arrives</li>
+            </ul>
+          </div>
+          <div class="oto-compare-col path">
+            <span class="oto-compare-label">✓ The easy way</span>
+            <h3>With the Starter System</h3>
+            <ul>
+              <li>Audit your real skills and time honestly</li>
+              <li>Pick a halal income path that fits you</li>
+              <li>Take action towards your first extra income</li>
+              <li>Open more options for giving, saving, investing</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="oto-section">
+        <div class="oto-eyebrow">What's included</div>
+        <h2>Inside the Starter System</h2>
+        <ul class="oto-stack">
+          <li><div><div class="oto-stack-name">Halal Income Audit</div><div class="oto-stack-benefit">Map your skills, time, and current opportunities honestly.</div></div><div class="oto-stack-val">$47</div></li>
+          <li><div><div class="oto-stack-name">30-Day Starter Plan + worksheets</div><div class="oto-stack-benefit">Week-by-week action with simple templates.</div></div><div class="oto-stack-val">$47</div></li>
+          <li><div><div class="oto-stack-name">Skill-to-Income worksheet</div><div class="oto-stack-benefit">Turn what you already know into a possible income.</div></div><div class="oto-stack-val">$27</div></li>
+          <li><div><div class="oto-stack-name">First $500 halal side-income roadmap</div><div class="oto-stack-benefit">A practical first milestone, not a guarantee.</div></div><div class="oto-stack-val">$30</div></li>
+        </ul>
+        <div class="oto-totals">
+          <div class="oto-tot-row"><span>Total value</span><span class="strike">$151</span></div>
+          <div class="oto-tot-row big"><span>Today</span><span class="oto-tot-amt">$47</span></div>
+        </div>
+        <button class="btn btn-primary oto-cta" onclick="acceptUpsellIncome()">Yes — Add The Halal Income Starter System For $47</button>
+      </section>
+
+      <div class="oto-guarantee">
+        <div class="oto-guarantee-ic">✦</div>
+        <div>
+          <h3>Try it without worry</h3>
+          <p>30 days to use the Starter System. If it's not for you, request a refund of just this add-on. You keep the Guide either way.</p>
+        </div>
+      </div>
+
+      <div class="oto-final">
+        <div class="oto-eyebrow">One-time decision</div>
+        <h2>This page only shows once.</h2>
+        <p>Adds to your original order. No separate checkout.</p>
+        <button class="btn btn-primary oto-cta" onclick="acceptUpsellIncome()">Yes — Add The Halal Income Starter System For $47</button>
+        <button class="btn btn-ghost" onclick="declineUpsellIncome()">No thanks — I'll focus only on managing my money</button>
+      </div>
+
+      <div class="ethics-note">
+        <span class="ic">⚖</span>
+        <span>This is educational material on halal income concepts. It does not guarantee specific income outcomes, replace business or tax advice, or provide regulated financial advice. Consult qualified advisers for your situation.</span>
+      </div>
+    </section>
+
+    <!-- ====== Screen 11: Downsell 2 — Halal Income Starter ($27) ====== -->
+    <section class="screen oto-screen" id="screen-downsellIncome">
+
+      <div class="oto-preframe">
+        <span class="oto-flag">Hold on — try this lower price</span>
+        <p>One quicker option before you continue.</p>
+      </div>
+
+      <div class="oto-hero oto-downsell-hero">
+        <h1>Wait — Add The Halal Income Starter System For Just $27</h1>
+        <p class="oto-sub">Same starter system. Lower one-time price. Use it to explore halal income ideas once your money system is in place.</p>
+        <div class="oto-price">
+          <span class="oto-amt">$27</span>
+          <span class="oto-meta">one-time · added to your order</span>
+        </div>
+        <button class="btn btn-primary oto-cta" onclick="acceptDownsellIncome()">Yes — Add The Starter System For $27</button>
+        <button class="btn-link oto-decline" onclick="declineDownsellIncome()">No thanks — continue</button>
+      </div>
+
+      <section class="oto-section">
+        <div class="oto-eyebrow">What's included</div>
+        <h2>The same system — at the lower price</h2>
+        <ul class="oto-unlocks">
+          <li>Halal income audit</li>
+          <li>Skill-to-income worksheet</li>
+          <li>30-day halal income plan</li>
+          <li>Digital product, freelance, and service income ideas</li>
+          <li>Avoiding haram / riba-based income traps</li>
+          <li>First $500 halal side-income roadmap</li>
+        </ul>
+      </section>
+
+      <div class="oto-guarantee">
+        <div class="oto-guarantee-ic">✦</div>
+        <div>
+          <h3>30 days to try it</h3>
+          <p>If it's not for you, request a refund of just this add-on. You keep the Guide either way.</p>
+        </div>
+      </div>
+
+      <div class="oto-final">
+        <div class="oto-eyebrow">One-time decision</div>
+        <h2>This is the lowest price we offer.</h2>
+        <p>Adds to your original order. No separate checkout.</p>
+        <button class="btn btn-primary oto-cta" onclick="acceptDownsellIncome()">Yes — Add The Starter System For $27</button>
+        <button class="btn btn-ghost" onclick="declineDownsellIncome()">No thanks — continue</button>
+      </div>
+
+      <div class="ethics-note">
+        <span class="ic">⚖</span>
+        <span>Educational material on halal income concepts. Does not guarantee specific income outcomes or replace regulated business / financial advice.</span>
+      </div>
+    </section>
+
+    <!-- ====== Screen 12: Upsell 3 — Rizq Mastery Web App ($97/yr) ====== -->
+    <section class="screen oto-screen" id="screen-upsellApp">
+
+      <div class="oto-preframe">
+        <span class="oto-flag">✓ Order updated</span>
+        <p>Your final upgrade is waiting in your account.</p>
+      </div>
+
+      <div class="oto-hero">
+        <h1>Your Rizq Mastery Dashboard Is Waiting</h1>
+        <p class="oto-sub">You now have the reset and guidance. Unlock the web app that helps you track your income, expenses, savings, debt / riba removal, sadaqah, zakat, and goals every day.</p>
+        <div class="oto-price">
+          <span class="oto-amt">$97<span style="font-size:14px; color:var(--grey); font-weight: 600; margin-left: 4px;">/year</span></span>
+          <span class="oto-meta">added to your order · cancel any time</span>
+        </div>
+        <button class="btn btn-primary oto-cta" onclick="acceptUpsellApp()">Yes — Unlock Rizq Mastery App For $97/year</button>
+        <button class="btn-link oto-decline" onclick="declineUpsellApp()">No thanks — take me to my access</button>
+      </div>
+
+      <section class="oto-section">
+        <div class="oto-eyebrow">Why this matters</div>
+        <p>The Guide gives you the system. The assistant gives you guidance. The app gives you the dashboard to live it daily.</p>
+      </section>
+
+      <section class="oto-section oto-section-cream">
+        <div class="oto-eyebrow">How it works</div>
+        <h2>3 steps to a daily money dashboard</h2>
+        <div class="oto-steps">
+          <div class="oto-step"><div class="oto-step-num">1</div><p>Add your income, expenses, debts, and goals.</p></div>
+          <div class="oto-step"><div class="oto-step-num">2</div><p>Track your money through dashboards, graphs, and weekly reviews.</p></div>
+          <div class="oto-step"><div class="oto-step-num">3</div><p>Use the system daily to manage your rizq with more clarity.</p></div>
+        </div>
+      </section>
+
+      <section class="oto-section">
+        <div class="oto-eyebrow">What you unlock</div>
+        <h2>Inside Rizq Mastery</h2>
+        <ul class="oto-unlocks">
+          <li>Login account</li>
+          <li>Income tracker</li>
+          <li>Expense tracker</li>
+          <li>Monthly budget dashboard</li>
+          <li>Savings goals</li>
+          <li>Debt / riba removal tracker</li>
+          <li>Sadaqah tracker</li>
+          <li>Zakat estimator</li>
+          <li>Graphs and charts</li>
+          <li>Weekly review flow</li>
+          <li>Archetype-specific dashboard</li>
+          <li>Money left this month</li>
+          <li>Spending leak insights</li>
+        </ul>
+      </section>
+
+      <section class="oto-section oto-section-cream">
+        <div class="oto-eyebrow">Two paths</div>
+        <h2>The Long Way vs The Easy Way</h2>
+        <div class="oto-compare">
+          <div class="oto-compare-col chaos">
+            <span class="oto-compare-label">✕ The long way</span>
+            <h3>Tracking with spreadsheets / paper</h3>
+            <ul>
+              <li>Manual data entry every week</li>
+              <li>Hard to see trends over time</li>
+              <li>Easy to fall behind on review</li>
+              <li>No archetype-aware insights</li>
+            </ul>
+          </div>
+          <div class="oto-compare-col path">
+            <span class="oto-compare-label">✓ The easy way</span>
+            <h3>With Rizq Mastery</h3>
+            <ul>
+              <li>Quick daily entry</li>
+              <li>Auto graphs and trends</li>
+              <li>Weekly review flow keeps you on track</li>
+              <li>Insights tailored to your money pattern</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="oto-section">
+        <div class="oto-eyebrow">What's included</div>
+        <h2>Inside the App</h2>
+        <ul class="oto-stack">
+          <li><div><div class="oto-stack-name">Rizq Mastery Web App (12 months)</div><div class="oto-stack-benefit">Track income, expenses, debt, savings, giving, goals.</div></div><div class="oto-stack-val">$147</div></li>
+          <li><div><div class="oto-stack-name">Archetype-specific dashboard</div><div class="oto-stack-benefit">Insights matched to your money pattern.</div></div><div class="oto-stack-val">$47</div></li>
+          <li><div><div class="oto-stack-name">Weekly review flow</div><div class="oto-stack-benefit">A simple 10-minute weekly rhythm.</div></div><div class="oto-stack-val">$27</div></li>
+          <li><div><div class="oto-stack-name">Money Left + Leak insights</div><div class="oto-stack-benefit">Where your money is going, in plain terms.</div></div><div class="oto-stack-val">$30</div></li>
+        </ul>
+        <div class="oto-totals">
+          <div class="oto-tot-row"><span>Total value</span><span class="strike">$251</span></div>
+          <div class="oto-tot-row big"><span>Today</span><span class="oto-tot-amt">$97/yr</span></div>
+        </div>
+        <button class="btn btn-primary oto-cta" onclick="acceptUpsellApp()">Yes — Unlock Rizq Mastery App For $97/year</button>
+      </section>
+
+      <div class="oto-guarantee">
+        <div class="oto-guarantee-ic">✦</div>
+        <div>
+          <h3>Try it for 30 days</h3>
+          <p>30-day money-back on the first-year subscription. Cancel anytime after. You keep the Guide either way.</p>
+        </div>
+      </div>
+
+      <div class="oto-final">
+        <div class="oto-eyebrow">One-time decision</div>
+        <h2>This page only shows once.</h2>
+        <p>Adds to your original order. No separate checkout.</p>
+        <button class="btn btn-primary oto-cta" onclick="acceptUpsellApp()">Yes — Unlock Rizq Mastery App For $97/year</button>
+        <button class="btn btn-ghost" onclick="declineUpsellApp()">No thanks — take me to my access</button>
+      </div>
+
+      <div class="ethics-note">
+        <span class="ic">⚖</span>
+        <span>The Rizq Mastery app is a money-organisation tool for educational use. It does not provide fatwas, regulated financial advice, or investment recommendations.</span>
+      </div>
+    </section>
+
+    <!-- ====== Screen 13: Downsell 3 — Rizq Mastery App ($47 first year) ====== -->
+    <section class="screen oto-screen" id="screen-downsellApp">
+
+      <div class="oto-preframe">
+        <span class="oto-flag">Hold on — founding-member price</span>
+        <p>One quicker option before you finish.</p>
+      </div>
+
+      <div class="oto-hero oto-downsell-hero">
+        <h1>Wait — Start Your First Year Of Rizq Mastery App For Just $47</h1>
+        <p class="oto-sub">Same dashboard. Lower first-year founding-member price. Track your reset inside the app for less than $4 / month.</p>
+        <div class="oto-price">
+          <span class="oto-amt">$47<span style="font-size:14px; color:var(--grey); font-weight: 600; margin-left: 4px;">first year</span></span>
+          <span class="oto-meta">added to your order · cancel any time</span>
+        </div>
+        <button class="btn btn-primary oto-cta" onclick="acceptDownsellApp()">Yes — Start My First Year For $47</button>
+        <button class="btn-link oto-decline" onclick="declineDownsellApp()">No thanks — take me to my access</button>
+      </div>
+
+      <section class="oto-section">
+        <div class="oto-eyebrow">What you unlock</div>
+        <h2>The full app at the founding price</h2>
+        <ul class="oto-unlocks">
+          <li>Login account</li>
+          <li>Income + expense trackers</li>
+          <li>Monthly budget dashboard</li>
+          <li>Savings, debt, sadaqah, zakat trackers</li>
+          <li>Archetype-specific dashboard</li>
+          <li>Weekly review flow</li>
+          <li>Money left this month</li>
+          <li>Spending leak insights</li>
+        </ul>
+      </section>
+
+      <div class="oto-guarantee">
+        <div class="oto-guarantee-ic">✦</div>
+        <div>
+          <h3>30 days to try it</h3>
+          <p>30-day money-back on the first-year subscription. Cancel anytime after.</p>
+        </div>
+      </div>
+
+      <div class="oto-final">
+        <div class="oto-eyebrow">One-time decision</div>
+        <h2>This is the lowest first-year price we offer.</h2>
+        <p>Adds to your original order. No separate checkout.</p>
+        <button class="btn btn-primary oto-cta" onclick="acceptDownsellApp()">Yes — Start My First Year For $47</button>
+        <button class="btn btn-ghost" onclick="declineDownsellApp()">No thanks — take me to my access</button>
+      </div>
+
+      <div class="ethics-note">
+        <span class="ic">⚖</span>
+        <span>The Rizq Mastery app is a money-organisation tool for educational use. It does not provide fatwas, regulated financial advice, or investment recommendations.</span>
       </div>
     </section>
 
@@ -2086,13 +2781,13 @@ fbq('track', 'PageView');
         <ul id="receiptList"></ul>
         <div class="grand">
           <span>Total invested</span>
-          <span id="receiptGrand">$47</span>
+          <span id="receiptGrand">$37</span>
         </div>
       </div>
 
       <div style="margin-top: 18px;">
         <button class="btn btn-primary" onclick="alert('This is a mockup — your real dashboard would open here.')">Go To My Dashboard →</button>
-        <button class="btn btn-ghost" onclick="alert('This is a mockup — your Blueprint PDF would download here.')">Download My Blueprint</button>
+        <button class="btn btn-ghost" onclick="alert('This is a mockup — your Guide PDF would download here.')">Download My Guide</button>
       </div>
 
       <div class="ethics-note" style="margin-top: 18px;">
@@ -2294,15 +2989,19 @@ fbq('track', 'PageView');
   /* ================== URL routing map ================== */
   // Screen name → URL path. Loading is transitional — no URL change.
   const ROUTES = {
-    landing:   '/',
-    archetype: '/path',
-    quiz:      '/quiz',
-    results:   '/result',
-    offer:     '/roadmap',
-    checkout:  '/checkout',
-    upsell1:   '/upsell-tracker',
-    upsell2:   '/upsell-coach',
-    success:   '/success',
+    landing:            '/',
+    archetype:          '/path',
+    quiz:               '/quiz',
+    results:            '/result',
+    offer:              '/roadmap',
+    checkout:           '/checkout',
+    upsellAssistant:    '/upsell-assistant',
+    downsellAssistant:  '/downsell-assistant',
+    upsellIncome:       '/upsell-income',
+    downsellIncome:     '/downsell-income',
+    upsellApp:          '/upsell-app',
+    downsellApp:        '/downsell-app',
+    success:            '/success',
   };
   // Reverse map: URL path → screen name (for browser back/forward + deep links)
   const PATH_TO_SCREEN = Object.fromEntries(
@@ -2315,16 +3014,24 @@ fbq('track', 'PageView');
     qIndex: 0,
     answers: {},
     purchases: {
-      blueprint: false,
-      bump: false,
-      tracker: false,
-      coach: false
+      blueprint: false,           // The 30-Day Rizq Reset Guide
+      bump: false,                // 100 Rizq Lessons From The Qur'an, Sunnah & Hadith
+      assistant: false,           // Rizq Assistant (either upsell or downsell price)
+      assistantDownsell: false,   // true if taken at downsell price
+      income: false,              // Halal Income Starter System
+      incomeDownsell: false,
+      app: false,                 // Rizq Mastery Web App
+      appDownsell: false,
     },
     totals: {
-      blueprint: 47,
-      bump: 11,
-      tracker: 147,
-      coach: 97
+      blueprint:         37,   // The 30-Day Rizq Reset Guide
+      bump:              11,   // 100 Rizq Lessons (order bump)
+      assistant:         47,   // Rizq Assistant — upsell
+      assistantDownsell: 27,   // Rizq Assistant — downsell
+      income:            47,   // Halal Income Starter — upsell
+      incomeDownsell:    27,   // Halal Income Starter — downsell
+      app:               97,   // Rizq Mastery App — upsell ($97/year)
+      appDownsell:       47,   // Rizq Mastery App — downsell ($47 first year)
     }
   };
 
@@ -2390,8 +3097,8 @@ fbq('track', 'PageView');
         break;
       case 'offer':
         fbTrack('ViewContent', {
-          content_name: 'Rizq Reset Blueprint Sales Page',
-          content_ids: ['rizq-reset-blueprint'],
+          content_name: '30-Day Rizq Reset Guide Sales Page',
+          content_ids: ['rizq-reset-guide'],
           content_type: 'product',
           value: 47,
           currency: 'USD',
@@ -2399,7 +3106,7 @@ fbq('track', 'PageView');
         break;
       case 'checkout':
         fbTrack('InitiateCheckout', {
-          content_ids: ['rizq-reset-blueprint'],
+          content_ids: ['rizq-reset-guide'],
           value: state.totals.blueprint + (state.purchases.bump ? state.totals.bump : 0),
           currency: 'USD',
           num_items: 1 + (state.purchases.bump ? 1 : 0),
@@ -2573,70 +3280,70 @@ fbq('track', 'PageView');
       archetypeBadge: 'Recommended for: The Rizq Leaker',
       headline: "Stop Letting Your Money Disappear Every Month",
       subheadline: () =>
-        "Your quiz revealed the pattern. The Blueprint is the 30-day system to change it.",
+        "Your quiz revealed the pattern. The Guide is the 30-day system to change it.",
       insights: [
         { label: 'Biggest leak',     key: 'overspendCategory', icon: '💧', fallback: 'Untracked spending' },
         { label: 'Monthly leak',     key: 'monthlyLeak',       icon: '📉', fallback: 'Not measured yet' },
         { label: 'Spending trigger', key: 'spendingTrigger',   icon: '⚡', fallback: 'Unclear' },
       ],
       why47Note: (a) =>
-        `If <span class="w47-anchor">${a.monthlyLeak || '$300–$500'}</span> is leaking every month, this pays for itself before week 2. The Blueprint protects every month after. Easy decision.`,
+        `If <span class="w47-anchor">${a.monthlyLeak || '$300–$500'}</span> is leaking every month, this pays for itself before week 2. The Guide protects every month after. Easy decision.`,
       finalHeadline: 'Ready To Stop Guessing Where Your Money Is Going?',
     },
     prisoner: {
       archetypeBadge: 'Recommended for: The Paycheck Prisoner',
       headline: "Stop Waiting For Payday To Feel In Control",
       subheadline: () =>
-        "Your quiz revealed the pattern. The Blueprint is the 30-day system that creates real breathing room.",
+        "Your quiz revealed the pattern. The Guide is the 30-day system that creates real breathing room.",
       insights: [
         { label: 'Short before payday', key: 'paydayShortageFrequency', icon: '🔁', fallback: 'Often' },
         { label: 'Emergency fund',      key: 'emergencyFund',           icon: '🛡', fallback: 'Not yet built' },
         { label: 'Breathing room goal', key: 'breathingRoom',           icon: '💨', fallback: 'A monthly buffer' },
       ],
       why47Note: (a) =>
-        `${a.breathingRoom ? `<span class="w47-anchor">${a.breathingRoom}</span> of monthly breathing room` : 'Real monthly breathing room'} is worth more than $47. The system protects every paycheck after this one. Easy trade.`,
+        `${a.breathingRoom ? `<span class="w47-anchor">${a.breathingRoom}</span> of monthly breathing room` : 'Real monthly breathing room'} is worth more than $37. The system protects every paycheck after this one. Easy trade.`,
       finalHeadline: "Ready To Stop Waiting For Payday To Feel Okay?",
     },
     debt: {
       archetypeBadge: 'Recommended for: The Debt-Burdened Muslim',
       headline: "Turn Debt Stress Into A Clear 30-Day Repayment System",
       subheadline: () =>
-        "Your quiz revealed the pattern. The Blueprint helps you face the numbers calmly and dismantle it step by step.",
+        "Your quiz revealed the pattern. The Guide helps you face the numbers calmly and dismantle it step by step.",
       insights: [
         { label: 'Debt type',     key: 'debtType',   icon: '💳', fallback: 'Multiple types' },
         { label: 'Rough amount',  key: 'debtAmount', icon: '📊', fallback: 'To be mapped' },
         { label: 'Riba concern',  key: 'ribaStatus', icon: '⚖️', fallback: 'Needs review' },
       ],
       why47Note: () =>
-        `Another month of <span class="w47-anchor">avoidance and minimums</span> costs more than $47 in mental load and momentum. The Blueprint gives you a calm plan instead of a quiet weight. Easy decision.`,
+        `Another month of <span class="w47-anchor">avoidance and minimums</span> costs more than $37 in mental load and momentum. The Guide gives you a calm plan instead of a quiet weight. Easy decision.`,
       finalHeadline: 'Ready To Face The Numbers And Build A Plan?',
     },
     giver: {
       archetypeBadge: 'Recommended for: The Generous Giver',
       headline: "Give With Intention Without Putting Yourself Under Financial Pressure",
       subheadline: () =>
-        "Your quiz revealed the pattern. The Blueprint is the 30-day system that gives generosity structure.",
+        "Your quiz revealed the pattern. The Guide is the 30-day system that gives generosity structure.",
       insights: [
         { label: 'Who you support',  key: 'supportRecipient', icon: '👨‍👩‍👧', fallback: 'Multiple people' },
         { label: 'Giving budgeted?', key: 'givingBudget',     icon: '📅', fallback: 'Inconsistently' },
         { label: 'Caused pressure?', key: 'givingPressure',   icon: '⚠️', fallback: 'Sometimes' },
       ],
       why47Note: () =>
-        `One month of <span class="w47-anchor">absorbing every ask</span> quietly costs more than $47 in stress and savings. The Blueprint gives generosity structure — not chaos. Easy decision.`,
+        `One month of <span class="w47-anchor">absorbing every ask</span> quietly costs more than $37 in stress and savings. The Guide gives generosity structure — not chaos. Easy decision.`,
       finalHeadline: 'Ready To Give With Structure And Peace?',
     },
     builder: {
       archetypeBadge: 'Recommended for: The Future Builder',
       headline: "Turn Your Goals Into A Clear Halal Money Plan",
       subheadline: () =>
-        "Your quiz revealed the pattern. The Blueprint turns your goal into a monthly number on a calendar.",
+        "Your quiz revealed the pattern. The Guide turns your goal into a monthly number on a calendar.",
       insights: [
         { label: 'Main goal',       key: 'mainGoal',       icon: '🎯', fallback: 'Clarifying' },
         { label: 'Timeline',        key: 'timeline',       icon: '🗓', fallback: 'To be defined' },
         { label: 'Monthly savings', key: 'monthlySavings', icon: '💰', fallback: 'Inconsistent' },
       ],
       why47Note: (a) =>
-        `Another year of <span class="w47-anchor">"someday"</span> on ${a.mainGoal ? a.mainGoal.toLowerCase() : 'your goal'} costs more than $47 in lost time. The Blueprint turns it into a monthly number on a calendar. Easy trade.`,
+        `Another year of <span class="w47-anchor">"someday"</span> on ${a.mainGoal ? a.mainGoal.toLowerCase() : 'your goal'} costs more than $37 in lost time. The Guide turns it into a monthly number on a calendar. Easy trade.`,
       finalHeadline: 'Ready To Turn Your Goals Into A Real Plan?',
     },
   };
@@ -2651,7 +3358,7 @@ fbq('track', 'PageView');
 
   // 6 core components shown in "What You Get" (totals to $297)
   const blueprintStack = [
-    { name: 'Rizq Reset Blueprint Guide',  benefit: 'Find your money pattern and the fastest path to fix it.',     value: 67 },
+    { name: '30-Day Rizq Reset Guide',  benefit: 'Find your money pattern and the fastest path to fix it.',     value: 67 },
     { name: '30-Day Action Plan',          benefit: 'A week-by-week checklist so you never wonder what to do next.', value: 47 },
     { name: 'Spending Audit Worksheet',    benefit: 'Find the exact categories draining your money.',                value: 47 },
     { name: 'Halal Budget Method',         benefit: 'Give every dirham a job — bills, savings, sadaqah, goals.',     value: 47 },
@@ -2664,8 +3371,8 @@ fbq('track', 'PageView');
     { q: "Is this financial advice?", a: "No. This is an educational money organisation system built around Islamic principles. It does not issue fatwas, provide regulated financial advice, or give investment recommendations. For specific rulings, consult a qualified scholar." },
     { q: "Does this work outside the US?", a: "Yes. The system is principles-based and works globally. Examples can be adapted to any currency — the method stays the same." },
     { q: "Does it include zakat?", a: "Yes — practical zakat basics are included to help you organise. For specific rulings on your personal situation, please consult a qualified scholar." },
-    { q: "Will it tell me what to invest in?", a: "No. We do not recommend specific investments or financial products. The Blueprint focuses on budgeting, saving, debt reduction, giving, and goal structure." },
-    { q: "What happens after I buy?", a: "Instant access. You're taken to checkout, then to your dashboard, where you can download the Blueprint and begin Week 1: Audit the same day." },
+    { q: "Will it tell me what to invest in?", a: "No. We do not recommend specific investments or financial products. The Guide focuses on budgeting, saving, debt reduction, giving, and goal structure." },
+    { q: "What happens after I buy?", a: "Instant access. You're taken to checkout, then to your dashboard, where you can download the Guide and begin Week 1: Audit the same day." },
   ];
 
   // Graceful fallback for missing answers
@@ -2738,7 +3445,7 @@ fbq('track', 'PageView');
       stkWrap.appendChild(li);
     });
 
-    // SECTION 5: Why $47 Is Easy — short archetype callout (innerHTML for the price span)
+    // SECTION 5: Why $37 Is Easy — short archetype callout (innerHTML for the price span)
     const w47 = document.getElementById('offerWhy47Note');
     if (w47) w47.innerHTML = sales.why47Note(answers);
 
@@ -2756,7 +3463,7 @@ fbq('track', 'PageView');
     setText('offerFinalHeadline', sales.finalHeadline);
 
     // Universal CTA copy across the page (3 buttons: hero, value stack, final)
-    const universalCTA = 'Start My Rizq Reset — $47 →';
+    const universalCTA = 'Start My Rizq Reset — $37 →';
     document.querySelectorAll('.sales-cta').forEach(b => {
       b.textContent = universalCTA;
     });
@@ -2770,8 +3477,8 @@ fbq('track', 'PageView');
     document.getElementById('bumpSumRow').style.display = state.purchases.bump ? 'flex' : 'none';
     if (state.purchases.bump) {
       fbTrack('AddToCart', {
-        content_ids: ['halal-budget-toolkit'],
-        content_name: 'Halal Budget Toolkit',
+        content_ids: ['rizq-lessons-100'],
+        content_name: "100 Rizq Lessons From The Qur'an, Sunnah & Hadith",
         content_type: 'product',
         value: state.totals.bump,
         currency: 'USD',
@@ -2783,51 +3490,89 @@ fbq('track', 'PageView');
   function completeOrder() {
     state.purchases.blueprint = true;
     const total = state.totals.blueprint + (state.purchases.bump ? state.totals.bump : 0);
-    const contentIds = ['rizq-reset-blueprint'];
-    if (state.purchases.bump) contentIds.push('halal-budget-toolkit');
+    const contentIds = ['rizq-reset-guide'];
+    if (state.purchases.bump) contentIds.push('rizq-lessons-100');
     fbTrack('Purchase', {
       content_ids: contentIds,
-      content_name: 'Rizq Reset Blueprint' + (state.purchases.bump ? ' + Halal Budget Toolkit' : ''),
+      content_name: '30-Day Rizq Reset Guide' + (state.purchases.bump ? " + 100 Rizq Lessons From The Qur'an, Sunnah & Hadith" : ''),
       content_type: 'product',
       value: total,
       currency: 'USD',
       num_items: contentIds.length,
       order_stage: 'front_end',
     });
-    goto('upsell1');
+    goto('upsellAssistant');
   }
 
-  /* ================== Upsells ================== */
-  function acceptUpsell(n) {
-    if (n === 1) {
-      state.purchases.tracker = true;
-      fbTrack('Purchase', {
-        content_ids: ['rizq-tracker'],
-        content_name: 'Rizq Tracker Web App',
-        content_type: 'product',
-        value: state.totals.tracker,
-        currency: 'USD',
-        num_items: 1,
-        order_stage: 'upsell_1',
-      });
-      goto('upsell2');
-    } else if (n === 2) {
-      state.purchases.coach = true;
-      fbTrack('Purchase', {
-        content_ids: ['ai-coach'],
-        content_name: 'AI Muslim Money Coach',
-        content_type: 'product',
-        value: state.totals.coach,
-        currency: 'USD',
-        num_items: 1,
-        order_stage: 'upsell_2',
-      });
-      goto('success');
-    }
+  /* ================== Upsells & Downsells ================== */
+  // Helper: fire a Purchase event for an upsell/downsell decision
+  function fireUpsellPurchase(productId, name, price, stage) {
+    fbTrack('Purchase', {
+      content_ids: [productId],
+      content_name: name,
+      content_type: 'product',
+      value: price,
+      currency: 'USD',
+      num_items: 1,
+      order_stage: stage,
+    });
   }
-  function declineUpsell(n) {
-    if (n === 1) goto('upsell2');
-    else if (n === 2) goto('success');
+
+  // === Upsell 1 / Downsell 1: Rizq Assistant ===
+  function acceptUpsellAssistant() {
+    state.purchases.assistant = true;
+    fireUpsellPurchase('rizq-assistant', 'Rizq Assistant', state.totals.assistant, 'upsell_assistant');
+    goto('upsellIncome');
+  }
+  function declineUpsellAssistant() {
+    goto('downsellAssistant');
+  }
+  function acceptDownsellAssistant() {
+    state.purchases.assistant = true;
+    state.purchases.assistantDownsell = true;
+    fireUpsellPurchase('rizq-assistant', 'Rizq Assistant (downsell)', state.totals.assistantDownsell, 'downsell_assistant');
+    goto('upsellIncome');
+  }
+  function declineDownsellAssistant() {
+    goto('upsellIncome');
+  }
+
+  // === Upsell 2 / Downsell 2: Halal Income Starter System ===
+  function acceptUpsellIncome() {
+    state.purchases.income = true;
+    fireUpsellPurchase('halal-income-starter', 'Halal Income Starter System', state.totals.income, 'upsell_income');
+    goto('upsellApp');
+  }
+  function declineUpsellIncome() {
+    goto('downsellIncome');
+  }
+  function acceptDownsellIncome() {
+    state.purchases.income = true;
+    state.purchases.incomeDownsell = true;
+    fireUpsellPurchase('halal-income-starter', 'Halal Income Starter System (downsell)', state.totals.incomeDownsell, 'downsell_income');
+    goto('upsellApp');
+  }
+  function declineDownsellIncome() {
+    goto('upsellApp');
+  }
+
+  // === Upsell 3 / Downsell 3: Rizq Mastery Web App ===
+  function acceptUpsellApp() {
+    state.purchases.app = true;
+    fireUpsellPurchase('rizq-mastery-app', 'Rizq Mastery Web App ($97/yr)', state.totals.app, 'upsell_app');
+    goto('success');
+  }
+  function declineUpsellApp() {
+    goto('downsellApp');
+  }
+  function acceptDownsellApp() {
+    state.purchases.app = true;
+    state.purchases.appDownsell = true;
+    fireUpsellPurchase('rizq-mastery-app', 'Rizq Mastery Web App ($47 first year)', state.totals.appDownsell, 'downsell_app');
+    goto('success');
+  }
+  function declineDownsellApp() {
+    goto('success');
   }
 
   /* ================== Success / Receipt ================== */
@@ -2843,10 +3588,21 @@ fbq('track', 'PageView');
         <div class="price">$${price}</div>`;
       list.appendChild(li);
     };
-    if (state.purchases.blueprint) add('The Rizq Reset Blueprint', state.totals.blueprint);
-    if (state.purchases.bump)      add('Halal Budget Toolkit',       state.totals.bump);
-    if (state.purchases.tracker)   add('Rizq Tracker Web App',       state.totals.tracker);
-    if (state.purchases.coach)     add('AI Muslim Money Coach',      state.totals.coach);
+    if (state.purchases.blueprint) add('The 30-Day Rizq Reset Guide', state.totals.blueprint);
+    if (state.purchases.bump)      add("100 Rizq Lessons From The Qur'an, Sunnah & Hadith", state.totals.bump);
+    if (state.purchases.assistant) {
+      const p = state.purchases.assistantDownsell ? state.totals.assistantDownsell : state.totals.assistant;
+      add('Rizq Assistant', p);
+    }
+    if (state.purchases.income) {
+      const p = state.purchases.incomeDownsell ? state.totals.incomeDownsell : state.totals.income;
+      add('Halal Income Starter System', p);
+    }
+    if (state.purchases.app) {
+      const p = state.purchases.appDownsell ? state.totals.appDownsell : state.totals.app;
+      const label = 'Rizq Mastery Web App' + (state.purchases.appDownsell ? ' (first year — founding price)' : ' ($97/year)');
+      add(label, p);
+    }
     document.getElementById('receiptGrand').textContent = '$' + total;
   }
 
