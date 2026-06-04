@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>The Rizq Reset — Discover Your Muslim Money Archetype</title>
+<meta name="build" content="2026-05-12-routing-v2" />
 
 <!-- Meta Pixel Code -->
 <script>
@@ -2331,19 +2332,35 @@ fbq('track', 'PageView');
   const SCREENS = ['landing','archetype','quiz','loading','results','offer','checkout','upsell1','upsell2','success'];
 
   function goto(name, skipHistory) {
+    // 1. Render the correct screen
     document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
     const target = document.getElementById('screen-' + name);
     if (target) target.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     updateProgress(name);
 
-    // Update browser URL (skipHistory=true when invoked from popstate/initial-route)
+    // 2. Update the browser URL via history.pushState
+    //    (skipHistory=true on popstate / initial-route — see end of script)
     if (!skipHistory) {
       const path = ROUTES[name];
-      if (path && window.location.pathname !== path) {
-        try { history.pushState({ screen: name }, '', path); } catch (_) {}
+      if (path) {
+        try {
+          if (window.location.pathname !== path) {
+            history.pushState({ screen: name }, '', path);
+          }
+          // log so you can verify in DevTools — should fire for every CTA click
+          if (window.console) console.log('[router]', name, '→', window.location.pathname);
+        } catch (err) {
+          if (window.console) console.warn('[router] pushState failed for', name, '→', path, ':', err && err.message);
+        }
+      } else if (window.console) {
+        console.warn('[router] no ROUTES entry for screen "' + name + '" — URL not updated');
       }
     }
+
+    // 3. Save current route to sessionStorage (resilience for reloads / popstate)
+    try { sessionStorage.setItem('rr_screen', name); } catch (_) {}
+
     if (name === 'archetype') buildArchetypeGrid();
     if (name === 'quiz') renderQuestion();
     if (name === 'loading') runLoading();
@@ -2840,20 +2857,32 @@ fbq('track', 'PageView');
     const stateScreen = e.state && e.state.screen;
     const pathScreen  = PATH_TO_SCREEN[window.location.pathname];
     const screen = stateScreen || pathScreen || 'landing';
+    if (window.console) console.log('[router] popstate →', screen, 'path=', window.location.pathname);
     goto(screen, true);
   });
 
   // Initial page load: route from the URL the user arrived on.
   (function initialRoute() {
     const path = window.location.pathname;
-    const screen = PATH_TO_SCREEN[path];
+    let screen = PATH_TO_SCREEN[path];
+
+    // If URL is unknown, fall back to sessionStorage (covers SPA reloads on a stale path)
+    if (!screen) {
+      try {
+        const saved = sessionStorage.getItem('rr_screen');
+        if (saved && ROUTES[saved]) screen = saved;
+      } catch (_) {}
+    }
+
     if (screen) {
-      // Replace state so back-button works correctly from any starting point
-      try { history.replaceState({ screen: screen }, '', path); } catch (_) {}
+      const correctPath = ROUTES[screen];
+      try { history.replaceState({ screen: screen }, '', correctPath); } catch (_) {}
+      if (window.console) console.log('[router] boot →', screen, 'path=', correctPath);
       if (screen !== 'landing') goto(screen, true);
     } else {
-      // Unknown path — show landing and normalise the URL to "/"
+      // Unknown path with no session — show landing and normalise URL to "/"
       try { history.replaceState({ screen: 'landing' }, '', '/'); } catch (_) {}
+      if (window.console) console.log('[router] boot → landing (default), path= /');
     }
   })();
 </script>
