@@ -177,23 +177,26 @@ Each archetype has its own diagnosis, bottleneck, 4-week roadmap, and 6 quiz que
 
 ---
 
-## Brand palette
+## Brand palette — "Vice Nights" theme
+
+A neon sunset look in the Vice City / GTA VI style: original artwork, no third-party logos or assets.
+The legacy token names (`--emerald`, `--gold`, …) are kept so existing components didn't need rewriting; they now hold the Vice values.
 
 | Token | Hex | Use |
 |---|---|---|
-| Deep Emerald | `#0B3D2E` | Hero backgrounds, premium dark sections |
-| Rich Islamic Green | `#116B4F` | Primary buttons, active states, progress bars |
-| Soft Gold | `#D4AF37` | Premium accents, badges, dividers |
-| Warm Cream | `#F8F3E7` | Page backgrounds, calm sections |
-| Off-White | `#FFFCF4` | Card backgrounds, forms |
-| Charcoal | `#1E2522` | Primary text |
-| Muted Grey | `#6B7280` | Secondary text |
-| Border Beige | `#E7DDC8` | Card borders, dividers |
-| Success | `#1F8A5B` | Positive states |
-| Warning | `#C98A1A` | Caution states |
-| Soft Red | `#B94A48` | Debt / risk indicators (sparingly) |
+| `--night` | `#0A0320` | Page background behind the scene |
+| `--emerald-deep` (night violet) | `#1B0A3A` | Deep panels |
+| `--emerald` / `--pink` | `#FF2E93` | Primary buttons, selected states |
+| `--orange` | `#FF8A3D` | Button gradient end, sunset |
+| `--gold` (sunset amber) | `#FFAA40` | Badges, accents |
+| `--sun` | `#FFD166` | Labels, progress |
+| `--cyan` / `--teal` | `#3DF5FF` / `#19E0D0` | Neon secondary, success ticks |
+| `--off-white` (card) | `#1D1038` | Card backgrounds |
+| `--charcoal` (text) | `#F6ECFF` | Body text |
+| `--hi` | `#FF8CCB` | Prices and key numbers on dark |
 
----
+Type: **Anton** (display, uppercase), **Mr Dafoe** (neon script wordmark), **Inter** (body), all from Google Fonts.
+Scene: fixed CSS/SVG sunset (striped sun, palms, moving neon grid, scanlines). All of it is defined in the "VICE NIGHTS LAYER" block at the end of `<style>`.
 
 ## Brand voice
 
